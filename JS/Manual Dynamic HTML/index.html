@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dynamically created HTML - Taylor Calderone</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<!-- Favicons -->
+		<link rel="apple-touch-icon" sizes="180x180" href="https://www.taylorcalderone.com/Images/Favicons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="https://www.taylorcalderone.com/Images/Favicons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="https://www.taylorcalderone.com/Images/Favicons/favicon-16x16.png">
+		<link rel="manifest" href="https://www.taylorcalderone.com/Images/Favicons/site.webmanifest">
+		<link rel="mask-icon" href="https://www.taylorcalderone.com/Images/Favicons/safari-pinned-tab.svg" color="#5bbad5">
+		<link rel="shortcut icon" href="https://www.taylorcalderone.com/Images/Favicons/favicon.ico">
+		<meta name="msapplication-TileColor" content="#2b5797">
+		<meta name="msapplication-config" content="https://www.taylorcalderone.com/Images/Favicons/browserconfig.xml">
+		<meta name="theme-color" content="#ffffff">
+		<!-- External Files -->
+		<link rel="stylesheet" href="baseStyle.css">
+		<span id="loadCSSThemeHere"></span>
+		<script type="text/javascript" src="javascript.js"></script>
+		<script type="text/javascript" src="jobData1.js"></script>
+		<script type="text/javascript" src="jobData2.js"></script>
+		<script type="text/javascript" src="jobData3.js"></script>
+	</head>
+
+
+
+
+
+
+
+
+	<body onload="loadCSS(1); populatePageWithData(1);">
+		<div id='contentSelectionHeader'>
+			<button id='button1' class='headerButton' onClick="populatePageWithData(1)" disabled>Job 1</button>
+			<button id='button2' class='headerButton' onClick="populatePageWithData(2)">Job 2</button>
+			<button id='button3' class='headerButton' onClick="populatePageWithData(3)">Job 3</button>
+			
+			<div id="headerSpacer"></div>
+			
+			<button id='button4' class='headerButton' onClick="loadCSS(1)" disabled>Style 1</button>
+			<button id='button5' class='headerButton' onClick="loadCSS(2)">Style 2</button>
+			<button id='button6' class='headerButton' onClick="loadCSS(3)">Style 3</button>
+		</div>
+
+
+
+
+		<div id='bigJobContainer'>
+			<div id='header'>
+    			<div id='headline' class='headerText'></div>
+				<div id='locationsEmployment' class='subheaderItem'></div>
+			</div>
+			
+			<div id='widthContainer'>
+				<div id='jobContent'></div>
+			
+				<div id='buttonCenterDiv' class='verticalSpacer70'>
+					<button id='applyNowButton'>Apply now!</button>
+				</div>
+			</div>
+		</div>
+	</body>
+
+
+
+
+
+
+
+
+	<script type="text/javascript" src="dataPopulator.js"></script>
+</html>

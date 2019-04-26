@@ -1,0 +1,64 @@
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Taylor Calderone - Bitcoin Chart</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="style.css">
+	<!-- Polyfills SVG.classList for IE11 -->
+	<script src="https://cdn.polyfill.io/v2/polyfill.js?features=default,Element.prototype.classList|always&flags=gated"></script>
+	<!-- Libraries -->
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+	<script src="Libraries/date.js"></script>
+	<script src='script.js'></script>
+</head>
+
+
+<!-- the onmousemove function has to be in the body tag or it won't fire the event for Firefox to catch -->
+<!-- also fuck Firefox's window.event handling -->
+<body onload='initialize()' class='chartBody' onmousemove='moveCursor()' onmouseup='mouseupCursorStuff(); moveCursor();'>
+	<div id='dragContainer' class='draggable'>
+		<svg id='containerSVG' onmouseenter='respawnCursor()' onmouseleave='hideCursor()'></svg>
+		<svg id='bottomPane'></svg>
+	</div>
+	<svg id='rightPane'></svg>
+
+
+
+	<!-- Autocomplete=off is for Firefox -->
+	<select onchange='loadNewCurrency(this.value)' id='currencyLabel' autocomplete='off' onclick='hideCursor();' onmouseup='preventParentClick(event)'>
+		<option value="btc" selected>Coinbase Pro: BTC / USD</option>
+		<option value="eth">Coinbase Pro: ETH / USD</option>
+		<option value="ltc">Coinbase Pro: LTC / USD</option>
+	</select>
+
+	<div id='timeButtons'>
+		<button class='miniTESbutton'
+		onmouseup='preventParentClick(event)'
+		id='1dButton' disabled>
+		1d</button>
+
+		<button class='miniTESbutton'
+		onmouseup='preventParentClick(event)'
+		id='1hButton'>
+		1h</button>
+
+		<button class='miniTESbutton'
+		onmouseup='preventParentClick(event)'
+		id='15mButton'>
+		15m</button>
+
+		<button class='miniTESbutton'
+		onmouseup='preventParentClick(event)'
+		id='5mButton'>
+		5m</button>
+
+		<button class='miniTESbutton'
+		onmouseup='preventParentClick(event)'
+		id='1mButton'>
+		1m</button>
+	</div>
+
+	<div id='smaLabels'>SMA: 50 100 200</div>
+
+	<div id='loadingText'>Loading data..</div>

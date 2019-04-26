@@ -1,0 +1,89 @@
+:root {
+    font-family: 'Helvetica', sans-serif;
+	font-size: 16px;
+
+	--offWhite: #F9F9F9;
+    --offBlack: #202020;
+}
+
+html { padding-bottom: 100px; }
+
+body {
+	margin: 0;
+	background: var(--offBlack);
+	color: var(--offWhite);
+	
+	/* Prevents ugly super-bold font in OSX Firefox and Chrome */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+
+
+
+
+/***************************************
+			GENERAL STUFF
+***************************************/
+/* Targets Chrome and Safari. Fixes misaligned centering of the last thing on the page */
+.centerFix:not(*:root) { margin-right: 5px; }
+
+
+
+
+/***************************************
+			SPOTIFY BUTTONS
+***************************************/
+.spotifyButtonSolid {
+	border: 0;
+	padding: 0 35px;
+	border-radius: 25px;
+	letter-spacing: 2px;
+	text-align: center;
+	line-height: 42px;
+	height: 48px;
+	/* Color */
+	background: rgba(255, 255, 255, 0.07);
+	color: #FFFFFF;
+	transition: background 0.2s ease-in-out;
+}
+
+.spotifyButtonSolid:hover { 
+	background: rgba(255, 255, 255, 0.12);
+	cursor: pointer;
+}
+
+
+
+
+/***************************************
+				LAYOUT
+***************************************/
+body {
+	width: 90%;
+	max-width: 400px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#cowTextarea {
+	width: 100%;
+	margin: 25px 0;
+	border: none;
+	border-radius: 5px;
+	opacity: 0.4;
+	height: 200px;
+	padding: 5px;
+}
+
+.spotifyButtonSolid {
+	margin: 0 5px;
+}
+
+#encryptButton:disabled, #decryptButton:disabled {
+	opacity: 0.1;
+	cursor: default;
+}

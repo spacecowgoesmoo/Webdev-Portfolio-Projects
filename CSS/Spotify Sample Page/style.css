@@ -1,0 +1,865 @@
+body {
+	margin: 0;
+	font-family: circularBook;
+	font-size: 16px;
+	
+	-webkit-font-smoothing: antialiased;	/* prevents awful super-bold font in OSX Firefox and Chrome */
+	-moz-osx-font-smoothing: grayscale;
+}
+
+html, body { height: 100%; }				/* scrollReveal.js doesn't work right without this */
+
+div { cursor: default; }					/* prevents cursor changing to text-select on margins */
+
+.floatRight { float: right; }
+.center { text-align: center; }
+.invisible { display: none; }
+.absolute { position: absolute; }
+
+.clickable:hover { cursor: pointer; }			/* Click simulation! */
+.clickable:active { opacity: 0.8; }
+
+.underline { text-decoration: underline; }
+.green { color: #2AB759; }
+.green:hover { color: #2FD566; }
+.grey { color: rgba(0,0,0,0.3); }
+
+.darkenHover { transition: filter 0.25s ease; }
+.darkenHover:hover { filter: brightness(50%); }
+
+.shadow { box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.24); }
+
+
+
+
+
+
+
+
+#loginBar {
+	height: 80px;
+	background: rgba(0, 0, 0, 0.6);
+	opacity: 0.9;
+	color: #FFF;
+	font-size: 1em;
+	font-family: circularBold;
+	position: fixed;
+	width: 100%;
+	z-index: 5;					/* Used to coverup the heroImage div, which can't crop overflow because of position:fixed */
+}
+
+#loginBarContents {
+	width: 1170px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	/* Unnecessary padding because we'll need it for mobile, and putting it here prevents a jumpy breakpoint */
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+#loginBarLogo {
+	height: 40px;
+	padding: 20px 0;
+}
+
+.loginBarItem {
+	margin: 0 0 0 30px;
+	padding: 33px 0;
+	display: inline-block;
+}
+
+.loginBarItem:hover {
+	color: #2FD566;
+}
+
+.loginBarSpacer {
+	margin: 0 0 0 30px;
+	display: inline-block;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: default;
+}
+
+#loginBarMobileMenu {
+	display: none;
+	height: 17px;
+	margin-top: 18px;
+}
+
+
+
+
+
+
+
+
+#heroImageDiv {
+	height: 660px;
+	background: linear-gradient(#F16C89, #F7D04F);
+}
+
+#heroImage {
+	background: url("Images/heroImageMain.svg") no-repeat;
+	background-size: 1585px;
+	background-position: left calc(50% + 90px) top -580px;
+	height: 660px;
+	width: 100%;
+	position: absolute;
+}
+
+#heroImageMobile {
+	background: url("Images/heroImageMobileMain.svg") no-repeat;
+	background-size: 760px;
+	background-position: left calc(0% - 80px) top 75px;
+	height: 600px;
+	width: 100%;
+	position: absolute;
+	display: none;
+}
+
+
+
+
+
+
+
+
+#heroImageContentDiv {
+	max-width: 1150px;
+	margin: 0 auto;
+}
+
+.heroArrow {
+	height: 33px;
+	position: relative;
+	top: 302px;
+	z-index: 2;
+}
+
+#heroArrowLeft {
+	float: left;
+}
+
+#heroImageCarouselContent1, #heroImageCarouselContent2, #heroImageCarouselContent3, #heroImageCarouselContent4 {
+	position: absolute;
+	width: 1150px;
+}
+
+#heroImageCarouselContent2, #heroImageCarouselContent3, #heroImageCarouselContent4 {
+	opacity: 0;
+}
+
+#heroImageCarouselContent1 { top: -10px; }
+#heroImageCarouselContent2 { top: -100px; }
+#heroImageCarouselContent3 { top: -53px; }
+#heroImageCarouselContent4 { top: -53px; }
+
+#heroArrowRight {
+	float: right;
+	transform: scaleX(-1);
+}
+
+.heroText {
+	position: relative;
+	top: 275px;
+	z-index: 2;
+	color: #FFFFFF;
+	font-size: 5.3em;
+	letter-spacing: -3px;
+	font-family: circularBold;
+	max-width: 900px;
+}
+
+.heroButton {
+	position: relative;
+	top: 330px;
+	z-index: 2;
+}
+
+
+
+
+
+
+
+
+#contentDiv1 {
+	height: 553px;
+	padding: 48px 0;
+	max-width: 1150px;
+	margin: 0 auto;
+	z-index: 5;
+}
+
+#contentDiv1Left {
+	max-width: 450px;
+	margin-top: 43px;
+	float: left;
+	clear: both;
+}
+
+#contentDiv1Right {
+	max-width: 560px;
+	float: right;
+}
+
+.div1Boxart {
+	width: 277px;
+}
+
+
+
+
+
+
+
+
+#contentDiv2 {
+	margin: 0 auto;
+	height: 594px;
+	background: linear-gradient(#F7D04F, #F16C89);
+}
+
+#contentDiv2heroImage {
+	background: url("Images/heroImageMobileSub.svg") center center no-repeat;
+	background-size: 750px;
+	height: 594px;
+	background-position: 50%;
+	/* DANGER */ 
+	position: absolute;
+	width: 100%;
+	margin-left: -300px;
+}
+
+#contentDiv2Container {
+	width: 955px;
+	margin: 0 auto;
+	padding-top: 75px;
+}
+
+#contentDiv2Left {
+	max-width: 450px;
+	float: left;
+	clear: both;
+	position: relative;
+}
+
+#iPhoneOutline {
+	background: rgba(255,255,255,0.15);
+	border: solid 3px #FFFFFF;
+	border-radius: 20px;
+	height: 600px;
+	width: 308px;
+	margin-left: 4px;
+	position: absolute;
+}
+
+#iPhoneSpeaker {
+	font-size: 1.2em;
+	position: relative;
+	font-family: circularBold;
+	top: 23px;
+	left: 154px;
+	color: #FFFFFF;
+}
+
+#iPhoneHeader {
+	font-size: 1.2em;
+	position: relative;
+	top: 58px;
+	left: 107px;
+	color: #FFFFFF;
+}
+
+.iPhoneImage {
+	height: 115px;
+	position: relative;
+	top: 70px;
+	margin: 0 3px;
+	left: 41px;
+}
+
+.iPhoneSubheader {
+	position: relative;
+	top: 76px;
+	color: #FFFFFF;
+	font-size: 0.8em;
+	left: 40px;
+	display: table-cell;
+	padding: 0 20px;
+}
+
+.iPhoneContentRow {
+	margin: 20px 0 23px 40px;
+	position: relative;
+	top: 104px;
+	width: 245px;
+}
+
+.iPhoneCodeIcons {
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.iPhoneListText {
+	margin-left: 10px;
+	color: #FFFFFF;
+	display: inline-block;
+	vertical-align: -1px;
+}
+
+.iPhoneArrow {
+	margin-left: 30px;
+	color: #FFFFFF;
+	height: 10px;
+	transform: scaleX(-1);
+	position: absolute;
+	right: 0;
+}
+
+#contentDiv2Right {
+	color: #FFFFFF;
+	max-width: 450px;
+	margin: 0 15px 0 0;
+	float: right;
+	position: relative;
+}
+
+
+
+
+
+
+
+
+#contentDiv3 {
+	height: 378px;
+	width: 1138px;
+	margin: 0 auto;
+	padding-top: 134px;
+}
+
+#contentDiv3Texts {
+	display: inline-block;
+	width: 475px;
+}
+
+.contentDiv3Row1 {
+	margin-top: 37px;
+}
+
+.contentDiv3Row2 { }
+
+.contentDiv3PlainText {
+	display: inline-block;
+	font-family: circularBold;
+	font-size: 0.8em;
+}
+
+.contentDiv3LinkText {
+	display: inline-block;
+	font-family: circularBold;
+	font-size: 0.8em;
+}
+
+#circleR {
+	display: inline-block;
+	font-size: 0.8em;
+	position: relative;
+	bottom: 5px;
+}
+
+.contentDiv3TextSpacer {
+	display: inline-block;
+	opacity: 0.15;
+	font-size: 0.5em;
+	vertical-align: middle;
+	margin: 0 8px;
+}
+
+#contentDiv3Image {
+	height: 231px;
+	margin-top: 7px;
+	float: right;
+}
+
+
+
+
+
+
+
+
+#contentDiv4 {
+	margin: 0 auto;
+	height: 832px;
+	background: linear-gradient(#F7D04F, #F16C89);
+	overflow: hidden;
+}
+
+#contentDiv4heroImage {
+	background: url("Images/heroImageMobileSub.svg") center center no-repeat;
+	background-size: 880px;
+	height: 832px;
+	background-position: left 50% top -80px;
+	/* DANGER */ 
+	position: absolute;
+	width: 100%;
+}
+
+#contentDiv4Container {
+	margin: 0 auto;
+	position: relative;
+	color: #FFFFFF;
+	text-align: center;
+	padding-top: 48px;
+}
+
+.contentDiv4FirefoxFix { display: inline-block; }
+
+.contentDiv4Card {
+	height: 492px;
+	width: 303px;
+	display: inline-block;
+	background: #FFFFFF;
+	border-radius: 10px;
+	margin: 39px 6px 24px 5px;
+	color: #000000;
+	text-align: left;
+	padding: 32px;
+	/* animation */
+	position: relative;
+	top: 0px;
+	transition: top 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.contentDiv4Card:hover {
+	top: -5px;
+	box-shadow: 0px 20px 30px 0px rgba(0,0,0,0.25);
+}
+
+.paragraph2NotBold {
+	font-size: 1.5em;
+	height: 2em;
+}
+
+.contentDiv4CardFooter {
+	position: absolute;
+	bottom: 25px;
+	width: 305px;
+}
+
+.contentDiv4HR {
+	margin-bottom: 11px;
+	opacity: 0.3;
+}
+
+.contentDiv4RowContainer {
+	margin: 36px 0;
+}
+
+.contentDiv4CardRow {
+	margin: 13px 0;
+}
+
+.contentDiv4CardCheck {
+	margin: 0 20px 0 2px;
+}
+
+.contentDiv4Button {
+	width: 304px;
+	margin: 0 0 3px 0;
+	padding: revert;
+	padding-bottom: 1px;
+}
+
+#contentDiv4FooterText {
+	width: 750px;
+	margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+#finalDiv {
+	background: #000000;
+	color: #FFFFFF;
+	height: 376px;
+	padding: 80px 0 40px 0;
+}
+
+#finalDivRow1 {
+	width: 1140px;
+	margin: 0 auto;
+}
+
+#finalDivRow2 {
+	width: 1140px;
+	margin: 0 auto;
+	margin-top: 101px;
+	letter-spacing: normal;
+}
+
+#finalDivLogo {
+	height: 40px;
+	margin-right: 56px;
+	vertical-align: top;
+}
+
+.finalDivColumn {
+	display: inline-block;
+	font-family: circularBold;
+	line-height: 2.65em;
+	width: 193px;
+	vertical-align: top;
+	margin-top: 8px;
+}
+
+.finalDivRow1Item {
+	width: 90px;
+}
+
+.finalDivGreyText {
+	font-size: .75em;
+	font-weight: 900;
+	color: #919496;
+	letter-spacing: .08em;
+}
+
+#finalDivCircleSet {
+	display: inline-block;
+	float: right;
+}
+
+.finalDivCircle {
+	display: inline-block;
+	background: #222326;
+	border-radius: 54px;
+	height: 54px;
+	width: 54px;
+	vertical-align: top;
+	margin: 20px 0 0 11px;
+}
+
+.finalDivRow2Item {
+	display: inline-block;
+	margin-right: 11px;
+	padding: 20px 0;
+}
+
+#finalDivRow2Left {
+	width: 70%;
+	float: left;
+}
+
+#finalDivRow2Right {
+	float: right;
+	text-align: right;
+	position: relative;
+	bottom: 16px;
+}
+
+#finalDivFlagRow {
+	padding-bottom: 6px;
+}
+
+#finalDivFlagRow:hover {
+	color: #2FD566;
+}
+
+#finalDivFlag {
+	width: 24px;
+	height: 18px;
+	margin-left: 10px;
+	margin-bottom: -3px;
+}
+
+.finalDivRow1Item:hover, .finalDivRow2Item:hover {
+	color: #2FD566;
+}
+
+.finalDivSocialIcons {
+	height: 24px;
+	width: 24px;
+	fill: #FFFFFF;
+	margin: 15px 0 0 15px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.finalDivCircle:hover > .finalDivSocialIcons {
+	fill: #2FD566;
+}
+
+
+
+
+
+
+
+
+button {
+	border: 0;
+	padding: 0 50px;
+	margin: 0 5px;
+	border-radius: 25px;
+	font-family: circularBold;
+	font-size: 0.9em;
+	letter-spacing: 2px;
+	height: 48px;
+}
+
+.greenButton {
+	background: #2AB759;
+	color: #FFFFFF;
+	transition: background 0.2s ease-in-out;
+}
+
+.whiteButton {
+	background: none;
+	color: #FFFFFF;
+	border: 2px solid #FFFFFF;
+	transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.whiteButton:hover {
+	background: #FFFFFF;
+	color: #000000;
+}
+
+.greenButton:hover {
+	background: #2FD566;
+}
+
+
+
+
+
+
+
+
+.paragraph1 {
+	font-size: 3em;
+	font-family: circularBold;
+	line-height: 1.2em;
+}
+
+.paragraph1_5 {
+	font-size: 2em;
+	font-family: circularBold;
+	line-height: 0.5em;
+}
+
+.paragraph2 {
+	font-size: 1.5em;
+	font-family: circularBold;
+	line-height: 3em;
+}
+
+.paragraph3 {
+	font-size: 1.1em;
+	line-height: 1.5em;
+}
+
+.paragraph4 {
+	font-size: 0.75em;
+	line-height: 1.5em;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1200px) {					/* ======= Extra Spotify theme for slightly smaller windows ======= */
+	#loginBarContents { width: 970px; }
+	
+	#heroImage { height: 660px; background-size: 1080px; background-position: left calc(50% + 50px) top -190px; }
+	#heroImageContentDiv { max-width: 950px; }
+	#heroImageCarouselContent1, #heroImageCarouselContent2, #heroImageCarouselContent3, #heroImageCarouselContent4 {
+		width: 950px;
+	}
+	
+	#contentDiv1 { max-width: 940px; }
+	#contentDiv1Left { max-width: 370px; margin-top: 0; }
+	#contentDiv1Right { max-width: 454px; margin-top: 50px; }
+	.div1Boxart { width: 227px; }
+	
+	#contentDiv2HeroImage { margin-left: -200px; height: 621px; }
+	#contentDiv2 { height: 621px; }
+	#contentDiv2Container { max-width: 785px; }
+	#contentDiv2Right { max-width: 367px; }
+	
+	#contentDiv3 { width: 940px; }
+	#contentDiv3Image { height: 189px; margin-top: 30px; }
+	
+	#contentDiv4HeroImage { margin-left: -100px; }
+	.contentDiv4Card { width: 317px; }
+	#contentDiv4FooterText { width: 770px; }
+	.contentDiv4CardFooter { width: 320px; }
+	
+	#finalDiv { height: 376px; }
+	#finalDivRow1, #finalDivRow2 { width: 940px; }
+	#finalDivLogo { margin-right: 26px; }
+	.finalDivColumn { width: 157px; }
+}
+
+@media screen and (max-width: 990px) {					/* ======= Extra Spotify theme for slightly smaller windows ======= */
+	#loginBar { background: rgba(0, 0, 0, 1); opacity: 1; height: 54px; }
+	#LoginBarContents { width: 750px; }
+	#loginBarLogo { height: 27px; padding: 13px 0; }
+	.loginBarItem { display: none; }
+	.loginBarSpacer { display: none; }
+	#loginBarMobileMenu { display: block; }
+	
+	#heroImage { height: 660px; background-size: 960px; background-position: left calc(50% + 30px) top -118px; }
+	#heroImageContentDiv { max-width: 740px; }
+	#heroImageCarouselContent1, #heroImageCarouselContent2, #heroImageCarouselContent3, #heroImageCarouselContent4 {
+		width: 740px; }
+	.heroText { font-size: 4.3em; max-width: 640px; }
+
+	#contentDiv1 { max-width: 720px; height: 658px; }
+	#contentDiv1Left { max-width: 390px; margin-top: 97px; }
+	#contentDiv1Right { max-width: 219px; margin-top: 0px; }
+	.div1Boxart { width: 219px; }
+	#finalDiv1Boxart { display: none; }
+	
+	#contentDiv2 { height: 611px; }
+	#contentDiv2HeroImage { margin-left: -100px; height: 611px; }
+	#contentDiv2Right { max-width: 331px; }
+	#contentDiv2Container { max-width: 720px; }
+
+	#contentDiv3 { text-align: center; width: 100%; height: 470px; padding-top: 65px; }
+	#contentDiv3Texts { width: 100%; }
+	#contentDiv3Image { display: block; float: none; margin: 0 auto; margin-top: 41px; height: 196px; }
+	
+	#contentDiv4 { height: 832px; }
+	#contentDiv4HeroImage { margin-left: -200px; }
+	.contentDiv4Card { width: 287px; }
+	.contentDiv4CardFooter { width: 290px; }
+	#contentDiv4FooterText { width: 730px; }
+	.contentDiv4Button { width: 290px; }
+	
+	#finalDiv { height: 509px; padding: 50px 0 40px 0; }
+	#finalDivRow1 { width: 750px; }
+	#finalDivRow2 { margin-top: 208px; width: 720px; }
+	#finalDivLogo { display: block; height: 27px; margin-left: 15px; }
+	.finalDivColumn { width: 216px; padding: 0 15px; margin-top: 37px; }
+	#finalDivCircleSet { float: left; margin-top: 109px; }
+	.finalDivCircle { border-radius: 44px; height: 44px; width: 44px; }
+	.finalDivSocialIcons { 	margin: 10px 0 0 10px; }
+	
+	.paragraph1 { font-size: 2.45em; }
+}
+
+@media screen and (max-width: 768px) {					/* ======= MOBILE THEME (768 = portrait iPad resolution) ======= */
+	#loginBarContents { width: 100%; max-width: 750px; }
+
+	#heroImageDiv { height: 600px; }
+	#heroImageContentDiv { margin: revert; }
+	#heroImage { display: none; }
+	#heroImageMobile { display: inline; }
+	
+	.heroArrow { height: 20px; top: 534px; }
+	#heroArrowLeft { left: 28%; }
+	#heroArrowRight { right: 28%; }
+	#heroImageCarouselContent1, #heroImageCarouselContent2, #heroImageCarouselContent3, #heroImageCarouselContent4 { width: 100%; }
+	#heroImageCarouselContent1 { top: 0px; }
+	#heroImageCarouselContent2 { top: -15px; }
+	#heroImageCarouselContent3 { top: 10px; }
+	#heroImageCarouselContent4 { top: 10px; }
+	.heroText { top: 195px; font-size: 3.3em; max-width: 740px; }
+	.heroButton { top: 237px; }
+	.whiteButton { margin-top: 30px; }
+	
+	#contentDiv1 { width: 100%; max-width: none; margin: 0; }
+	#contentDiv1Left { float: none; clear: none; max-width: 100%; margin: 0px 15px 39px 15px; }
+	#contentDiv1Right { clear: none; margin-top: 1px; max-width: 100%; }
+	.div1Boxart { width: 50%; }
+	#finalDiv1Boxart { display: inline; }
+	
+	#contentDiv2 { width: 100%; height: 455px; overflow: hidden; }	/* Makes the div behave as block in small screens. ??? */
+	#contentDiv2heroImage { background-position: left 15px top -130px; margin-left: 0px; background-size: 500px; }
+	#contentDiv2Container { width: 97%; padding-top: 50px; }
+	#contentDiv2Left { display: none; }
+	#contentDiv2Right { max-width: 100%; }
+	
+	#contentDiv3 { height: 554px; padding-top: 43px;}
+	#contentDiv3Texts { width: 89%; }
+	.contentDiv3Row1 { float: left; margin: 24px 0 0 20%; }
+	.contentDiv3Row2 { float: right; margin: -2px 20% 0 0; }
+	.contentDiv3PlainText { display: block; margin-top: 14px; }
+	.contentDiv3LinkText { display: block; margin-top: 14px; }
+	.contentDiv3TextSpacer { display: none; }
+	#contentDiv3Image { width: 80%; margin-top: 0px; padding-top: 36px; }
+	
+	#contentDiv4 { height: 1215px; height: auto; }
+	#contentDiv4HeroImage { background: none; }
+	/* Width calc setting is an imperfect replication but it's super clean and doesn't require a million breakpoints */
+	.contentDiv4Card { width: calc(80% - 30px); margin-left: 15px; margin-right: 15px; transition: none; }
+	/* Disable mobile hover animation */
+	.contentDiv4Card:hover { top: 0; box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.24); }
+	.contentDiv4FirefoxFix { display: block; }
+	#contentDiv4Card1 { height: 391px; margin-top: 41px; }
+	#contentDiv4Card2 { height: 433px; margin-top: 0px; }
+	/* Firefox doesn't handle the heights well */
+	_::-moz-progress-bar, body:last-child #contentDiv4Card1 { height: 411px; }
+	_::-moz-progress-bar, body:last-child #contentDiv4Card2 { height: 453px; }
+	.contentDiv4CardFooter { width: 91.5%; }
+	/* text-align: left is for IE */
+	.contentDiv4HR { width: calc(100% - 30px); margin-left: 0px; text-align: left; }
+	/* width: auto is for IE */
+	.contentDiv4Button { width: auto; width: initial; padding: 0 50px; }
+	.paragraph2NotBold { font-size: 1.3em; }
+	#contentDiv4FooterText { width: 98%; font-family: circularBold; margin-bottom: 15px; }
+	
+	#finalDiv { height: 631px; }
+	#finalDivRow1 { width: 100%; }
+	#finalDivRow2 { width: 96%; margin-top: 333px; }
+	#finalDivRow2Left, #finalDivRow2Right { font-size: 0.75em; }
+	.finalDivColumn { width: 42%; }
+	#finalDivColumn2 { float: right; }
+	#finalDivColumn3 { float: right; margin-left: 49.5%; margin-top: 4px; }
+	#finalDivWebPlayerText { display: none; }
+	
+	.paragraph1 { font-size: 1.95em; }
+	.paragraph2 { font-size: 1.3em; line-height: 3.15; }
+}
+
+@media screen and (max-width: 414px) {					/* ======= Extra things for iPhone 6S+ ======= */
+	#contentDiv2 { height: 510px; }
+
+	#contentDiv3 { height: 484px; }	
+	.contentDiv3Row1 { margin: 24px 0 0 10%; }
+	.contentDiv3Row2 { margin: -2px 10% 0 0; }
+	#contentDiv3Image { padding-top: 10px; }
+	
+	.finalDivColumn { width: 39%; }
+}
+
+@media screen and (max-width: 375px) {					/* ======= Extra things for iPhone 6S ======= */
+	.heroText { top: 160px; }
+	.heroButton { top: 202px; }
+	
+	#contentDiv2 { height: 530px; }
+}
+
+@media screen and (max-width: 320px) {					/* ======= Extra things for tiny iPhones ======= */
+	#contentDiv2 { height: 560px; }
+	
+	#contentDiv3 { height: 454px; }	
+	#contentDiv3Image { padding-top: 0px; }
+	#finalDiv { height: 651px; }
+}

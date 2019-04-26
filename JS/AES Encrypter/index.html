@@ -1,0 +1,28 @@
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>AES encryption tool</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="style.css">
+	<!-- CryptoJS AES -->
+	<script src='aes.js'></script>
+	<!-- These two lines polyfill CSS variables in IE -->
+	<script src="https://unpkg.com/css-vars-ponyfill@1"></script>
+	<script>cssVars()</script>
+</head>
+
+
+
+<body>
+	<textarea id='cowTextarea' spellcheck='false'></textarea>
+	<div class='buttonContainer'>
+		<button class='spotifyButtonSolid' onClick='encryptTextfield()' id='encryptButton'>ENCRYPT</button>
+		<button class='spotifyButtonSolid' onClick='decryptTextfield()' id='decryptButton'>DECRYPT</button>
+	</div>
+	<p class='informationText'>AES 256</p>
+</body>
+
+
+
+
+<script src='script.js'></script>

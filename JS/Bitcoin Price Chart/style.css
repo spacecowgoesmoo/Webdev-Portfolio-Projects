@@ -1,0 +1,282 @@
+body {
+	margin: 0;
+	font-family: Verdana, sans-serif;
+	font-size: 14px;
+	
+	background: #163042;
+	color: #A1B5C1;
+	
+	/* Prevents awful super-bold font in OSX Firefox and Chrome */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	
+	cursor: default;
+	
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Prevents telephone number highlighting on mobile */
+a[href^="tel"] {
+  color: inherit; /* Inherit text color of parent element. Doesn't seem to work but #FFFFFF look good too */
+  text-decoration: none; /* Removes underline. */
+}
+
+
+
+
+
+
+
+
+/*@font-face {
+	font-family: SansGuilt;
+	src: url('SansGuiltMB.otf');
+}*/
+
+/* Font sizes */
+.giantFont { font-size: 2.25em; }
+.biggerFont { font-size: 1.5em; }
+.bigFont { font-size: 1.25em; }
+.biggishFont { font-size: 1.1em; }
+.normalFont { font-size: 1em; }
+.smallFont { font-size: 0.75em; }
+.tinyFont {	font-size: 0.6em; }
+
+/* Click simulation */
+.clickable:hover { cursor: pointer; }
+.clickable:active { opacity: 0.8; }
+
+/* Prevent link color changes */
+a:link, a:visited, a:hover, a:active { color: #F9F9F9; } 
+
+/* Prevents cursor changing to text-select in weird places */
+div { cursor: default; }
+
+/* Targets Chrome and Safari. Fixes misaligned centering of the last thing on the page */
+.centerFix:not(*:root) { margin-right: 5px; }
+
+
+
+
+
+
+
+
+/* =================== MINITES BUTTONS =================== */
+.miniTESbutton {
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode';
+	font-size: 11px;	
+	border-radius: 0;
+	cursor: pointer;
+	outline: none;
+	line-height: 18px;
+	margin: 0px;				/* Needed to reset Safari default margin CSS */
+	margin-right: 6px;
+	padding: 0 6px 0 6px;
+	/* Blue theme */
+	background: #16384A;
+	color: #A1B5C1;
+	border: 1px solid #617581;
+}
+
+.miniTESbutton:hover {
+	color: #49B7F3;
+	border: 1px solid #49B7F3;
+}
+
+.miniTESbutton:disabled {
+	cursor: default;
+	color: #415561;
+	border: 1px solid #415561;
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+#iframeBorder {
+	/* Center onscreen */
+	position: relative;
+	top: 75px;
+	left: calc(50% - 450px);
+	/* Transcend border */
+	border: 2px solid #617581;
+	/* Size */
+	width: 900px;
+	height: 600px;
+}
+
+.chartBody {
+	background: #16384A;
+	/* Prevent mouse scrolling */
+	overflow: hidden;
+	/* Fixes a bug that glitches out scrolling if you mouseover the positive edges of the window */
+	position: fixed;
+}
+
+#containerSVG {
+	/* Size */
+	width: 3382px;
+	height: 600px;
+	/* Position it offscreen to the left, minus one screen */
+	/* 2700, minus a bit */
+	margin-left: -2552px;
+	/* Other stuff */
+	cursor: move;
+	/* Deactivates antialiasing. All non-zero pixels changed to 100% opacity */
+	shape-rendering: crispEdges;
+}
+
+#bottomPane {
+	/* Size */
+	height: 50px;
+	width: 3382px;
+	/* Position */
+	position: absolute;
+	left: 0px;
+	bottom: 0px;			/* Required for Chrome */
+	/* Position it offscreen to the left, minus one screen */
+	/* 2700, minus a bit */
+	margin-left: -2552px;
+	/* Other */
+	cursor: move;
+	background: #16384A;
+	shape-rendering: crispEdges;
+}
+
+#rightPane {
+	/* Size */
+	height: 600px;
+	width: 70px;
+	/* Position */
+	position: fixed;
+	right: 0px;
+	top: 0px;			/* Required for Chrome */
+	/* Other */
+	background: #16384A;
+	shape-rendering: crispEdges;
+	/*border-left: 1px solid #1E465B;*/
+}
+
+#currencyLabel {
+	position: absolute;
+	top: 14px;
+	left: 20px;
+}
+
+#timeButtons {
+	position: fixed;
+	top: 39px;
+	left: 20px;
+	/*width: 262px;	/* Hack to prevent Safari from inverting colors. Seems to be unnecessary now? */
+}
+
+#smaLabels {
+	position: fixed;
+	top: 68px;
+	left: 20px;
+	font-size: 12px; 
+	line-height: 16px; 
+}
+
+
+
+
+
+
+
+
+#rightPane, #bottomPane, #containerSVG {
+	fill: #A1B5C1;
+}
+
+.svgPriceText {
+	position: absolute;
+}
+
+
+
+
+
+
+
+
+/* https://www.proy.info/style-select-dropdown-using-css/ */
+select {
+	margin: 0px;		/* Safari CSS reset */
+	padding-right: 30px;
+	border: 0px;
+	background: url("./Images/selectbox_arrow.png") right center no-repeat; 
+	background-color: #16384A; 
+	color: #A1B5C1; 
+	font-size: 12px; 
+	line-height: 16px; 
+	appearance: none; /* this is must */ 
+	-webkit-appearance: none; 
+	-moz-appearance: none; 
+}
+
+/* Firefox hack, the default positioning is off */
+_::-moz-range-track, body:last-child select { margin-left: -4px; }
+	
+select:focus { outline: none; }
+
+/* body select.select_box option */ 
+select option { padding: 0 4px; } 
+
+/* for IE and Edge */ 
+select::-ms-expand { display: none; } 
+select:disabled::-ms-expand { background: #f60; }
+
+
+
+
+
+
+
+
+#loadingText {
+	position: fixed;
+	left: calc(50% - 50px);
+	top: 265px;
+}
+
+
+
+
+
+
+
+/* Don't go over 899 px, since we're sharing the CSS with the 900px iFrame */
+@media screen and (max-width: 899px) {
+	#iFrameBorder {
+	/* Center onscreen */
+	position: relative;
+	top: 20px;
+	left: 20px;
+	/* Size */
+	/* Width calculations are 20x2 pixels, plus 2x2 borders */
+	width: calc(100% - 44px);
+	height: calc(100% - 44px);
+	max-height: 600px;
+	}
+}
+
+/* NOTE - Switching from portrait to landscape breaks height a bit. */
+/* This might affects iPads etc, but I only have an iPhone 5S to test with */
+/* Setting a fixed height solves it */
+@media screen and (max-width: 320px) {
+	#timeButtons { width: 170px; line-height: 30px; top: 29px; }
+	#smaLabels { top: 83px; }
+	#iFrameBorder { height: 400px; }
+}

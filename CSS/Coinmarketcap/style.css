@@ -1,0 +1,387 @@
+:root {
+	font-family: SansGuilt, sans-serif;
+	font-size: 14px;
+
+    --offBlack: #202020;
+	--offWhite: #F9F9F9;
+
+	--backgroundBlue: #889EC6;	
+	--backgroundBluePlusOne: #788EB6;	/* One hex darker */
+	
+	--buttonGreen: #02B720;
+	--buttonYellow: #F8BB00;
+	
+	--lightGray: #CACACA;
+	--mediumGray: #AAAAAA; 				/* Fonts or highlights */
+	--darkGray: #797979;
+}
+
+
+
+
+body {
+	margin: 0;
+	
+	background: var(--offWhite);
+	color: var(--offBlack);
+	
+	/* Prevents awful super-bold font in OSX Firefox and Chrome */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	
+	cursor: default;
+}
+
+/* Adding custom fonts */
+@font-face {
+	font-family: font-family: 'Open Sans', sans-serif;
+}
+
+/* Font sizes */
+.giantFont { font-size: 2.25em; }
+.biggerFont { font-size: 1.5em; }
+.bigFont { font-size: 1.25em; }
+.biggishFont { font-size: 1.1em; }
+.normalFont { font-size: 1em; }
+.smallFont { font-size: 0.75em; }
+.tinyFont {	font-size: 0.6em; }
+
+/* Colors */
+.greyFont { color: var(--mediumGray); }
+.greenFont { color: var(--buttonGreen); }
+.boldFont { font-weight: 700; }
+
+/* Alignment */
+.floatLeft { float: left; }
+.floatRight { float: right; }
+.margin0Auto { margin: 0 auto; }
+.textAlignCenter { text-align: center; }
+
+/* Invis */
+.invisible { display: none; }
+.visible { display: inline; }
+
+/* Click simulation */
+.clickable:hover { cursor: pointer; }
+.clickable:active { opacity: 0.6; }
+
+/* Prevents cursor changing to text-select in weird places */
+div { cursor: default; }
+
+/* Targets Chrome and Safari. Fixes misaligned centering of the last thing on the page */
+.centerFix:not(*:root) { margin-right: 5px; }
+
+/* Drop shadow */
+.shadow { box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.24); }
+
+/* Layout */
+.inline { display: inline; }
+
+/* Prevent user select */
+.noSelect {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+
+
+
+
+
+
+
+.button {
+	display: inline;
+	padding: 2px 7px;
+	margin-right: 3px;
+	border-radius: 4px;
+	color: var(--offWhite);
+}
+
+/* Fixes button text positioning bug in Firefox */
+@supports (-moz-appearance:meterbar) and (display:flex) {
+	.button { padding-top: 4px;	}
+}
+	
+.greenButton { background: var(--buttonGreen); }
+.yellowButton { background: var(--buttonYellow); }
+.greyButton { background: var(--lightGray); }
+.darkGreyButton { background: var(--darkGray); }
+
+.greyButton:hover { background: var(--mediumGray); }
+
+
+
+
+
+
+
+
+#header {
+	background: var(--backgroundBlue);
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px var(--backgroundBluePlusOne) solid;
+}
+
+.headerFooterWidthContainer {
+	max-width: 950px;
+	margin: 0 auto;
+}
+
+#headerIcon { margin: 10px 0 0 10px; }
+
+.headerLeftItem {
+	margin: 0 0 0 5px;
+}
+
+.headerRightItem {
+	margin: 0 30px 0 0;
+}
+
+#headerHamburger {
+	height: 25px;
+	width: 25px;
+	margin: 12px 12px 0 0;
+}
+
+
+
+
+
+
+#searchDiv {
+	position: relative;
+	display: inline-block;
+	margin: 7px 10px 0 0;
+}
+	
+#searchBox {
+    width: 35px;
+	height: 35px;
+	border: 0px;
+	color: var(--offBlack);
+	background: none;
+    background-image: url('Images/search.png');
+    background-position: 9px 10px;
+    background-repeat: no-repeat;
+    padding: 10px 0px 10px 35px;
+    transition: width 0.4s ease-in-out;
+}
+
+#searchBox:hover {
+    cursor: pointer;
+}
+
+#searchBox:focus {
+    width: 175px;
+	cursor: default;
+	border: 2px solid var(--backgroundBluePlusOne);
+	border-radius: 4px;
+	background-position: 9px 8px;
+}
+
+
+
+
+
+
+
+
+#headerTwo {
+	background: var(--backgroundBlue);
+	text-align: center;
+	color: var(--offWhite);
+	line-height: 1.6em;
+}
+
+.headerTwoItem, .headerTwoSpacer {
+	display: inline;
+}
+
+
+
+
+
+
+
+
+#mainContent {
+	width: 850px;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+#coinLabel {
+	width: 300px;
+	display: inline-block;
+}
+
+#coinImage {
+	display: inline-block;
+	padding: 10px 10px 10px 0;
+	top: 15px;
+	position: relative;
+}
+
+#coinLabelButtons {
+	margin-left: 47px;
+}
+
+#coinPrice {
+	display: inline-block;
+}
+
+#coinLinks {
+	display: inline-block;
+	margin-top: 50px;
+	width: 300px;
+}
+
+.coinLinkItem {
+	color: var(--backgroundBlue);
+}
+
+#coinDetails {
+	display: inline-block;
+	margin-top: 50px;
+	vertical-align: top;
+}
+
+.coinDetailsItem {
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 20px;
+	line-height: 1.25em;
+}
+
+#coinLinksMobile {
+	width: 100%;
+	margin-top: 40px;
+}
+
+
+
+
+
+
+
+
+#tabs {
+	margin-top: 75px;
+	display: inline-block;
+}
+
+.tabItem, .tabItemActive {
+	padding: 0 15px;
+	/* Negative margins make the underline continuous */
+	margin: 0px -3px;
+	border-bottom: solid 3px var(--lightGray);
+	display: inline-block;
+}
+
+.tabItem:hover {
+	border-bottom: solid 3px var(--mediumGray);
+}
+
+.tabItemActive {
+	border-bottom: solid 3px;
+}
+
+
+
+
+
+
+
+
+#chartButtons {
+	margin: 25px 0;
+}
+
+.chartButtonsRow {
+	margin-right: 35px;
+	display: inline;
+}
+
+input { width: 100px; }
+
+#chartPNG { 
+	background-image: url(Images/chart2x.png);
+	background-position: right;
+	background-size: 852px;
+	height: 480px;
+}
+
+
+
+
+
+
+
+
+#footer {
+	min-height: 100px;
+	background: var(--backgroundBlue);
+	margin-top: 50px;
+	padding: 20px;
+	line-height: 1.25em;
+	/* Fake extension of the footer if user is using a hugely tall window */
+	/* Doesn't otherwise mess up any layout */
+	/* Shadow 2 is the default UI shadow */
+	box-shadow: 0px 500px 0px 500px var(--backgroundBlue), 0px 0px 10px 0px rgba(0, 0, 0, 0.24);
+}
+
+#footerLeft {
+	float: left;
+}
+
+#footerRight {
+	float: right;
+	text-align: right;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 900px) {
+	#mainContent { text-align: center; width: 90%; }
+	
+	#coinLinks { display: none; }
+	#coinLabel, #coinPrice, #coinLinks, #coinDetails { text-align: left; }
+	#coinLabel { width: 260px; }
+	.coinDetailsItem { margin: 0 10px; }
+	#coinLinksMobile { display: inline-block; }
+	
+	.chartButtonsRow { display: block; margin: 10px 0 0 0; }
+	
+	#footerLeft, #footerRight { float: none; text-align: center; }
+	#footerRight { margin-top: 10px; }
+}
+
+@media screen and (max-width: 620px) {					/* ======= Extra things for iPhone 6S+ ======= */
+	#headerRight { display: none; }
+	#headerHamburger { display: inline; }
+	
+	.headerTwoItem { display: block; }
+	.headerTwoSpacer { display: none; }
+	
+	#mainContent { margin-top: 15px; max-width: 440px; }
+	
+	#coinLabel, #coinPrice, #coinDetails { display: inline-block; margin: auto; margin-bottom: 30px; }
+	#coinDetails { margin-bottom: 10px; }
+	#coinDetails { text-align: center; }
+	.coinDetailsItem { margin-bottom: 20px; text-align: left; }
+	.CDIcolumn1 { width: 140px; }
+	.CDIcolumn2 { width: 100px; }
+	#coinLinksMobile { margin-top: 0px; }
+	
+	#tabs { margin-top: 30px; }
+	.tabItem { margin-bottom: 10px; }
+}

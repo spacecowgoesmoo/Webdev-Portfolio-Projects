@@ -1,0 +1,447 @@
+/* Taylor Calderone
+tcalderone84@gmail.com
+Animations: Search bar, mobile search bar, card hover, hero text fadein
+Tested for Firefox, Chrome, Safari, IE, Edge, and mobile devices */
+
+
+body {
+	margin: 0 0 0 0;
+	font-family: Open Sans, sans-serif;
+	font-size: 16px;
+	
+	-webkit-font-smoothing: antialiased;	/* prevents awful super-bold font in OSX Firefox and Chrome */
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+
+
+
+
+.floatRight { float: right; }
+
+.clickable:hover { cursor: pointer; }		/* Click simulation! */
+.clickable:active { opacity: 0.8; }
+
+
+
+
+
+
+
+
+#loginBar {
+	height: 70px;
+	background: #000;
+	opacity: 0.85;
+	color: #FFF;
+	font-size: 0.75em;
+	font-weight: bold;
+}
+
+.fullWidthContainer {
+	max-width: 1050px;
+	margin: 0 auto;
+}
+
+#iFitLogo {
+	margin: 23px 0 0 30px;
+}
+
+.loginBarRightText {
+	display: inline-block;
+	margin-right: 30px;
+	margin-left: -13px;
+	vertical-align: middle;
+	line-height: 70px;
+}
+
+
+
+
+
+
+
+
+#navigationBar {
+	background: #EEE;
+	opacity: 0.85;
+	height: 50px;
+	border-bottom: 1px #CCC solid;
+}
+
+.navBarLeftText {
+	float: left;
+	margin-left: 30px;
+	font-weight: bold;
+	vertical-align: middle;
+	line-height: 50px
+}
+
+.navBarRightText {
+	font-size: 0.71em;
+	color: #777;
+	display: inline-block;
+	margin-right: 17px;
+	line-height: 50px;
+	vertical-align: middle;
+}
+
+.navBarRightText:hover {
+	color: #000;
+	text-decoration: underline;
+}
+
+#navBarSearch {
+	position: relative;
+	display: inline-block;
+	margin-right: 22px;
+}
+	
+#searchBox {
+    width: 35px;
+	height: 35px;
+	border: 0px;
+	background: none;
+    background-image: url('Images/search.png');
+    background-position: 9px 10px; 
+    background-repeat: no-repeat;
+    padding: 10px 0px 10px 35px;
+    transition: width 0.4s ease-in-out;
+}
+
+#searchBox:hover {
+    cursor: pointer;
+}
+
+#searchBox:focus {
+    width: 175px;
+	cursor: default;
+}
+
+
+
+
+
+
+
+
+#heroImage {
+	background-image: url("Images/heroImage.png");
+	margin-top: -121px;
+    background-repeat: no-repeat;   
+	background-size: cover;
+	min-height: 460px;  
+	max-height: 747px;
+  }
+
+#heroImage:before {
+	content: "";							/* All these are essential to the image scaling. No idea why. */
+	display: block;
+    padding-bottom: 60%;					/* Affects the image scaling speed */
+}
+
+#heroTextContainer{
+	top: 390px;
+	position: absolute;
+	margin-left: 13%;
+	display: inline-block;
+    filter: drop-shadow(10px 0px 20px #000) drop-shadow(0px 0px 20px #000);
+	animation: fadein 1s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; top: 410px; }
+    to   { opacity: 1; top: 390px; }
+}
+
+#heroTextMain {
+	max-width: 60%;
+	min-width: 600px;
+	color: #FFF;
+	font-size: 3em;
+	line-height: 1em;
+	font-weight: 300;
+}
+
+#heroTextSub {
+	max-width: 30%;
+	min-width: 400px;
+	color: #FFF;
+	line-height: 1.2em;
+}
+
+
+
+
+
+
+
+
+#gridIntroTexts {
+	margin-top: 30px;
+}
+
+#gridIntroTextMain {
+	text-align: center;
+	font-size: 2em;
+	font-weight: 300;
+}
+
+#gridIntroTextSub {
+	margin: 0 auto;
+	text-align: center;
+	width: 60%;
+	min-width: 300px;
+	max-width: 700px;
+	margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+#gridContainer {
+	margin: 0 auto;
+	text-align: center;
+	width: 85%;
+	max-width: 1100px;
+	margin-top: 50px;
+}
+
+.gridItem { 
+	width: 240px;
+	display: inline-block;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 50px;
+}
+
+.gridImage {
+	width: 240px;
+	height: 240px;
+	transition: width 0.2s ease-in-out, height 0.2s ease-in-out, margin-top 0.2s ease-in-out;
+}
+
+.gridImage:hover {
+	position: relative;
+	width: 247px;
+	height: 247px;
+	margin-top: -7;
+}
+
+.gridCaptionMain {
+	font-weight: 500;
+	text-align: left;
+	float: left;
+	width: 100%;
+}
+
+.gridCaptionSub {
+	color: #AAA;
+	font-style: italic;
+	font-size: 0.75em;
+	text-align: left;
+	float: left;
+}
+
+
+
+
+
+
+
+
+#afterGridButton {
+	text-align: center;
+	margin-bottom: 75px;
+}
+
+.bigButton {
+	height: 61px;
+	width: 222px;
+	color: #FFF;
+	font-size: 1.1em;
+	text-align: center;
+	background: #0097D7;
+	border: 0;
+}
+
+
+
+
+
+
+
+
+#quoteBar {
+	height: 274px;
+	background: #000;
+	opacity: 0.9;
+	color: #FFF;
+}
+
+#quoteBarContainer {
+	margin: 0 auto;
+	width: 75%;
+	max-width: 1050px;
+}
+
+#quoteIcon {
+	position: absolute;
+	margin-top: 50px;
+}
+
+.quoteText {
+	display: inline-block;
+	margin: 50px 5% 0 120px;
+	font-size: 1.1em;
+}
+
+.quoteAuthor {
+	margin-top: 25px;
+	color: #0097D7;
+	font-size: 1.1em;
+	font-style: italic;
+}
+
+
+
+
+
+
+
+
+#getStartedBar {
+	text-align: center;
+	margin: 30px 0;
+}
+
+#getStartedText {
+	display: inline-block;
+	font-size: 1.9em;
+	font-weight: 300;
+	margin-right: 25px;
+	vertical-align: middle;
+	line-height: 66px;
+}
+
+
+
+
+
+
+
+
+#footerBar {
+	opacity: 0.9;
+	background: #000;
+	height: 50px;
+	line-height: 50px;
+	color: #888;
+	font-size: 0.6em;
+	padding: 0 30px;
+}
+
+#footerTextGroup { 
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#footerSocialGroup { 
+	display: inline-block;
+	vertical-align: middle;
+	position: absolute;
+}
+
+#footerCopyright {
+	float: right;
+	vertical-align: middle;
+}
+
+.footerItem {
+	display: inline-block;
+}
+
+.footerSpacer {
+	display: inline-block;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+.footerSocialIcon {
+	display: inline-block;
+	margin: 0 9 0 9;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 980px) {
+	#footerBar { text-align: center; height: auto; line-height: 3em; padding: 20px 0; }	/* Footer */
+	#footerTextGroup { width: 100%; min-width: 300px; }
+	#footerSocialGroup { position: relative; }
+	#footerCopyright { float: none; }
+}
+
+@media screen and (max-width: 930px) {					/* Moves the hero text a bit as the window shrinks */
+	#heroTextContainer { top: 300px; }
+	
+	#getStartedText { margin-right: 0px; width: 80%; line-height: 1.5em; }
+	#getStartedButton { margin-top: 30px; }
+}
+
+@media screen and (max-width: 768px) {					/* ======= MOBILE THEME (768 = portrait iPad resolution) ======= */
+	
+	.floatRight { text-align: center; }
+	.navBarLeftText { display: none; }
+	#navBarSearch { margin: 0 7 0 0; }
+	#searchBox { transition: width 0.4s ease-in-out, margin 0.4s ease-in-out, background 0.4s ease-in-out, padding 0.4s ease-in-out; }
+	#searchBox:focus { margin-left: -325px; margin-right: 0px; width: 360px; background: #FFF; padding: 10 0 10 10; }
+	
+	#heroTextContainer { width: 90%; margin: 0 0 0 5%; }
+	#heroTextMain { min-width: 300px; max-width: 340px; font-size: 2.7em; }
+	#heroTextSub { display: none; }	
+	@keyframes fadein {
+	    from { opacity: 0; top: 320px; }
+	    to   { opacity: 1; top: 300px; }
+	}
+
+	#gridIntroTextSub { width: 80%; }
+	
+	#gridContainer { width: 90%; }	
+	.gridItem { width: 42%; margin-bottom: 20px; }	
+	.gridImage, .gridImage:hover { width: 100%; height: auto; }	/* Causes mild hover twitching. Next line patches */
+	.gridImage { transition: none; }	/* Deactivates mobile hover */
+	
+	#afterGridButton { margin-bottom: 50px; }
+	
+	#quoteBar { min-height: 244px; height: auto; }
+	#quoteIcon { margin-top: 20px; height: 40px; }
+	#quoteBarContainer { width: 90%; }
+	.quoteText { margin: 80 0 0 0; }
+	.quoteAuthor { margin-top: 10px; }
+	
+	/* See previous breakpoints for #getStartedBar and #footer code */
+	#footerTextGroup { width: 80%; }
+}
+
+@media screen and (max-width: 537px) {
+	#quoteBar { min-height: 284px; }
+}
+
+@media screen and (max-width: 320px) {				/* Extra things for tiny screens */
+	#navBarSearch { margin: 0 7 0 -16; }
+	.navBarRightText { margin-right: 12px; }	
+	#searchBox:focus { margin-left: -270px; margin-right: 0px; width: 305px; background: #FFF; padding: 10 0 10 10; }
+	#quoteBar { height: 314px; }
+}

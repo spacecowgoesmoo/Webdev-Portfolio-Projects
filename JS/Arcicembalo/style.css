@@ -1,0 +1,424 @@
+body {
+	margin: 0;
+	font-family: 'Crimson Text', serif;
+	font-size: 17px;
+	line-height: 30.6px;
+	
+	/*background: #FFDCB3;*/
+	/*color:#C0255F*/
+	color: #222;
+	
+	/* Prevents awful super-bold font in OSX Firefox and Chrome */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.invisible { display: none; }
+
+a, a:visited, .fakeLink { 
+	color: #C39F76;
+	text-decoration: underline;
+	cursor: pointer;
+	transition: color 0.2s ease-in-out;
+}
+a:hover, .fakeLink:hover { color: #222; }
+
+.fakeLink {	
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+h5 { margin: 0; }
+
+
+
+
+
+
+
+
+#highlightDotContainer {
+	position: absolute;
+	left: 50%;
+	top: 285px; /* 233px to match the current locations of the keys */
+}
+
+.highlightDot {
+	position: absolute;
+	width: 30.6px;
+	height: 30.6px;
+    opacity: 0;
+}
+
+.dotFade { animation: fade 1s linear; }
+
+@keyframes fade {
+  0%,100% { opacity: 0 }
+  25%,75% { opacity: 1 }
+}
+
+#dot1 { top: 115px; left: -322px; }
+#dot2 { top: 115px; left: -239px; }
+#dot3 { top: 115px; left: -162px; }
+#dot4 { top: 115px; left: -87px; }
+#dot5 { top: 115px; left: -4px; }
+#dot6 { top: 115px; left: 75px; }
+#dot7 { top: 115px; left: 154px; }
+#dot8 { top: 115px; left: 229px; }
+
+#dot9 { top: 200px; left: -239px; }
+#dot10 { top: 200px; left: -162px; }
+#dot11 { top: 200px; left: -4px; }
+#dot12 { top: 200px; left: 75px; }
+#dot13 { top: 200px; left: 154px; }
+
+#dot14 { top: 274px; left: -278px; }
+#dot15 { top: 274px; left: -198px; }
+#dot16 { top: 274px; left: -119px; }
+#dot17 { top: 274px; left: -41px; }
+#dot18 { top: 274px; left: 39px; }
+#dot19 { top: 274px; left: 118px; }
+#dot20 { top: 274px; left: 196px; }
+#dot21 { top: 274px; left: 275px; }
+
+#dot22 { top: 383px; left: -322px; }
+#dot23 { top: 383px; left: -239px; }
+#dot24 { top: 383px; left: -162px; }
+#dot25 { top: 383px; left: -87px; }
+#dot26 { top: 383px; left: -4px; }
+#dot27 { top: 383px; left: 75px; }
+#dot28 { top: 383px; left: 154px; }
+#dot29 { top: 383px; left: 229px; }
+
+#dot30 { top: 468px; left: -239px; }
+#dot31 { top: 468px; left: -162px; }
+#dot32 { top: 468px; left: -4px; }
+#dot33 { top: 468px; left: 75px; }
+#dot34 { top: 468px; left: 154px; }
+
+#dot35 { top: 543px; left: -278px; }
+#dot36 { top: 543px; left: -198px; }
+#dot37 { top: 543px; left: -119px; }
+#dot38 { top: 543px; left: -41px; }
+#dot39 { top: 543px; left: 39px; }
+#dot40 { top: 543px; left: 118px; }
+#dot41 { top: 543px; left: 196px; }
+#dot42 { top: 543px; left: 275px; }
+
+
+
+
+
+
+
+
+#titleContainer, #preloaderText, #keyboardInformation {
+	margin-top: 25px;
+}
+
+#titleContainer {
+	max-width: 600px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#articleNavigationLinks {
+	max-width: 800px;
+	width: 100%;
+	margin: 25px auto;
+}
+
+.menuItem { 
+	display: inline-block;
+	margin: 0 10px;
+}
+ 
+#keyboardContainer, #headerContainer {
+	text-align: center;
+	margin: 25px 0;
+}
+
+#keyboardImage {
+	width: 100%;
+	max-width: 658px;
+	opacity: 0.2;
+}
+
+#keyboardInformation {
+	display: none;
+}
+
+.KIimage {
+	margin-right: 10px;
+}
+
+.KIitem {
+	display: inline-block;
+	margin: 0 12.5px;
+	width: 285px;
+}
+
+#octaveSwitchImage {
+	height: 25px;
+	width: 25px;
+	vertical-align: text-top;
+}
+
+
+
+
+
+
+
+
+#textAndStuffOuterContainer { }
+
+#textAndStuffInnerContainer {
+	margin: 0 auto;
+	text-align: center;
+	width: 95%;
+	max-width: 800px;
+}
+
+p, ol, ul { text-align: left; }
+h4 { margin-top: 61.2px; }				/*Equivalent of two <br>'s*/
+
+#tableContainer { overflow-x: auto; }	/* Horizontal scrolling on mobile */
+table { margin: 0 auto; }
+table, th, tr, td {
+	border: 1px solid #DDD;
+	border-collapse: collapse;
+	padding: 5px; }
+td { min-width: 25px; }
+tr:nth-child(even) {background-color: #f2f2f2;}
+th { height: 50px; }
+
+.paragraphImage {
+	width: 95%;
+	max-width: 800px;
+}
+
+
+
+
+
+
+
+
+#footerContainer {
+	margin: 50px auto 0 auto;
+	padding-bottom: 25px;			/*This is padding instead of margin so that the Back to Top hover targeting works on the whole page*/
+	text-align: center;
+}
+
+.footerIcon {
+	height: 25px;
+	margin: 0 10px;
+}
+
+#footerDisplayBlock { display: block; margin-top: 25px;}
+
+
+
+
+
+
+
+
+#contactTheAuthor {
+	margin-bottom: 25px;
+}
+
+#emailMeContainer {
+	margin-top: 1em;
+	padding: 25px 0;
+	background: #DDD;
+}
+
+#javascript_form {
+	margin: 0;
+}
+
+#emailMeContainer input, #emailMeContainer textarea {
+    display: block;
+    width: 350px;
+	margin: 0 auto;
+    margin-bottom: 1em;
+	border: none;
+    padding: 5px;
+	font-family: 'Crimson Text', serif;
+	font-size: 1em;
+}
+
+#emailMeContainer textarea {
+	height: 10em;
+}
+
+#emailMeContainer input[type="submit"] {
+    background-color: #2999EA;
+    color: #F9F9F9;
+	transition: background-color 0.2s ease-in-out;
+}
+
+#emailMeContainer input[type="submit"]:hover {
+	background-color: #39A9FA;
+    cursor: pointer;
+}
+
+#emailMeContainer input[type="submit"]:disabled {
+	background-color: #AAA;
+    cursor: default;
+}
+
+
+
+
+
+
+
+
+#copyright {
+	margin-top: 75px;
+}
+
+
+
+
+
+
+
+
+#backToTopButton {
+	position: fixed;
+	right: 25px;
+	bottom: 25px;
+	background: #FFF;
+	border: 1px solid #DDD;
+	padding: 5px;
+	border-radius: 35px;
+	height: 35px;
+	width: 35px;
+	transition: border 0.2s ease-in-out, opacity 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#backToTopButton:hover {
+	border: 1px solid #AAA;
+	color: #222;
+}
+
+#backToTopButton > a { 			/*WARNING: Really complicated */
+	text-decoration: none;
+	font-size: 5em;
+	position: relative;
+	bottom: 7.25px;
+	right: 7.25px;
+	display: inline-block;
+	line-height: 80px;
+	height: 50px;
+	width: 50px;
+	text-align: center;
+	overflow: hidden;
+	/*background: rgba(0, 0, 0, 0.5);*/
+}
+
+#backToTopButton { opacity: 0; cursor: default; }
+#backToTopButton:hover { opacity: 1; cursor: pointer; }
+/* Activates the following CSS when a condition is met, that precedes it anywhere in the DOM */
+#textAndStuffOuterContainer:hover ~ #backToTopButton { opacity: 1; cursor: pointer; }
+#footerContainer:hover ~ #backToTopButton { opacity: 1; cursor: pointer; }
+
+
+
+
+
+
+
+#tutorialContainer {
+	z-index: 500;
+	display: none;
+}
+
+#tutorialBG {
+	position: fixed;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba( 255, 255, 255, 0.8);
+}
+
+#tutorialWindow {
+	position: fixed;
+	height: 500px;
+	width: 500px;
+	top: 100px;
+	left: calc( 50% - 250px );
+	z-index: 501;
+	background: #FFF;
+	border: 2px solid #C39F76;
+	padding: 10px;
+}
+
+#tutorialCloseButton { 			/*WARNING: Really complicated */
+	position: absolute;
+	left: calc(50% + 243px);
+	top: -17px;
+	font-weight: bold;
+	border-radius: 35px;
+	height: 30.6px;
+	width: 30.6px;
+	text-align: center;
+	overflow: hidden;
+	border: 2px solid #C39F76;
+	color: #C39F76;
+	background: #FFF;
+	cursor: pointer;
+	transition: border 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#tutorialCloseButton:hover {
+	border: 2px solid #AAA;
+	color: #222;
+}
+
+#tutorialNavigation {
+	position: absolute;
+	bottom: 1em;
+	width: 500px;
+	display: flex;
+	justify-content: space-between;
+}
+
+#tutorialAudioButton {
+	position: absolute;
+	left: 37%;
+}
+
+#tutorialAudioButton > .audioButton {
+	margin-right: 10px;
+}
+
+#tutorialNextPage {
+	text-align: right;
+}
+
+
+
+
+
+
+@media screen and (max-width: 770px) {
+	#titleContainer { width: 95%; }
+	.menuItem { display: block; }
+	#menuLineBreak { display: none; }
+		
+	#highlightDotContainer { display: none; }
+	
+	#keyboardImage { width: 95%; }
+	
+	#footerDisplayBlockMobileOnly { display: block; }
+	#emailMeContainer input, #emailMeContainer textarea { width: 300px; }
+
+	#backToTopButton { display: none; }
+}

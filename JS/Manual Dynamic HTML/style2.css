@@ -1,0 +1,81 @@
+body { 
+	line-height: 1.4em;
+	color: #242;
+	background: #EEE;
+	padding-bottom: 100px;
+	margin: 0;
+}
+
+
+
+
+
+
+
+
+#bigJobContainer {
+	font-family: Arial, sans-serif;
+	width: 80%;
+	max-width: 900px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+#header {
+	width: 100%;
+	padding: 30px 0;
+	color: #d7002b;
+}
+
+.headerText {
+	font-size: 2em; 
+	line-height: 1.3em;
+	text-align: center;
+}
+
+.subheaderItem {
+	margin-top: 10px;
+	color: #242;
+	text-align: center;
+}
+
+.jobCategoryHeader { 
+	font-size: 1.25em;
+	font-style: none;
+	color: #d7002b;
+}
+
+#widthContainer { 
+	/*width: 95%;*/
+	margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+#applyNowButton {
+	height: 61px;
+	width: 222px;
+	font-size: 1.1em;
+	color: #EEE;
+	font-family: Arial, sans-serif;
+}
+
+
+
+
+
+
+
+
+/* Bit of responsive design */
+@media screen and (max-width: 600px) {
+
+	#bigJobContainer { width: 90%; }
+	.headerText { font-size: 1.5em; }
+	#buttonCenterDiv { text-align: center; }
+}

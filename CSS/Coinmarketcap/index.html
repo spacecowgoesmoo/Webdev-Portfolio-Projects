@@ -1,0 +1,247 @@
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Coinmarketcap redesign concept - Taylor Calderone</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta charset="utf-8"/>
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.taylorcalderone.com/Images/Favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.taylorcalderone.com/Images/Favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.taylorcalderone.com/Images/Favicons/favicon-16x16.png">
+	<link rel="manifest" href="https://www.taylorcalderone.com/Images/Favicons/site.webmanifest">
+	<link rel="mask-icon" href="https://www.taylorcalderone.com/Images/Favicons/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="https://www.taylorcalderone.com/Images/Favicons/favicon.ico">
+	<meta name="msapplication-TileColor" content="#2b5797">
+	<meta name="msapplication-config" content="https://www.taylorcalderone.com/Images/Favicons/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+	<!-- External Files -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<!-- Polyfill CSS variables in IE -->
+	<script src="https://unpkg.com/css-vars-ponyfill@1"></script>
+	<script>cssVars()</script>
+</head>
+
+
+
+
+
+
+
+<div class='shadow'>
+	<div id='header' class='noSelect'>
+		<div class='headerFooterWidthContainer'>
+			<div id='headerLeft' class='bigFont'>
+				<!-- https://www.iconfinder.com/icons/2372279/coins_finance_money_icon#size=512 -->
+				<img class='headerLeftItem floatLeft clickable' id='headerIcon' width='30px' src='Images/icon7.png'>
+				<div class='headerLeftItem floatLeft clickable'>coinmarketcap</div>
+			</div>
+			
+			<img id='headerHamburger' class='invisible headerRightItem floatRight clickable' src='Images/hamburger.png'>
+			<div id='headerRight'>
+				<div class='headerRightItem floatRight clickable' id='searchDiv'>
+					<input id='searchBox' type='text'>
+				</div>
+				<div class='headerRightItem floatRight clickable'>Tools</div>
+				<div class='headerRightItem floatRight clickable'>Trending</div>
+				<div class='headerRightItem floatRight clickable'>Trade Volumes</div>
+				<div class='headerRightItem floatRight clickable'>Market Caps</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div id='headerTwo' class='biggishFont'>
+		<div class='headerTwoItem'>Market cap: <span class='clickable boldFont'>$184,453,453,853</span></div>
+		<div class='headerTwoSpacer'> / </div>
+		<div class='headerTwoItem'>24h vol: <span class='clickable boldFont'>$5,392,616,899</span></div>
+		<div class='headerTwoSpacer'> / </div>
+		<div class='headerTwoItem'>BTC Dominance: <span class='clickable boldFont'>59.7%</span></div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+<div id='mainContent'>
+	
+	<div id='coinLabel' class='noSelect'>
+		<div id='coinImage'>
+			<img width='32px' src='Images/bitcoin.png'>
+		</div>
+		
+		<div class='inline'>
+			<div class='giantFont inline'>Bitcoin</div>
+			<div class='greyFont bigFont inline'>(BTC)</div>
+			
+			<div id='coinLabelButtons'> <!-- Display Block by default -->
+				<div class='greenButton button'>Rank 1</div>
+				<div class='yellowButton button'>Mineable</div>
+				<div class='yellowButton button'>Coin</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+	<div id='coinPrice'>
+		<span class='giantFont'>$6612.88 </span>
+		<span class='giantFont greenFont'>(4.08%)</span>
+		<br>
+		<span class='bigFont greyFont'>1.00 BTC </span>
+		<span class='bigFont greenFont'>(0.00%)</span>
+	</div>
+
+
+
+
+
+
+
+
+	<div id='coinLinks' class='noSelect'>
+		<!-- Using inline and <br> here because the clickable area extends way too far to the right if we use display:block -->
+		<div class='coinLinkItem bigFont clickable inline'>Website</div><br>
+		<div class='coinLinkItem bigFont clickable inline'>Website 2</div><br>
+		<div class='coinLinkItem bigFont clickable inline'>Explorer</div><br>
+		<div class='coinLinkItem bigFont clickable inline'>Explorer 2</div><br>
+		<div class='coinLinkItem bigFont clickable inline'>Message Board</div><br>
+		<div class='coinLinkItem bigFont clickable inline'>Message Board 2</div>
+	</div>
+
+
+
+
+
+
+
+
+	<div id='coinDetails' class='biggishFont'>
+		<div class='coinDetailsItem CDIcolumn1'>
+			<div class='boldFont'>Market Cap</div>
+			<div>$110,160,244,869</div>
+			<span class='greyFont'>16,658,437 BTC</span>
+		</div>
+		<div class='coinDetailsItem CDIcolumn2'>
+			<div class='boldFont'>24h Volume</div>
+			<div>$2,709,620,000</div>
+			<span class='greyFont'>412,410 BTC</span>
+		</div>
+		<div class='coinDetailsItem CDIcolumn1'>
+			<div class='boldFont'>Circulating Supply</div>
+			<div>16,658,437</div>
+		</div>
+		<div class='coinDetailsItem CDIcolumn2'>
+			<div class='boldFont'>Max Supply</div>
+			<div>21,000,000</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+	<div id='coinLinksMobile' class='invisible noSelect'>
+		<div class='coinLinkItem bigFont clickable inline'>Website</div><br>
+		<div class='coinLinkItem bigFont clickable inline'>Website 2</div><br>
+		<div class='coinLinkItem bigFont clickable inline'>Explorer</div><br>
+		<div class='coinLinkItem bigFont clickable inline'>Explorer 2</div><br>
+		<div class='coinLinkItem bigFont clickable inline'>Message Board</div><br>
+		<div class='coinLinkItem bigFont clickable inline'>Message Board 2</div>
+	</div>
+
+
+
+
+
+
+
+
+	<div id='tabs' class='biggerFont noSelect'>
+		<div class='tabItemActive'>Charts</div>
+		<div class='tabItem clickable'>Markets</div>
+		<div class='tabItem clickable'>Social</div>
+		<div class='tabItem clickable'>Tools</div>
+		<div class='tabItem clickable'>Historical Data</div>
+	</div>
+
+
+
+
+
+
+
+
+	<div id='chartButtons' class='noSelect'>
+		<div class='chartButtonsRow'>
+			<div class='greyButton clickable button'>1d</div>
+			<div class='greyButton clickable button'>7d</div>
+			<div class='greyButton clickable button'>1m</div>
+			<div class='greyButton clickable button'>3m</div>
+			<div class='greyButton clickable button'>1y</div>
+			<div class='greyButton clickable button'>YTD</div>
+			<div class='darkGreyButton button'>ALL</div>
+		</div>
+		
+		<div class='chartButtonsRow'>
+			From <input type="date" placeholder='Apr 28, 2013'>
+			To <input type="date" placeholder='Nov 1, 2017'>
+		</div>
+		
+		<div class='chartButtonsRow'>
+			<div class='darkGreyButton button'>Linear</div>
+			<div class='greyButton clickable button'>Log scale</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+	<div id='chartPNG'></div>
+</div>
+
+
+
+
+
+
+
+
+<div id='footer'>
+	<div class='headerFooterWidthContainer'>
+		<div id='footerLeft' class='noSelect'>
+			© 2017 CoinMarketCap | 
+			<span class='clickable boldFont'>Advertise</span> | 
+			<span class='clickable boldFont'>API</span> | 
+			<span class='clickable boldFont'>FAQ</span> |
+			<span class='clickable boldFont'>Request Form</span>
+		</div>
+		
+		<div id='footerRight'>
+			<div>Donate BTC: <span class='clickable boldFont'>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></div>
+			<div>Donate LTC: <span class='clickable boldFont'>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></div>
+			<div>Donate ETH: <span class='clickable boldFont'>0x1111111111111111111111111111111111111111</span></div>
+		</div>
+	</div>
+</div>
