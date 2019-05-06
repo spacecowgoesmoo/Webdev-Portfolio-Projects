@@ -1,6 +1,5 @@
 :root {
-    font-family: 'devtestxyz', sans-serif;
-	color: var(--textColor);
+    font-family: 'Helvetica', sans-serif;
 	font-size: 18px;
 	font-weight: 300;
 
@@ -28,6 +27,10 @@ body {
 }
 
 .invisible { display: none; }
+
+/* Compensation for the extra whitespace in the provided source images */
+.header object { margin-left: -9px; }
+.footer object { margin-left: -5px; }
 
 
 
@@ -64,10 +67,13 @@ h4 { font-weight: 400; }
 
 b { font-weight: 900; }
 
-p { line-height: 1.4rem; }
+p { 
+	color: var(--textColor);
+	line-height: 1.4rem; 
+}
 
 .tinyFont { 
-	font-size: 14px;
+	font-size: 0.75rem;
 	font-weight: 500;
 }
 
@@ -90,7 +96,6 @@ p { line-height: 1.4rem; }
 	width: 100%;
 	height: 700px;
 	background: var(--mainColor);
-	color: var(--white);
 }
 
 .contentContainer {
@@ -134,10 +139,6 @@ p { line-height: 1.4rem; }
 	filter: drop-shadow(0 1px rgba(255, 255, 255, 0.75));
 }
 
-.headerColumnOne {
-	max-width: 420px;
-}
-
 
 
 
@@ -154,6 +155,12 @@ p { line-height: 1.4rem; }
 
 
 /* Zipcode API Form */
+.headerColumnOne {
+	width: 100%;	/* For IE */
+	max-width: 420px;
+	color: var(--white);
+}
+
 .zipcodeForm {
 	min-width: 380px;
 	max-width: 380px;
@@ -161,7 +168,20 @@ p { line-height: 1.4rem; }
 	border-radius: 10px;
 	background: var(--gray1);
 	text-align: center;
-	color: var(--textColor);
+}
+
+.zipcodeFormItemContainer {
+	position: relative;
+	display: inline-block;
+}
+
+.zipcodeFormLabel {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	font-size: 0.7rem;
+	font-weight: 500;
+	letter-spacing: 1px;
 }
 
 .zipcodeForm input {
@@ -195,20 +215,6 @@ p { line-height: 1.4rem; }
 .orangeButton {	background: var(--highlight); }
 .orangeButton:hover { background: var(--mainColor); }
 
-.zipcodeFormItemContainer {
-	position: relative;
-	display: inline-block;
-}
-
-.zipcodeFormLabel {
-	position: absolute;
-	top: 4px;
-	left: 4px;
-	font-size: 0.7rem;
-	font-weight: 500;
-	letter-spacing: 1px;
-}
-
 .placeholderButton {
 	height: 0px !important;
 	padding: 0px !important;
@@ -235,7 +241,7 @@ p { line-height: 1.4rem; }
 }
 
 .pageBody .twoColumns div {
-	width: 48%;				/* TODO - Make this more flexbox-y */
+	width: 48%;
 }
 
 
@@ -291,6 +297,7 @@ p { line-height: 1.4rem; }
 @media screen and (max-width: 750px) {
 	html { padding-bottom: 100px; }
 	.header { height: auto }
+	.header object { margin-left: 0px; }
 	.xyzSearchBox, .headerLine, .headerMenu { display: none; }
 	.headerTopRow { justify-content: center; }
 	.header .twoColumns { flex-direction: column-reverse; margin: 0px; }
