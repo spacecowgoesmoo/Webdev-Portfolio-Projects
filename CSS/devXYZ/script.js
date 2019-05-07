@@ -37,7 +37,7 @@ pageThreeSubmitButton.addEventListener('click', pageThreeSubmitButtonJS, false)
 // Get the Ziptastic API data
 function calculateZipcode(zipcode) {
 	if (zipcode != '') {
-		let url = 'http://ziptasticAPI.com/' + zipcode
+		let url = 'https://ziptasticAPI.com/' + zipcode
 
 		fetch(url).then(function(response) {
 			response.json().then(function(data) {
