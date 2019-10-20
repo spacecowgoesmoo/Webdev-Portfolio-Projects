@@ -199,8 +199,8 @@ p {
 	cursor: pointer;
 	border: 0;
 	height: 50px;
-	width: 160px;
-	margin: 20px 5px;
+	width: 170px;
+	margin: 20px 5px 0 5px;
 	font-size: 1.8em;
 	font-weight: 200;
 	text-align: left;
@@ -302,7 +302,8 @@ p {
 	.headerTopRow { justify-content: center; }
 	.header .twoColumns { flex-direction: column-reverse; margin: 0px; }
 	.zipcodeForm { min-width: 335px; }
-	.zipcodeForm input, .zipcodeForm button { width: 145px; }
+	.zipcodeForm input { width: 145px; }
+	.zipcodeForm button { width: 155px; }
 	.twoColumns { flex-direction: column; }
 	.pageBody .twoColumns div { width: 100%; }
 	.footerRightColumn { flex-direction: column; margin-top: 20px; width: auto; }
