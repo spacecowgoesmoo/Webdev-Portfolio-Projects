@@ -5,12 +5,11 @@
     --offBlack: #202020;
 	--offWhite: #F9F9F9;
 
-	--backgroundBlue: #889EC6;	
-	--backgroundBluePlusOne: #788EB6;	/* One hex darker */
-	
-	--buttonGreen: #02B720;
-	--buttonYellow: #F8BB00;
-	
+	--green: #177001;
+	--greenPlusOne: #076001;
+
+	--yellow: #F8BB00;
+
 	--lightGray: #CACACA;
 	--mediumGray: #AAAAAA; 				/* Fonts or highlights */
 	--darkGray: #797979;
@@ -48,7 +47,7 @@ body {
 
 /* Colors */
 .greyFont { color: var(--mediumGray); }
-.greenFont { color: var(--buttonGreen); }
+.greenFont { color: var(--green); }
 .boldFont { font-weight: 700; }
 
 /* Alignment */
@@ -105,8 +104,8 @@ div { cursor: default; }
 	.button { padding-top: 4px;	}
 }
 	
-.greenButton { background: var(--buttonGreen); }
-.yellowButton { background: var(--buttonYellow); }
+.greenButton { background: var(--green); }
+.yellowButton { background: var(--yellow); }
 .greyButton { background: var(--lightGray); }
 .darkGreyButton { background: var(--darkGray); }
 
@@ -120,10 +119,11 @@ div { cursor: default; }
 
 
 #header {
-	background: var(--backgroundBlue);
+	background: var(--green);
 	height: 50px;
 	line-height: 50px;
-	border-bottom: 1px var(--backgroundBluePlusOne) solid;
+	border-bottom: 1px var(--greenPlusOne) solid;
+	color: var(--offWhite);
 }
 
 .headerFooterWidthContainer {
@@ -162,9 +162,9 @@ div { cursor: default; }
     width: 35px;
 	height: 35px;
 	border: 0px;
-	color: var(--offBlack);
+	color: var(--offWhite);
 	background: none;
-    background-image: url('Images/search.png');
+    background-image: url('Images/searchWhite.png');
     background-position: 9px 10px;
     background-repeat: no-repeat;
     padding: 10px 0px 10px 35px;
@@ -178,7 +178,7 @@ div { cursor: default; }
 #searchBox:focus {
     width: 175px;
 	cursor: default;
-	border: 2px solid var(--backgroundBluePlusOne);
+	border: 2px solid var(--greenPlusOne);
 	border-radius: 4px;
 	background-position: 9px 8px;
 }
@@ -191,7 +191,7 @@ div { cursor: default; }
 
 
 #headerTwo {
-	background: var(--backgroundBlue);
+	background: var(--green);
 	text-align: center;
 	color: var(--offWhite);
 	line-height: 1.6em;
@@ -241,7 +241,7 @@ div { cursor: default; }
 }
 
 .coinLinkItem {
-	color: var(--backgroundBlue);
+	color: var(--green);
 }
 
 #coinDetails {
@@ -324,14 +324,14 @@ input { width: 100px; }
 
 #footer {
 	min-height: 100px;
-	background: var(--backgroundBlue);
+	background: var(--green);
 	margin-top: 50px;
 	padding: 20px;
 	line-height: 1.25em;
 	/* Fake extension of the footer if user is using a hugely tall window */
 	/* Doesn't otherwise mess up any layout */
 	/* Shadow 2 is the default UI shadow */
-	box-shadow: 0px 500px 0px 500px var(--backgroundBlue), 0px 0px 10px 0px rgba(0, 0, 0, 0.24);
+	box-shadow: 0px 500px 0px 500px var(--green), 0px 0px 10px 0px rgba(0, 0, 0, 0.24);
 }
 
 #footerLeft {
