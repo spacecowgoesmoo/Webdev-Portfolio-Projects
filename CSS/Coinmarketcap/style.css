@@ -325,6 +325,7 @@ input { width: 100px; }
 #footer {
 	min-height: 100px;
 	background: var(--green);
+	color: var(--offWhite);
 	margin-top: 50px;
 	padding: 20px;
 	line-height: 1.25em;
