@@ -7,8 +7,6 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-html, body { height: 100%; }				/* scrollReveal.js doesn't work right without this */
-
 div { cursor: default; }					/* prevents cursor changing to text-select on margins */
 
 .floatRight { float: right; }
@@ -28,6 +26,10 @@ div { cursor: default; }					/* prevents cursor changing to text-select on margi
 .darkenHover:hover { filter: brightness(50%); }
 
 .shadow { box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.24); }
+
+/* scrollReveal.js stuff */
+html, body { height: 100%; }			/* scrollReveal.js doesn't work right without this */
+.reveal { visibility: hidden; }			/* Prevents elements from showing up on the screen before the scrollReveal animation happens */
 
 
 
