@@ -16,11 +16,11 @@
 
 
 
-<body>
+<body onload="cowTextarea.value = ''">
 	<textarea id='cowTextarea' spellcheck='false'></textarea>
 	<div class='buttonContainer'>
-		<button class='spotifyButtonSolid' onClick='encryptTextfield()' id='encryptButton'>ENCRYPT</button>
-		<button class='spotifyButtonSolid' onClick='decryptTextfield()' id='decryptButton'>DECRYPT</button>
+		<button class='spotifyButtonSolid' onClick='encryptButtonClick()' id='encryptButton'>ENCRYPT</button>
+		<button class='spotifyButtonSolid' onClick='decryptButtonClick()' id='decryptButton'>DECRYPT</button>
 	</div>
 	<p class='informationText'>AES 256</p>
 </body>
