@@ -1,8 +1,3 @@
-// Everything is vanilla, JS and CSS
-
-
-
-
 // Tab navigation
 function displayTab(q) {
 	// Hide all tabs
