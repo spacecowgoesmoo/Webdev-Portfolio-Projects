@@ -16,11 +16,11 @@ const submitButtonAlert = function() { alert('Imaginary form submitted!') }
 
 
 // Attach tab navigation to buttons
-pageOneNextButton.addEventListener('click', function(){displayTab(2)}, false)
-pageTwoBackButton.addEventListener('click', function(){displayTab(1)}, false)
-pageTwoNextButton.addEventListener('click', function(){displayTab(3)}, false)
-pageThreeBackButton.addEventListener('click', function(){displayTab(2)}, false)
-pageThreeSubmitButton.addEventListener('click', function(){displayTab(1)}, false)
+pageOneNextButton.addEventListener('click', function() { displayTab(2) }, false)
+pageTwoBackButton.addEventListener('click', function() { displayTab(1) }, false)
+pageTwoNextButton.addEventListener('click', function() { displayTab(3) }, false)
+pageThreeBackButton.addEventListener('click', function() { displayTab(2) }, false)
+pageThreeSubmitButton.addEventListener('click', function() { displayTab(1) }, false)
 
 
 // Attach functionality to buttons
