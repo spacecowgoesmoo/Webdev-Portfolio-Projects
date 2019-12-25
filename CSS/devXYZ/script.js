@@ -48,6 +48,6 @@ function calculateZipcode(zipcode) {
 		})
 		.catch(function(status) {
 		   	alert(status)
-		});
+		})
 	}
 }
