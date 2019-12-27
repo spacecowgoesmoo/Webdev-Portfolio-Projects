@@ -16,7 +16,8 @@ body {
 .invisible { display: none; }
 
 a, a:visited, .fakeLink { 
-	color: #C39F76;
+	/*color: #C39F76;*/	/* Replaced because of poor accessibility */
+	color: #956F41;
 	text-decoration: underline;
 	cursor: pointer;
 	transition: color 0.2s ease-in-out;
@@ -257,13 +258,14 @@ th { height: 50px; }
 }
 
 #emailMeContainer input[type="submit"] {
-    background-color: #2999EA;
+    background-color: #1377BE;
     color: #F9F9F9;
+    box-sizing: content-box;
 	transition: background-color 0.2s ease-in-out;
 }
 
 #emailMeContainer input[type="submit"]:hover {
-	background-color: #39A9FA;
+	background-color: #0367AE;
     cursor: pointer;
 }
 
@@ -356,7 +358,7 @@ th { height: 50px; }
 	left: calc( 50% - 250px );
 	z-index: 501;
 	background: #FFF;
-	border: 2px solid #C39F76;
+	border: 2px solid #956F41;
 	padding: 10px;
 }
 
@@ -370,8 +372,8 @@ th { height: 50px; }
 	width: 30.6px;
 	text-align: center;
 	overflow: hidden;
-	border: 2px solid #C39F76;
-	color: #C39F76;
+	border: 2px solid #956F41;
+	color: #956F41;
 	background: #FFF;
 	cursor: pointer;
 	transition: border 0.2s ease-in-out, color 0.2s ease-in-out;
