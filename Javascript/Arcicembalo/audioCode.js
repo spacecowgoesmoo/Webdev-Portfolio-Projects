@@ -3,7 +3,9 @@ var cow = {
 	currentTutorialPage: 0,
 	tutorialKeyRecord: "",
 	tutorialPageUnlocked: 1,
-	
+}
+
+const audioSamples = {
 	lowerOctave: {
 		assignedSound1: 			"Audio/8 C3, +41.wav",
 		assignedSound2: 			"Audio/6 Csharp3, -42.wav",
@@ -88,8 +90,6 @@ var cow = {
 }
 
 
-
-
 function playAudioBasic( file ) {
 	let snd = new Audio( file ) 				// Loads file. Remember to use folder paths
 	snd.type = 'audio/wav'
@@ -145,44 +145,44 @@ function toggleOctave() {
 
 
 
-function keystroke1() 				{ showDot(14); 	playAudioBasic( cow[cow.currentOctave].assignedSound1 ) }
-function keystroke2() 				{ showDot(9); 	playAudioBasic( cow[cow.currentOctave].assignedSound2 ) }
-function keystroke3() 				{ showDot(15); 	playAudioBasic( cow[cow.currentOctave].assignedSound3 ) }
-function keystroke4() 				{ showDot(10); 	playAudioBasic( cow[cow.currentOctave].assignedSound4 ) }
-function keystroke5() 				{ showDot(16); 	playAudioBasic( cow[cow.currentOctave].assignedSound5 ) }
-function keystroke6() 				{ showDot(17); 	playAudioBasic( cow[cow.currentOctave].assignedSound6 ) }
-function keystroke7() 				{ showDot(11); 	playAudioBasic( cow[cow.currentOctave].assignedSound7 ) }
-function keystroke8() 				{ showDot(18); 	playAudioBasic( cow[cow.currentOctave].assignedSound8 ) }
-function keystroke9() 				{ showDot(12); 	playAudioBasic( cow[cow.currentOctave].assignedSound9 ) }
-function keystroke0() 				{ showDot(19); 	playAudioBasic( cow[cow.currentOctave].assignedSound0 ) }
-function keystrokeMinus() 			{ showDot(13); 	playAudioBasic( cow[cow.currentOctave].assignedSoundMinus ) }
-function keystrokeEquals() 			{ showDot(20); 	playAudioBasic( cow[cow.currentOctave].assignedSoundEquals ) }
+function keystroke1() 				{ showDot(14); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSound1 ) }
+function keystroke2() 				{ showDot(9); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSound2 ) }
+function keystroke3() 				{ showDot(15); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSound3 ) }
+function keystroke4() 				{ showDot(10); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSound4 ) }
+function keystroke5() 				{ showDot(16); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSound5 ) }
+function keystroke6() 				{ showDot(17); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSound6 ) }
+function keystroke7() 				{ showDot(11); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSound7 ) }
+function keystroke8() 				{ showDot(18); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSound8 ) }
+function keystroke9() 				{ showDot(12); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSound9 ) }
+function keystroke0() 				{ showDot(19); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSound0 ) }
+function keystrokeMinus() 			{ showDot(13); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundMinus ) }
+function keystrokeEquals() 			{ showDot(20); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundEquals ) }
 
-function keystrokeQ() 				{ showDot(35); 	playAudioBasic( cow[cow.currentOctave].assignedSoundQ ) }
-function keystrokeW() 				{ showDot(23); 	playAudioBasic( cow[cow.currentOctave].assignedSoundW ) }
-function keystrokeE() 				{ showDot(2); 	playAudioBasic( cow[cow.currentOctave].assignedSoundE ) }
-function keystrokeR() 				{ showDot(31); 	playAudioBasic( cow[cow.currentOctave].assignedSoundR ) }
-function keystrokeT() 				{ showDot(3); 	playAudioBasic( cow[cow.currentOctave].assignedSoundT ) }
-function keystrokeY() 				{ showDot(38);	playAudioBasic( cow[cow.currentOctave].assignedSoundY ) }
-function keystrokeU() 				{ showDot(26); 	playAudioBasic( cow[cow.currentOctave].assignedSoundU ) }
-function keystrokeI() 				{ showDot(5); 	playAudioBasic( cow[cow.currentOctave].assignedSoundI ) }
-function keystrokeO() 				{ showDot(27); 	playAudioBasic( cow[cow.currentOctave].assignedSoundO ) }
-function keystrokeP() 				{ showDot(6); 	playAudioBasic( cow[cow.currentOctave].assignedSoundP ) }
-function keystrokeLeftBracket() 	{ showDot(34); 	playAudioBasic( cow[cow.currentOctave].assignedSoundLeftBracket ) }
-function keystrokeRightBracket() 	{ showDot(41); 	playAudioBasic( cow[cow.currentOctave].assignedSoundRightBracket ) }
-function keystrokeForwardSlash() 	{ showDot(21); showDot(42); playAudioBasic( cow[cow.currentOctave].assignedSoundForwardSlash ) }
+function keystrokeQ() 				{ showDot(35); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundQ ) }
+function keystrokeW() 				{ showDot(23); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundW ) }
+function keystrokeE() 				{ showDot(2); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundE ) }
+function keystrokeR() 				{ showDot(31); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundR ) }
+function keystrokeT() 				{ showDot(3); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundT ) }
+function keystrokeY() 				{ showDot(38);	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundY ) }
+function keystrokeU() 				{ showDot(26); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundU ) }
+function keystrokeI() 				{ showDot(5); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundI ) }
+function keystrokeO() 				{ showDot(27); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundO ) }
+function keystrokeP() 				{ showDot(6); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundP ) }
+function keystrokeLeftBracket() 	{ showDot(34); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundLeftBracket ) }
+function keystrokeRightBracket() 	{ showDot(41); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundRightBracket ) }
+function keystrokeForwardSlash() 	{ showDot(21); showDot(42); playAudioBasic( audioSamples[cow.currentOctave].assignedSoundForwardSlash ) }
 
-function keystrokeA() 				{ showDot(1); showDot(22); playAudioBasic( cow[cow.currentOctave].assignedSoundA ) }
-function keystrokeS() 				{ showDot(30); 	playAudioBasic( cow[cow.currentOctave].assignedSoundS ) }
-function keystrokeD() 				{ showDot(36); 	playAudioBasic( cow[cow.currentOctave].assignedSoundD ) }
-function keystrokeF() 				{ showDot(24); 	playAudioBasic( cow[cow.currentOctave].assignedSoundF ) }
-function keystrokeG() 				{ showDot(37); 	playAudioBasic( cow[cow.currentOctave].assignedSoundG ) }
-function keystrokeH() 				{ showDot(4); showDot(25); playAudioBasic( cow[cow.currentOctave].assignedSoundH ) }
-function keystrokeJ() 				{ showDot(32); 	playAudioBasic( cow[cow.currentOctave].assignedSoundJ ) }
-function keystrokeK() 				{ showDot(39);	playAudioBasic( cow[cow.currentOctave].assignedSoundK ) }
-function keystrokeL() 				{ showDot(33); 	playAudioBasic( cow[cow.currentOctave].assignedSoundL ) }
-function keystrokeSemicolon() 		{ showDot(40); 	playAudioBasic( cow[cow.currentOctave].assignedSoundSemicolon ) }
-function keystrokeHalfQuote() 		{ showDot(28); 	playAudioBasic( cow[cow.currentOctave].assignedSoundHalfQuote ) }
+function keystrokeA() 				{ showDot(1); showDot(22); playAudioBasic( audioSamples[cow.currentOctave].assignedSoundA ) }
+function keystrokeS() 				{ showDot(30); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundS ) }
+function keystrokeD() 				{ showDot(36); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundD ) }
+function keystrokeF() 				{ showDot(24); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundF ) }
+function keystrokeG() 				{ showDot(37); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundG ) }
+function keystrokeH() 				{ showDot(4); showDot(25); playAudioBasic( audioSamples[cow.currentOctave].assignedSoundH ) }
+function keystrokeJ() 				{ showDot(32); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundJ ) }
+function keystrokeK() 				{ showDot(39);	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundK ) }
+function keystrokeL() 				{ showDot(33); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundL ) }
+function keystrokeSemicolon() 		{ showDot(40); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundSemicolon ) }
+function keystrokeHalfQuote() 		{ showDot(28); 	playAudioBasic( audioSamples[cow.currentOctave].assignedSoundHalfQuote ) }
 
 
 
