@@ -148,19 +148,19 @@ function updateTutorialAudioPlayer() {
 	
 	// Load new audio file
 	switch ( cow.currentTutorialPage ) {
-		case 1: button2.setAttribute( 'onClick', "playAudio('https://www.rapanalysis.com/arcicembalo/Audio/voiceover1.mp3', this.id)" ); break;
-		case 2: button2.setAttribute( 'onClick', "playAudio('https://www.rapanalysis.com/arcicembalo/Audio/voiceover2.mp3', this.id)" ); break;
-		case 3: button2.setAttribute( 'onClick', "playAudio('https://www.rapanalysis.com/arcicembalo/Audio/voiceover3.mp3', this.id)" ); break;
-		case 4: button2.setAttribute( 'onClick', "playAudio('https://www.rapanalysis.com/arcicembalo/Audio/voiceover4.mp3', this.id)" ); break;
-		case 5: button2.setAttribute( 'onClick', "playAudio('https://www.rapanalysis.com/arcicembalo/Audio/voiceover5.mp3', this.id)" ); break;
-		case 6: button2.setAttribute( 'onClick', "playAudio('https://www.rapanalysis.com/arcicembalo/Audio/voiceover6.mp3', this.id)" ); break;
-		case 7: button2.setAttribute( 'onClick', "playAudio('https://www.rapanalysis.com/arcicembalo/Audio/voiceover7.mp3', this.id)" ); break;
-		case 8: button2.setAttribute( 'onClick', "playAudio('https://www.rapanalysis.com/arcicembalo/Audio/voiceover8.mp3', this.id)" ); break;
-		case 9: button2.setAttribute( 'onClick', "playAudio('https://www.rapanalysis.com/arcicembalo/Audio/voiceover9.mp3', this.id)" ); break;
-		case 10: button2.setAttribute( 'onClick', "playAudio('https://www.rapanalysis.com/arcicembalo/Audio/voiceover10.mp3', this.id)" ); break;
-		case 11: button2.setAttribute( 'onClick', "playAudio('https://www.rapanalysis.com/arcicembalo/Audio/voiceover11.mp3', this.id)" ); break;
-		case 12: button2.setAttribute( 'onClick', "playAudio('https://www.rapanalysis.com/arcicembalo/Audio/voiceover12.mp3', this.id)" ); break;
-		case 13: button2.setAttribute( 'onClick', "playAudio('https://www.rapanalysis.com/arcicembalo/Audio/voiceover13PlusBach.mp3', this.id)" ); break;
+		case 1: button2.setAttribute( 'onClick', "playAudio('https://www.taylorcalderone.com/frontendPortfolio/subpages/arcicembalo/Audio/voiceover1.mp3', this.id)" ); break;
+		case 2: button2.setAttribute( 'onClick', "playAudio('https://www.taylorcalderone.com/frontendPortfolio/subpages/arcicembalo/Audio/voiceover2.mp3', this.id)" ); break;
+		case 3: button2.setAttribute( 'onClick', "playAudio('https://www.taylorcalderone.com/frontendPortfolio/subpages/arcicembalo/Audio/voiceover3.mp3', this.id)" ); break;
+		case 4: button2.setAttribute( 'onClick', "playAudio('https://www.taylorcalderone.com/frontendPortfolio/subpages/arcicembalo/Audio/voiceover4.mp3', this.id)" ); break;
+		case 5: button2.setAttribute( 'onClick', "playAudio('https://www.taylorcalderone.com/frontendPortfolio/subpages/arcicembalo/Audio/voiceover5.mp3', this.id)" ); break;
+		case 6: button2.setAttribute( 'onClick', "playAudio('https://www.taylorcalderone.com/frontendPortfolio/subpages/arcicembalo/Audio/voiceover6.mp3', this.id)" ); break;
+		case 7: button2.setAttribute( 'onClick', "playAudio('https://www.taylorcalderone.com/frontendPortfolio/subpages/arcicembalo/Audio/voiceover7.mp3', this.id)" ); break;
+		case 8: button2.setAttribute( 'onClick', "playAudio('https://www.taylorcalderone.com/frontendPortfolio/subpages/arcicembalo/Audio/voiceover8.mp3', this.id)" ); break;
+		case 9: button2.setAttribute( 'onClick', "playAudio('https://www.taylorcalderone.com/frontendPortfolio/subpages/arcicembalo/Audio/voiceover9.mp3', this.id)" ); break;
+		case 10: button2.setAttribute( 'onClick', "playAudio('https://www.taylorcalderone.com/frontendPortfolio/subpages/arcicembalo/voiceover10.mp3', this.id)" ); break;
+		case 11: button2.setAttribute( 'onClick', "playAudio('https://www.taylorcalderone.com/frontendPortfolio/subpages/arcicembalo/voiceover11.mp3', this.id)" ); break;
+		case 12: button2.setAttribute( 'onClick', "playAudio('https://www.taylorcalderone.com/frontendPortfolio/subpages/arcicembalo/voiceover12.mp3', this.id)" ); break;
+		case 13: button2.setAttribute( 'onClick', "playAudio('https://www.taylorcalderone.com/frontendPortfolio/subpages/arcicembalo/voiceover13PlusBach.mp3', this.id)" ); break;
 		default: break;
 	}
 }
