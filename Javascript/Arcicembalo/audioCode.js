@@ -91,21 +91,21 @@ var cow = {
 
 
 function playAudioBasic( file ) {
-	var snd = new Audio( file ) 				// Loads file. Remember to use folder paths
+	let snd = new Audio( file ) 				// Loads file. Remember to use folder paths
 	snd.type = 'audio/wav'
 	snd.play()									// Plays file
 	displayCents( file )
 }
 
 function displayCents( file ) {					// Parses the audio filename for the cent variation
-	var q = file
-	var lastSpace = q.lastIndexOf(" ")			// Get the last space in the string
+	let q = file
+	let lastSpace = q.lastIndexOf(" ")			// Get the last space in the string
 	q = q.substring(lastSpace + 1, q.length - 4)// Cut out everything except the number we want
 	centsDisplay.innerHTML = q					// Update the textfield
 }
 
 function showDot ( number ) {
-	var q = "dot" + number
+	let q = "dot" + number
 	window[q].classList.add('dotFade')
 	setTimeout(function() { window[q].classList.remove('dotFade'); }, 1000)
 }
