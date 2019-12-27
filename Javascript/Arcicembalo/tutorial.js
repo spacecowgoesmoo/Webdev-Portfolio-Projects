@@ -1,4 +1,4 @@
-var cowTutorial = {
+const cowTutorial = {
 	
 	textBlock1: "Hello, and welcome to this interactive tutorial, which will slowly walk you through everything you need to know to play this digital arcicembalo. The arcicembalo was a medieval harpsichord that contained 31 keys in every octave, which enabled it to play thirds in just intonation in all 12 keys. This laser-like attention to small differences in frequency can help us draw a lot of incisive conclusions about our own musical culture, as dominated by equal temperament as some of them are. Unfortunately, the arcicembalo is now either lost to history or inaccessible to the public, so I've researched, created, and now released this digital rendering of it so that anyone can learn from and enjoy it as much as I do.",
 	
