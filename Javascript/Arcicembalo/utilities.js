@@ -9,8 +9,8 @@ function moo() {
 // Preloading in Safari does nothing at all, and it breaks the page a lot anyways
 // Preloading in IE/Edge is broken, but we can probably fix it given time
 function checkBrowserForPreloader() {
-	var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-	var isIE = '-ms-scroll-limit' in document.documentElement.style && '-ms-ime-align' in document.documentElement.style;
+	const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+	const isIE = '-ms-scroll-limit' in document.documentElement.style && '-ms-ime-align' in document.documentElement.style;
 	
 	if ( isSafari === true || isIE === true ){ unlockKeyboard() }
 	else { preloadFiles() }
@@ -20,7 +20,7 @@ function checkBrowserForPreloader() {
 
 
 function preloadFiles() {
-	var audioFiles = [
+	const audioFiles = [
 	"Audio/1 C2, -42.wav",
 	"Audio/1 C2, 0.wav",
 	"Audio/1 Csharp2, -24.wav",
@@ -98,7 +98,7 @@ function preloadFiles() {
 	];
 	
 	function preloadAudio(url) {
-	    var audio = new Audio();
+	    let audio = new Audio();
 		audio.type = 'audio/wav';
 	    // once this file loads, it will call loadedAudio()
 	    // the file will be kept by the browser as cache
@@ -106,7 +106,7 @@ function preloadFiles() {
 	    audio.src = url;
 	}
     
-	var loaded = 0;
+	let loaded = 0;
 	function loadedAudio() {
 	    // this will be called every time an audio file is loaded
 	    // we keep track of the loaded files vs the requested files
@@ -118,7 +118,7 @@ function preloadFiles() {
 	    }
 	}
     
-	var player = document.getElementById('cowPreloader');
+	let player = document.getElementById('cowPreloader');
 	function play(index) {
 	    player.src = audioFiles[index];
 		player.volume = 0
@@ -126,7 +126,7 @@ function preloadFiles() {
 	}
     
 	// we start preloading all the audio files
-	for (var i in audioFiles) {
+	for (let i in audioFiles) {
 	    preloadAudio(audioFiles[i]);
 	}
 }
