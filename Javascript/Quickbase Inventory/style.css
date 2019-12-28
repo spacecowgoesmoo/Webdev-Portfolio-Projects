@@ -1,5 +1,5 @@
 .header { display:inline; margin: 20px 0 0 20px; }
-   
+
 .invisible { display: none; }
 .visible { display: block; }
 
@@ -9,19 +9,18 @@
 body {
 	width: 90%;
 	max-width: 1000px;
-    padding-bottom: 40px;
-    /* centers everything */
-    margin: 0 auto;
-    }
+	padding-bottom: 40px;
+	margin: 0 auto;
+}
 	
 hr { margin-bottom: 20px; }
 
 /* Forces dataTables to not auto-resize columns */
 table {	table-layout: fixed; }
 
-.sorting_desc, .sorting_asc { width: 70%; }
+th:first-child { width: 70%; }
 
 @media screen and (max-width: 630px) {
 	.header { display: block; margin: 10px auto; text-align: center;}
-	.sorting_desc, .sorting_asc { width: 33%; }
+	th:first-child { width: 33%; }
 }
