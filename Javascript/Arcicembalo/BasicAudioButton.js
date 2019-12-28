@@ -1,6 +1,6 @@
 // BasicAudioButton.js
-// © Taylor Calderone, 2017
-// v1.1
+// © Taylor Calderone, 2017-2019
+// v1.2
 
 // INSTRUCTIONS
 // 1. Prepare some play/pause/loading button images
@@ -26,14 +26,14 @@
 
 
 // Set up button source images
-var playButtonIMG = 'Images/play.png';
-var pauseButtonIMG = 'Images/pause.png';
-var loadingButtonIMG = 'Images/loading.gif';
+const playButtonIMG = 'Images/play.png';
+const pauseButtonIMG = 'Images/pause.png';
+const loadingButtonIMG = 'Images/loading.png';
 
 // Sets all button images on the page to 'play'
 function resetAllSongButtons() {
-	var elements = document.getElementsByClassName('audioButton');
-	for (var i = 0; i < elements.length; i++) {
+	const elements = document.getElementsByClassName('audioButton');
+	for (let i = 0; i < elements.length; i++) {
 	    elements[i].src = playButtonIMG;
 	}
 }
@@ -42,12 +42,12 @@ function initializeBasicAudioButtonJS() {
 	resetAllSongButtons();
 	
 	// Set up the CSS (so that we don't need a separate CSS file)
-	var extraCSS = document.createElement('style');
+	const extraCSS = document.createElement('style');
 	extraCSS.innerHTML = ".audioButton { height:30.6px; vertical-align: top; } .audioButton:hover { cursor:pointer; }";
 	document.body.appendChild(extraCSS);
 	
 	// Create the invisible audioPlayer
-	var extraAudioTag = document.createElement('audio');
+	const extraAudioTag = document.createElement('audio');
 	extraAudioTag.id = 'audioPlayer';
 	document.body.appendChild(extraAudioTag);
 }
