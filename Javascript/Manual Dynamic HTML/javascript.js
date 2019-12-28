@@ -13,7 +13,7 @@ function enumerate() { v=arguments;s={all:[],keys:v};for(i=v.length;i--;)s[v[i]]
 
 function loadCSS(q) {
 	disableButton(q, 'CSS');
-	var r = 'style' + q
+	const r = 'style' + q
 	loadCSSThemeHere.innerHTML = '<link rel="stylesheet" href="' + r + '.css">';
 }
 
@@ -22,14 +22,14 @@ function loadCSS(q) {
 
 function disableButton(buttonNumber, set) {
 	// Enable all buttons within the selected set
-	var buttons = document.getElementsByTagName('button');
+	const buttons = document.getElementsByTagName('button');
 	switch (set) {
-		case 'jobs': for (var q=0; q<3; q++) { buttons[q].disabled = false; } break;		// Fragile/fast method to divide the buttons into sets
-		case 'CSS':	for (var q=3; q<6; q++) { buttons[q].disabled = false; } break;			// Fragile/fast method to divide the buttons into sets
+		case 'jobs': for (let q=0; q<3; q++) { buttons[q].disabled = false; } break;		// Fragile/fast method to divide the buttons into sets
+		case 'CSS':	for (let q=3; q<6; q++) { buttons[q].disabled = false; } break;			// Fragile/fast method to divide the buttons into sets
 		default: break;
 	}
 	// Disable the one we just clicked
 	if (set == 'CSS') { buttonNumber += 3 }													// Fragile/fast method to divide the buttons into sets
-	var q = 'button' + buttonNumber
+	const q = 'button' + buttonNumber
 	document.getElementById(q).disabled = true
 }
