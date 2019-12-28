@@ -258,6 +258,7 @@ th { height: 50px; }
 }
 
 #emailMeContainer input[type="submit"] {
+    -webkit-appearance: none;	/* Prevents iOS auto-styling */
     background-color: #1377BE;
     color: #F9F9F9;
     box-sizing: content-box;
@@ -362,7 +363,7 @@ th { height: 50px; }
 	padding: 10px;
 }
 
-#tutorialCloseButton { 			/*WARNING: Really complicated */
+#tutorialCloseButton { 			/* WARNING: Really complicated */
 	position: absolute;
 	left: calc(50% + 243px);
 	top: -17px;
