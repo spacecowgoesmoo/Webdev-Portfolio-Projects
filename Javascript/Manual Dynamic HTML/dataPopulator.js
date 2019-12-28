@@ -8,7 +8,7 @@ function populatePageWithData(jobNumber) {
 	// // // // // //
 	
 	// Grab the selected job using dynamic variable names
-	var job = window['job' + jobNumber];
+	const job = window['job' + jobNumber];
 	
 	// Clear whatever's on the page
 	// The header doesn't need to be cleared
@@ -17,30 +17,30 @@ function populatePageWithData(jobNumber) {
 	// Tab management
 	disableButton(jobNumber, 'jobs');
 	
-	for (var a in job) {
+	for (let a in job) {
 		// Manually skip one or more items
 		if (a != 'headline') {
 			// Create the category div
-			var categoryDiv = document.createElement('div');
+			let categoryDiv = document.createElement('div');
 			categoryDiv.id = a;
 			categoryDiv.className = 'verticalSpacer20';
 			jobContent.appendChild(categoryDiv);
 			// Create the category div text header
-			var categoryDivText = document.createElement('div');
+			let categoryDivText = document.createElement('div');
 			categoryDivText.innerHTML = capitalizeFirstLetter(a);
 			categoryDivText.className = 'jobCategoryHeader';
 			categoryDiv.appendChild(categoryDivText);
 			
 			// Iterate through the next object depth and populate the category div
-			for (var b in job[a]) { 
+			for (let b in job[a]) { 
 				// Grab object rowValues
-				var rowValue = job[a][b];
+				let rowValue = job[a][b];
 				// Make booleans more human readable
 				if (rowValue === true) { rowValue = "Yes"; }
 				if (rowValue === false) { rowValue = "No"; }
 				
 				// Create, populate, and inject the individual HTML rows
-				var row = document.createElement('div');
+				let row = document.createElement('div');
 				row.id = b;
 				row.innerHTML = capitalizeFirstLetter(b) + ': ' + rowValue;
 				categoryDiv.appendChild(row);
@@ -48,7 +48,7 @@ function populatePageWithData(jobNumber) {
 				// Bunch of extra stuff for oneof's
 				if (job[a][b].oneof) {
 					row.innerHTML = capitalizeFirstLetter(b) + ' (one of the following) - ';
-					for (var c in job[a][b].oneof) {
+					for (let c in job[a][b].oneof) {
 						row.innerHTML += capitalizeFirstLetter(c) + ': ' + job[a][b].oneof[c] + ', ';
 					}
 					// Remove the trailing comma from the last item
@@ -80,7 +80,7 @@ function populatePageWithData(jobNumber) {
 	// Other
 	other.innerHTML = '<div class="jobCategoryHeader">Other</div>';
 	for (a in job.other) {
-		var row = document.createElement('div');
+		let row = document.createElement('div');
 		row.innerHTML = capitalizeFirstLetter(job.other[a]);
 		other.appendChild(row);
 	}
