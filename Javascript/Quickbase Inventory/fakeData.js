@@ -1,4 +1,4 @@
-var qdb_data = [
+const qdb_data = [
 	['Macbook Pro', 59784, 1],
 	['Macbook Pro', 59785, 0],
 	['Macbook Pro', 59786, 1],
