@@ -107,7 +107,7 @@ div { cursor: default; }
 #iframeBorder {
 	/* Center onscreen */
 	position: relative;
-	top: 75px;
+	top: 25;
 	left: calc(50% - 450px);
 	/* Transcend border */
 	border: 2px solid #617581;
@@ -272,11 +272,7 @@ select:disabled::-ms-expand { background: #f60; }
 	}
 }
 
-/* NOTE - Switching from portrait to landscape breaks height a bit. */
-/* This might affects iPads etc, but I only have an iPhone 5S to test with */
-/* Setting a fixed height solves it */
 @media screen and (max-width: 320px) {
 	#timeButtons { width: 170px; line-height: 30px; top: 29px; }
-	#smaLabels { top: 83px; }
-	#iFrameBorder { height: 400px; }
+	#smaLabels { top: 90px; }
 }
