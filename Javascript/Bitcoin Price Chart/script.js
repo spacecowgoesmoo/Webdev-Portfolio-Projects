@@ -726,11 +726,12 @@ function drawSMA(sampleSize, color) {
 		const inverter = cow.priceMax;											// This is a bunch of y-axis code copypasted from convertDollarsToPixels()
 		const expander = (cow.priceMin / cow.priceSpread) + 1;					//////////
 		let pixels = (inverter - cow['smaPoints'+sampleSize][q]) * expander;	//////////
-		pixels = (pixels / cow.priceMax) * (cow.iframeHeight - 50); 			//////////
+		pixels = Math.round((pixels / cow.priceMax) * (cow.iframeHeight - 50)); //////////
 
 		const qPixels = 2480 + cow.iframeWidth - (q * 9);										// Calculate X coordinate
 		pointSet += roundTo(qPixels, 9) - 2 + " " + pixels + ", ";								// Add point to the point container
 	}
+	pointSet = pointSet.slice(0, -2)															// Remove trailing comma
 
 	smaPolyline.setAttribute('points', pointSet);												// Attach attributes to the SVG
 	smaPolyline.setAttribute('stroke', color);
