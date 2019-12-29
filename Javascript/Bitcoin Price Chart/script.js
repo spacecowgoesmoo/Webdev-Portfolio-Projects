@@ -57,7 +57,7 @@ function deleteAllOfClass(q) {
 	// IMPORTANT: We have to iterate the loops backwards, because the HTMLCollection updates itself instantly on every action
 	// Meaning that the element indices change midloop, meaning that half of the get skipped
 	var q = document.getElementsByClassName(q);
-	for (var r=q.length; r>0; r--) { q[0].remove(); }
+	for (let r=q.length; r>0; r--) { q[0].remove(); }
 }
 
 // Time button functionality goes here instead of the HTML, because basic onClick doesn't work on iOS
@@ -116,7 +116,7 @@ function initializeJqueryListeners() {
 
 	// Get window sizes
 	getWindowSize();
-	var resizeTimer;
+	let resizeTimer;
 	// And resample them on resize
 	// The extra timeout stuff makes this only fire once, after resizing has stopped for 200 milliseconds
 	$( window.parent ).on('resize', function() {
@@ -195,7 +195,7 @@ function mouseupCursorStuff() {
 function initializeCursorLines() {
 	// DELETE the lines if they exist already
 	// We're redrawing these so that they stay on top of the candles (z index)
-	var zzz = document.getElementById("cursorVline");
+	const zzz = document.getElementById("cursorVline");
  	if (zzz !== null) {
 		containerSVG.removeChild(cursorVline);
 		containerSVG.removeChild(cursorHline);
@@ -216,15 +216,15 @@ function initializeCursorLines() {
 	// containerSVG.appendChild(verticalLine);
 
 	// Create parent for the dotted vertical lines
-	var vLineContainer = document.createElementNS(cow.svgNamespace, 'svg');
+	const vLineContainer = document.createElementNS(cow.svgNamespace, 'svg');
 	vLineContainer.setAttribute('width', 10);
 	vLineContainer.setAttribute('height', 550);
 	vLineContainer.id = 'cursorVline';
 	containerSVG.appendChild(vLineContainer);
 
 	// Draw dotted vertical lines
-	for (var q=0; q<55; q++) {
-		var verticalLine = document.createElementNS(cow.svgNamespace, 'rect');
+	for (let q=0; q<55; q++) {
+		const verticalLine = document.createElementNS(cow.svgNamespace, 'rect');
 		verticalLine.setAttribute('fill', '#9D9328');
 		verticalLine.setAttribute('width', 1);
 		verticalLine.setAttribute('height', 5);
@@ -235,7 +235,7 @@ function initializeCursorLines() {
 	}
 
 	// Draw solid horizontal line
-	var horizontalLine = document.createElementNS(cow.svgNamespace, 'rect');
+	const horizontalLine = document.createElementNS(cow.svgNamespace, 'rect');
 	horizontalLine.setAttribute('fill', '#9D9328');
 	horizontalLine.setAttribute('width', 3382);
 	horizontalLine.setAttribute('height', 1);
@@ -246,7 +246,7 @@ function initializeCursorLines() {
 	containerSVG.appendChild(horizontalLine);
 
 	// Draw price cursor border
-	var pcb = document.createElementNS(cow.svgNamespace, 'rect');
+	const pcb = document.createElementNS(cow.svgNamespace, 'rect');
 	pcb.setAttribute('fill', '#9D9328');
 	pcb.setAttribute('width', 70);
 	pcb.setAttribute('height', 20);
@@ -256,7 +256,7 @@ function initializeCursorLines() {
 	rightPane.appendChild(pcb);
 
 	// Draw price cursor fill
-	var pcf = document.createElementNS(cow.svgNamespace, 'rect');
+	const pcf = document.createElementNS(cow.svgNamespace, 'rect');
 	pcf.setAttribute('fill', '#16384A');
 	pcf.setAttribute('width', 68);
 	pcf.setAttribute('height', 18);
@@ -267,7 +267,7 @@ function initializeCursorLines() {
 
 	// Draw price cursor text
 	// Probably doesn't need to be SVG..
-	var pct = document.createElementNS(cow.svgNamespace, 'text');
+	const pct = document.createElementNS(cow.svgNamespace, 'text');
 	pct.setAttribute('x', 10);
 	pct.setAttribute('y', 1000000);
 	pct.setAttribute('fill', '#9D9328');
@@ -346,11 +346,11 @@ function respawnCursor() {
 
 // Draw vertical grid lines, drawing from right to left
 function drawVerticalLines() {
-	for (var q=23; q>0; q-=1) {
-		var qPixels = 2478 + cow.iframeWidth - ((23 - q) * 147);
+	for (let q=23; q>0; q-=1) {
+		let qPixels = 2478 + cow.iframeWidth - ((23 - q) * 147);
 		qPixels = roundTo(qPixels, 9);
 
-		var verticalLine = document.createElementNS(cow.svgNamespace, 'rect');
+		const verticalLine = document.createElementNS(cow.svgNamespace, 'rect');
 		verticalLine.setAttribute('fill', '#1E465B');
 		verticalLine.setAttribute('x', qPixels);
 		verticalLine.setAttribute('y', 0);
@@ -366,10 +366,10 @@ function drawVerticalLines() {
 
 // Draw horizontal grid lines
 function drawHorizontalLines() {
-	for (var q=0; q<12; q+=1) {
-		var qPixels = q * 50;
+	for (let q=0; q<12; q+=1) {
+		const qPixels = q * 50;
 
-		var horizontalLine = document.createElementNS(cow.svgNamespace, 'rect');
+		const horizontalLine = document.createElementNS(cow.svgNamespace, 'rect');
 		horizontalLine.setAttribute('fill', '#1E465B');
 		horizontalLine.setAttribute('x', 0);
 		horizontalLine.setAttribute('y', qPixels - 1);
@@ -394,21 +394,21 @@ function drawTimeMarkers(timescale) {
 		default: break;
 	}
 
-	for (var q=22; q>0; q-=1) {											// NOTE - r.getMonth is base zero. Use +1
+	for (let q=22; q>0; q-=1) {											// NOTE - r.getMonth is base zero. Use +1
 		// Basic method, for cow.iframeWidth == 900 only
-		//var qPixels = q * 147;
+		//let qPixels = q * 147;
 
-		var qPixels = 2478 + cow.iframeWidth - ((23 - q) * 147);
+		let qPixels = 2478 + cow.iframeWidth - ((23 - q) * 147);
 		qPixels = roundTo(qPixels, 9);
 
 		if (timescaleToDays == '7days') {
-			var r = ((-q+23) * 16).days().ago();						// Grab the date for the next draw
+			const r = ((-q+23) * 16).days().ago();						// Grab the date for the next draw
 			cow.cowDate = (r.getMonth() + 1) + ' / ' + r.getDate();		// Increment the global variable
 		} else {
 			// Else, we track it by minutes
-			var r = ((-q+23) * timescaleToDays * 16).minutes().ago();	// Grab the date for the next draw
-			var hours = r.getHours();
-			var minutes = r.getMinutes();
+			const r = ((-q+23) * timescaleToDays * 16).minutes().ago();	// Grab the date for the next draw
+			const hours = r.getHours();
+			let minutes = r.getMinutes();
 			if (minutes.toString().length < 2) { minutes = '0' + minutes; }// Add leading zeroes to 10:04, for example
 			cow.cowDate = hours + ':' + minutes;						// Increment the global variable
 
@@ -419,7 +419,7 @@ function drawTimeMarkers(timescale) {
 			cow.dateTracker = r.getDate();								// Reset the variable to track it next time
 		}
 
-		var timeText = document.createElementNS(cow.svgNamespace, 'text');
+		const timeText = document.createElementNS(cow.svgNamespace, 'text');
 		// Draw text
 		timeText.textContent = cow.cowDate;
 		timeText.classList.add('svgTimeText');
@@ -429,7 +429,7 @@ function drawTimeMarkers(timescale) {
 
 		// Get text offset (only works after the DOM element has been appended/created)
 		// This changes the text from align-left to align-center
-		var textOffset = timeText.getBBox().width / 2;
+		const textOffset = timeText.getBBox().width / 2;
 
 		// Place element
 		timeText.setAttribute('x', qPixels - textOffset);
@@ -444,13 +444,13 @@ function drawTimeMarkers(timescale) {
 function drawPriceMarkers() {
 	var numberOfMarkers = Math.floor(((cow.iframeHeight - 75) / 50).toFixed(0));
 
-	for (var q=0; q<numberOfMarkers; q+=1) {
-		var qPixels = (q * 50) + 54;
+	for (let q=0; q<numberOfMarkers; q+=1) {
+		const qPixels = (q * 50) + 54;
 
-		//var z = cow.priceMax - (cow.priceSpread / numberOfMarkers) * (q + 1);		// Works, but is only accurate on chart multiples of 50 px
-		var z = cow.priceMax - ((q + 1) * 50 * cow.dollarsPerPixel);				// Accurate to the pixel
+		//const z = cow.priceMax - (cow.priceSpread / numberOfMarkers) * (q + 1);	// Works, but is only accurate on chart multiples of 50 px
+		const z = cow.priceMax - ((q + 1) * 50 * cow.dollarsPerPixel);				// Accurate to the pixel
 
-		var priceText = document.createElementNS(cow.svgNamespace, 'text');
+		const priceText = document.createElementNS(cow.svgNamespace, 'text');
 		priceText.setAttribute('x', 10);
 		priceText.setAttribute('y', qPixels);
 		priceText.textContent = '$' + z.toFixed(0);
@@ -539,26 +539,27 @@ function resetBackToStartOfChart() {
 
 function loadPriceDataAndRedraw(timescale, currency) {
 	// Set timescale for the API call (numbers are in seconds)
+	let t;
 	switch (timescale) {
-		case '1dButton': 	var t = 86400; 	break;
-		case '1hButton': 	var t = 3600; 	break;
-		case '15mButton': 	var t = 900; 	break;
-		case '5mButton': 	var t = 300; 	break;
-		case '1mButton': 	var t = 60; 	break;
+		case '1dButton': 	t = 86400;	break;
+		case '1hButton': 	t = 3600; 	break;
+		case '15mButton': 	t = 900; 	break;
+		case '5mButton': 	t = 300; 	break;
+		case '1mButton': 	t = 60; 	break;
 		default: break;
 	}
 
 	// Format selected currency
-	var c = currency.toUpperCase();
+	const c = currency.toUpperCase();
 
 	// Get start and end dates
 	// NOTE: Date manipulation is using date.js
 	// ISO 8601 format
 	// Coinbase requires both start and end or it ignores them both, for some reason
 	// url1 is what appears onLoad. url2 is the older data for the SMAs
-	var end1 = new Date		// aka, the exact second the page is loaded. No changes required
-	var start1end2 = new Date
-	var start2 = new Date
+	let end1 = new Date		// aka, the exact second the page is loaded. No changes required
+	let start1end2 = new Date
+	let start2 = new Date
 	switch (timescale) {
 		case '1dButton': 	start1end2.addDays(-300); 		start2.addDays(-600); 		break;
 		case '1hButton': 	start1end2.addHours(-300); 		start2.addHours(-600); 		break;
@@ -574,9 +575,9 @@ function loadPriceDataAndRedraw(timescale, currency) {
 	start2 = start2.toISOString()
 
 	// Load price data from Coinbase Pro
-	var url1 = 'https://api.pro.coinbase.com/products/' + c + '-USD/candles?start=' + start1end2 + '&end=' + end1 + '&granularity=' + t;
- 	var url2 = 'https://api.pro.coinbase.com/products/' + c + '-USD/candles?start=' + start2 + '&end=' + start1end2 + '&granularity=' + t;
-	var urlCurrent = 'https://api.pro.coinbase.com/products/' + c + '-USD/ticker';
+	const url1 = 'https://api.pro.coinbase.com/products/' + c + '-USD/candles?start=' + start1end2 + '&end=' + end1 + '&granularity=' + t;
+ 	const url2 = 'https://api.pro.coinbase.com/products/' + c + '-USD/candles?start=' + start2 + '&end=' + start1end2 + '&granularity=' + t;
+	const urlCurrent = 'https://api.pro.coinbase.com/products/' + c + '-USD/ticker';
 
 	// GET the two datasets in order, then calculate the current price, then perform the rest of the code:
 	// GETs are nested to make them load in the intended order
@@ -587,8 +588,8 @@ function loadPriceDataAndRedraw(timescale, currency) {
    			cow.coinbaseData = cow.coinbaseData.concat(data2);			
 
 			$.get(urlCurrent, function(data3) {
-				var q = Number(data3.price);											// Get up-to-the-second price
-				var currentPrice = [0, q, q, cow.coinbaseData[0][4], q, 0];				// Prepare the array entry, shortcuts used for low/high
+				const q = Number(data3.price);											// Get up-to-the-second price
+				const currentPrice = [0, q, q, cow.coinbaseData[0][4], q, 0];			// Prepare the array entry, shortcuts used for low/high
 				cow.coinbaseData.unshift(currentPrice);									// Add it to cow.coinbaseData
 				// NOTE ON ABOVE CODE: I'm not sure why low/high seem to produce accurate results with q just plugged into both of them
 				// I did that because having them at 0 was wrecking the chart scaling
@@ -631,17 +632,17 @@ function loadPriceDataAndRedraw(timescale, currency) {
 
 function calculateSMA(sampleSize) {
 	// Get chart position
-	var arrayStartingPosition = (2552 - cow.xPosition) / 9;
-	var ASP = arrayStartingPosition.toFixed(0) * 1;			// Accuracy drifts by one candle towards the very end of the chart, but that's fine
+	const arrayStartingPosition = (2552 - cow.xPosition) / 9;
+	const ASP = arrayStartingPosition.toFixed(0) * 1;		// Accuracy drifts by one candle towards the very end of the chart, but that's fine
 															// This breaks without the *= 1 for some reason
 
-	for (var q=cow.numberOfCandles; q>0; q--) {													// For each candle..
-		var sum = 0;
-		for (var i=0; i<sampleSize; i++) { 														// ..for the requested number of sampleSize..
-			if (cow.coinbaseData[q+i] != null) { sum += cow.coinbaseData[q+i][4]; }				// ..calculate the sum of the past X price closes
+	for (let q=cow.numberOfCandles; q>0; q--) {										// For each candle..
+		let sum = 0;
+		for (let i=0; i<sampleSize; i++) { 											// ..for the requested number of sampleSize..
+			if (cow.coinbaseData[q+i] != null) { sum += cow.coinbaseData[q+i][4]; }	// ..calculate the sum of the past X price closes
 		}
-		var smaPoint = sum / sampleSize;														// Then take the average
-		cow['smaPoints'+sampleSize].unshift(smaPoint);											// Add the point to the array
+		const smaPoint = sum / sampleSize;											// Then take the average
+		cow['smaPoints'+sampleSize].unshift(smaPoint);								// Add the point to the array
 	}
 }
 
@@ -650,15 +651,15 @@ function calculateSMA(sampleSize) {
 
 function getOnscreenSMA() {
 	// Get chart position
-	var arrayStartingPosition = (2552 - cow.xPosition) / 9;
-	var ASP = arrayStartingPosition.toFixed(0) * 1;						// Accuracy drifts by one candle towards the very end of the chart, but that's fine
+	const arrayStartingPosition = (2552 - cow.xPosition) / 9;
+	const ASP = arrayStartingPosition.toFixed(0) * 1;					// Accuracy drifts by one candle towards the very end of the chart, but that's fine
 																		// This breaks without the *= 1 for some reason
 	
-	var onscreenCandles = cow.iframeWidth / 9;
+	const onscreenCandles = cow.iframeWidth / 9;
 	
 	cow.smaYpointsOnscreen = [];										// Clear the global variable
 
-	for (var q=cow.numberOfCandles; q>0; q--) {							// For each candle..
+	for (let q=cow.numberOfCandles; q>0; q--) {							// For each candle..
 		if (q < ASP + onscreenCandles && q > ASP) { 					// ..if it's onscreen..
 			cow.smaYpointsOnscreen.push(cow.smaPoints50[q]);			// ..add the point from all three SMAs to the Array.
 			cow.smaYpointsOnscreen.push(cow.smaPoints100[q]);
@@ -672,8 +673,8 @@ function getOnscreenSMA() {
 
 function calculateCandleVariables() {
 	// Get chart position
-	var arrayStartingPosition = (2552 - cow.xPosition) / 9;
-	var ASP = arrayStartingPosition.toFixed(0) * 1;			// Accuracy drifts by one candle towards the very end of the chart, but that's fine
+	const arrayStartingPosition = (2552 - cow.xPosition) / 9;
+	const ASP = arrayStartingPosition.toFixed(0) * 1;		// Accuracy drifts by one candle towards the very end of the chart, but that's fine
 															// This breaks without the *= 1 for some reason
 
 	// Detect number of onscreen candles. Allows the chart to draw with a variable amount of data
@@ -690,7 +691,7 @@ function calculateCandleVariables() {
 	} else {
 
 		// Set cow.priceMin
-		var tempArray = [];
+		let tempArray = [];
 		for (i=ASP; i<cow.indexOfOnscreenCandles; i++) { tempArray.push(cow.coinbaseData[i][1]); }	// Create array of all the candle lows onscreen
 		tempArray = tempArray.concat(cow.smaYpointsOnscreen);									// Add in the SMA Y data
 		cow.priceMin = Math.min.apply(Math, tempArray);											// Find the highest one
@@ -716,18 +717,18 @@ function calculateCandleVariables() {
 function drawSMA(sampleSize, color) {
 	// Draw data to the chart, from present to past
 	// The data array is also ordered from present to past
-	var numberOfCandles = cow.numberOfCandles -1;												// Compensates for index beginning at zero
+	const numberOfCandles = cow.numberOfCandles -1;												// Compensates for index beginning at zero
 
-	var smaPolyline = document.createElementNS(cow.svgNamespace, 'polyline');					// Create SVG element
-	var pointSet = "";																			// Prepare point container variable
+	const smaPolyline = document.createElementNS(cow.svgNamespace, 'polyline');					// Create SVG element
+	let pointSet = "";																			// Prepare point container variable
 
-	for (var q=numberOfCandles; q>0; q--) {
-		var inverter = cow.priceMax;											// This is a bunch of y-axis code copypasted from convertDollarsToPixels()
-		var expander = (cow.priceMin / cow.priceSpread) + 1;					//////////
-		var pixels = (inverter - cow['smaPoints'+sampleSize][q]) * expander;	//////////
+	for (let q=numberOfCandles; q>0; q--) {
+		const inverter = cow.priceMax;											// This is a bunch of y-axis code copypasted from convertDollarsToPixels()
+		const expander = (cow.priceMin / cow.priceSpread) + 1;					//////////
+		let pixels = (inverter - cow['smaPoints'+sampleSize][q]) * expander;	//////////
 		pixels = (pixels / cow.priceMax) * (cow.iframeHeight - 50); 			//////////
 
-		var qPixels = 2480 + cow.iframeWidth - (q * 9);											// Calculate X coordinate
+		const qPixels = 2480 + cow.iframeWidth - (q * 9);										// Calculate X coordinate
 		pointSet += roundTo(qPixels, 9) - 2 + " " + pixels + ", ";								// Add point to the point container
 	}
 
@@ -745,17 +746,19 @@ function drawSMA(sampleSize, color) {
 function drawCandles(backToStart) {
 	// Chart formula pieces. IMPORTANT!
 	// Note: We manipulate this number as $$$, then as pixels after the switch(). Know which one it is at all times or it will break
-	var inverter = cow.priceMax;							// This inverts the $$$ Y axis because pixels are drawn vertically from the top
-	var expander = (cow.priceMin / cow.priceSpread) + 1;	// This is the main formula for expanding a graph to fit cow.priceSpread
+	const inverter = cow.priceMax;							// This inverts the $$$ Y axis because pixels are drawn vertically from the top
+	const expander = (cow.priceMin / cow.priceSpread) + 1;	// This is the main formula for expanding a graph to fit cow.priceSpread
 
 	function convertDollarsToPixels(q, item) {
+		let pixels;
+		let scale550;
 		switch (item) {										// These are the value calculations in $$$
-			case 'greenY': 		var pixels = (inverter - cow.coinbaseData[q][4]) * expander;	var scale550 = true; 	break;
-			case 'redY': 		var pixels = (inverter - cow.coinbaseData[q][3]) * expander;	var scale550 = true; 	break;
-			case 'wickY': 		var pixels = (inverter - cow.coinbaseData[q][2]) * expander;	var scale550 = true; 	break;
-			case 'greenHeight': var pixels = cow.coinbaseData[q][4] - cow.coinbaseData[q][3];		var scale550 = false; 	break;
-			case 'redHeight': 	var pixels = cow.coinbaseData[q][3] - cow.coinbaseData[q][4];		var scale550 = false; 	break;
-			case 'wickHeight':  var pixels = cow.coinbaseData[q][2] - cow.coinbaseData[q][1]; 		var scale550 = false; 	break;
+			case 'greenY': 		pixels = (inverter - cow.coinbaseData[q][4]) * expander;	scale550 = true; 	break;
+			case 'redY': 		pixels = (inverter - cow.coinbaseData[q][3]) * expander;	scale550 = true; 	break;
+			case 'wickY': 		pixels = (inverter - cow.coinbaseData[q][2]) * expander;	scale550 = true; 	break;
+			case 'greenHeight': pixels = cow.coinbaseData[q][4] - cow.coinbaseData[q][3];	scale550 = false; 	break;
+			case 'redHeight': 	pixels = cow.coinbaseData[q][3] - cow.coinbaseData[q][4];	scale550 = false; 	break;
+			case 'wickHeight':  pixels = cow.coinbaseData[q][2] - cow.coinbaseData[q][1]; 	scale550 = false; 	break;
 			default: break;
 		}
 		if (scale550 == true) 	{ pixels = (pixels / cow.priceMax) * (cow.iframeHeight - 50); }				// Converts $$$ to pixels
@@ -766,13 +769,13 @@ function drawCandles(backToStart) {
 
 	// Draw data to the chart, from present to past
 	// The data array is also ordered from present to past
-	var numberOfCandles = cow.numberOfCandles -1;												// Compensates for index beginning at zero
+	const numberOfCandles = cow.numberOfCandles -1;												// Compensates for index beginning at zero
 
-	for (var q=numberOfCandles; q>0; q--) {
-		var qPixels = 2478 + cow.iframeWidth - (q * 9);
+	for (let q=numberOfCandles; q>0; q--) {
+		const qPixels = 2478 + cow.iframeWidth - (q * 9);
 
 		// Open and Close
-		var priceCandleBody = document.createElementNS(cow.svgNamespace, 'rect');
+		const priceCandleBody = document.createElementNS(cow.svgNamespace, 'rect');
 		priceCandleBody.setAttribute('x', roundTo(qPixels, 9) - 2);
 		priceCandleBody.setAttribute('width', 5);
 		if (cow.coinbaseData[q][4] > cow.coinbaseData[q][3]) {									// Green candle
@@ -787,7 +790,7 @@ function drawCandles(backToStart) {
 		containerSVG.appendChild(priceCandleBody);
 
 		// High and Low
-		var priceCandleWick = document.createElementNS(cow.svgNamespace, 'rect');
+		const priceCandleWick = document.createElementNS(cow.svgNamespace, 'rect');
 		priceCandleWick.setAttribute('x', roundTo(qPixels, 9));
 		priceCandleWick.setAttribute('width', 1);
 		priceCandleWick.setAttribute('y', convertDollarsToPixels(q, 'wickY'));					// High, top of rect
