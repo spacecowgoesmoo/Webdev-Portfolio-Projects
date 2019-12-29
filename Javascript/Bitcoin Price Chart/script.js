@@ -385,6 +385,7 @@ function drawHorizontalLines() {
 
 // Draw time markers
 function drawTimeMarkers(timescale) {
+	let timescaleToDays;
 	switch (timescale) {
 		case '1dButton': 	timescaleToDays = '7days'; 	break;
 		case '1hButton': 	timescaleToDays = 60; 		break;
