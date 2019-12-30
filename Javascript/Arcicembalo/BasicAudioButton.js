@@ -1,14 +1,13 @@
 // BasicAudioButton.js
 // © Taylor Calderone, 2017-2019
-// v1.2
+// v1.3
 
 // INSTRUCTIONS
 // 1. Prepare some play/pause/loading button images
-// 2. Set up the image sources in this JS file. Lines 29 - 31
-// 3. Customize the CSS, if desired. Line 46
-// 4. Load the JS file in your HTML: `<script src='BasicAudioButton.js'></script>`
-// 5. Initialize the library: `<body onload="initializeBasicAudioButtonJS();">`
-// 6. Add your AudioButtons to your HTML as follows. (Use absolute filepaths or pausing won't work correctly.)
+// 2. Set up the image sources in this JS file. Lines 28 - 30
+// 3. Customize the CSS, if desired. Line 48
+// 4. Insert the JS file at the bottom of your HTML: <script src='BasicAudioButton.js'></script>
+// 5. Add your AudioButtons to your HTML as follows. (Use absolute filepaths or pausing won't work correctly.)
 
 // HTML USAGE EXAMPLES
 // <img id='button1' class='audioButton' onclick='playAudio("http://www.cow.com/audio1.mp3", this.id);'>
@@ -29,6 +28,9 @@
 const playButtonIMG = 'Images/play.png';
 const pauseButtonIMG = 'Images/pause.png';
 const loadingButtonIMG = 'Images/loading.png';
+
+// Initialize
+initializeBasicAudioButtonJS();
 
 // Sets all button images on the page to 'play'
 function resetAllSongButtons() {
