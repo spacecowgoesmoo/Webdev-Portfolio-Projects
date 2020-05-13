@@ -1,1 +1,20 @@
-{"showFPS": true, "noCache": true, "frameRate": 10, "project_type": "javascript", "debugMode": 1, "renderMode": 2, "id": "gameCanvas"}
+{
+    "project_type": "javascript",
+
+    "debugMode" : 1,
+    "showFPS" : true,
+    "frameRate" : 10,
+    "noCache" : true,
+    "id" : "gameCanvas",
+    "renderMode" : 2,
+    "engineDir":"frameworks/cocos2d-html5",
+
+    "modules" : ["cocos2d"],
+
+    "jsList" : [
+        "src/resource.js",
+        "src/app.js",
+        "src/myCode.js",
+        "src/pathfindingAlgorithm.js"
+    ]
+}

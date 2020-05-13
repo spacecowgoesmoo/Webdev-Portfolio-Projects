@@ -1,0 +1,12 @@
+IF TIME ALLOWS
+Use nicer png tiles
+Smoothly animate the player, crank the FPS back up to 60
+
+
+
+
+Source Code (four mazes included) -
+https://github.com/spacecowgoesmoo/cocos2DX-Test
+
+Live Release build -
+https://www.taylorcalderone.com/Filehosting/cocos2dxTest/index.html
