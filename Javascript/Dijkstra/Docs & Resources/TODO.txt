@@ -1,12 +1,9 @@
-IF TIME ALLOWS
-Use nicer png tiles
-Smoothly animate the player, crank the FPS back up to 60
-
-
-
-
-Source Code (four mazes included) -
-https://github.com/spacecowgoesmoo/cocos2DX-Test
-
-Live Release build -
-https://www.taylorcalderone.com/Filehosting/cocos2dxTest/index.html
+Increase FPS a bit
+Remove the debug window, keep the loading splash so they know this cocos2DX
+Merge github repo with the rest of the frontend samples
+Build exceptions for dev folders
+Desaturate sprites because of gba colors
+Smoother movement
+Game loops (recap)
+Classes (javascript etc)
+Modernize the architecture, MAYBE email ruslan for feedback
