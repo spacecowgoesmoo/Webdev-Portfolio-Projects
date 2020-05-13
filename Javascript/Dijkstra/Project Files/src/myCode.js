@@ -115,25 +115,29 @@ function createPlayer(targetLayer, mazeObject) {
 
 
 function animateSolution(targetLayer, mazeObject) {
-	var interval = 25;
+	var pixels = 25;	// pixels per movement step
+	var speed = 0.35; 	// seconds per movement step
 
 	for (var i=0; i<mazeObject.shortestPath.length; i++) {
 		var xDelta = 0;
 		var yDelta = 0;
 		switch (mazeObject.shortestPath[i]) {
-			case "North": yDelta = interval; break;
-			case "South": yDelta = -interval; break;
-			case "East": xDelta = interval; break;
-			case "West": xDelta = -interval; break;
+			case "North": yDelta = pixels; break;
+			case "South": yDelta = -pixels; break;
+			case "East": xDelta = pixels; break;
+			case "West": xDelta = -pixels; break;
 			default: break;
 		}
-		setTimeout(move, 250*i, xDelta, yDelta);
+		setTimeout(move, speed*1000*i, xDelta, yDelta);
 	}
 
 	function move(xDelta, yDelta) {
 		var x = mazeObject.playerSprite.getPositionX();
 		var y = mazeObject.playerSprite.getPositionY();
-		//mazeObject.playerSprite.setPosition(x+xDelta, y+yDelta);
-		mazeObject.playerSprite.MoveTo(1, cocos.Point(x+xDelta, y+yDelta))
+		// Square-by-square teleporting
+		// mazeObject.playerSprite.setPosition(x+xDelta, y+yDelta);
+		// Smoothly animated movement
+		var q = cc.MoveTo.create(speed, cc.p(x+xDelta, y+yDelta));
+   		mazeObject.playerSprite.runAction(q);
 	}
 }
