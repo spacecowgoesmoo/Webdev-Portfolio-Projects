@@ -1,4 +1,11 @@
-Modernize the architecture, MAYBE email ruslan for feedback
-	Game loops (recap)
-	Classes (javascript etc)
-Redo movement to automatically merge multiple steps in one direction
+PROBABLY
+	Modernize the architecture, MAYBE email ruslan for feedback
+		Game loops (recap)
+		Classes (javascript etc)
+
+
+
+
+TOO MUCH WORK
+	Redo movement to automatically merge multiple steps in one direction
+	Add buttons for muliple mazes
