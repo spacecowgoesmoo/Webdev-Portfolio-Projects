@@ -1,4 +1,5 @@
 Smoother movement
-Game loops (recap)
-Classes (javascript etc)
+	See if the current setup can work with any cocos movement interpolation
 Modernize the architecture, MAYBE email ruslan for feedback
+	Game loops (recap)
+	Classes (javascript etc)
