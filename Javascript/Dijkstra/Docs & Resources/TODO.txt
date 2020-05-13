@@ -1,8 +1,4 @@
-Increase FPS a bit
-Remove the debug window, keep the loading splash so they know this cocos2DX
-Merge github repo with the rest of the frontend samples
 Build exceptions for dev folders
-Desaturate sprites because of gba colors
 Smoother movement
 Game loops (recap)
 Classes (javascript etc)
