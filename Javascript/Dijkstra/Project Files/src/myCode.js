@@ -133,6 +133,7 @@ function animateSolution(targetLayer, mazeObject) {
 	function move(xDelta, yDelta) {
 		var x = mazeObject.playerSprite.getPositionX();
 		var y = mazeObject.playerSprite.getPositionY();
-		mazeObject.playerSprite.setPosition(x+xDelta, y+yDelta);
+		//mazeObject.playerSprite.setPosition(x+xDelta, y+yDelta);
+		mazeObject.playerSprite.MoveTo(1, cocos.Point(x+xDelta, y+yDelta))
 	}
 }
