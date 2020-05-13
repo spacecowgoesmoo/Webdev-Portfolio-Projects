@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "name": "testGame",
-  "description": "testGame",
+  "name": "Dijkstra's Algorithm - Taylor Calderone",
+  "description": "Dijkstra's Algorithm - Taylor Calderone",
   "launch_path": "/index.html",
   "icons": {
     "128": "/res/icon.png"
