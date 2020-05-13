@@ -1,4 +1,3 @@
-Build exceptions for dev folders
 Smoother movement
 Game loops (recap)
 Classes (javascript etc)
