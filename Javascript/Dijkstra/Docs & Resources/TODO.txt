@@ -1,7 +1,8 @@
-PROBABLY
+Maybe
 	Modernize the architecture, MAYBE email ruslan for feedback
 		Game loops (recap)
 		Classes (javascript etc)
+	Make the animation start over after it completes
 
 
 
