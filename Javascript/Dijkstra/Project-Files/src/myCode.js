@@ -1,3 +1,42 @@
+class Maze {
+	constructor(txtFileInput) {
+		this.rawMazeData = txtFileInput
+		this.rawMazeData = this.stripEmptyLines()
+		this.height = this.getMazeHeight()
+		this.width = this.getMazeWidth()
+		this.rawMazeData = this.reformatTxtFile()
+		console.log(this)
+	}
+
+	stripEmptyLines() {
+		return this.rawMazeData.replace(/\r\r\n/g, "\n");
+	}
+
+	getMazeHeight() {
+		return (this.rawMazeData.match(/\n/g) || []).length + 1;
+	}
+
+	getMazeWidth() {
+		return ((this.rawMazeData.indexOf("\n")-1)/1.5)+1;
+	}
+
+	reformatTxtFile() {
+		var q = this.rawMazeData
+		// Add extra spaces to the last square in each row for easier parsing later
+		q = q.replace(/ \n/g, "   \n");
+		q = q.replace(/\+\n/g, "+  \n");
+		q = q.replace(/\|\n/g, "|  \n");
+		// Add extra spaces to the very last square
+		q += '  ';
+		// Finally, strip all the newlines
+		q = q.replace(/\n/g, "");
+		return q
+	}
+}
+
+
+
+
 function prepareTxtFile(mazeObject) {
 	// Converting it to a string is automatically performed by adding it to mazeObject
 	// Strip empty lines

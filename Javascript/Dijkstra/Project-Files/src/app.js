@@ -53,6 +53,7 @@ var testMazeLayer = cc.Layer.extend({
 				// success
 				mazeObject.rawMazeData = data;
 				initializeGame(targetLayer, mazeObject);
+				var cowMaze = new Maze(data)
 			});
 		}
 
@@ -67,7 +68,7 @@ var testMazeLayer = cc.Layer.extend({
 		}
 
 		// Normally we would include recursion here, but since this game
-		// is a non-playable demonstration there's no need to
+		// is a non-playable non-repeating demonstration there's no need to
 		function mainGameLoop(targetLayer, mazeObject) {
 			animateSolution(targetLayer, mazeObject);						// Animate the maze solution
 			console.log(mazeObject);
