@@ -63,7 +63,7 @@ var testMazeLayer = cc.Layer.extend({
 			mazeObject = parseMazeTxtFile(mazeObject);						// Parse txt file into a nested array
 			drawMazeGrid(targetLayer, mazeObject);							// Draw the maze
 			createPlayer(targetLayer, mazeObject);							// Draw player sprite
-			mazeObject.shortestPath = generateMazeSolution(mazeObject);		// Run the pathfinding algorithm
+			mazeObject.shortestPath = dijkstrasAlgorithm(mazeObject);		// Run the pathfinding algorithm
 			mainGameLoop(targetLayer, mazeObject)
 		}
 

@@ -16,6 +16,7 @@ class Maze {
 		this.getMazeWidth()
 		this.reformatTxtFile()
 		this.parseMazeTxtFile()
+		this.shortestPath = dijkstrasAlgorithm(this)
 		console.log(this)
 	}
 
