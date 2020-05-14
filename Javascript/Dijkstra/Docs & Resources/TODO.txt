@@ -2,7 +2,6 @@ Maybe
 	Modernize the architecture, MAYBE email ruslan for feedback
 		Game loops
 		Classes
-	Make the animation start over after it completes
 
 
 

@@ -128,9 +128,13 @@ class GameplayField {
 	}
 
 	createPlayer(targetLayer) {
-		var x = this.cowMaze.startingLocation[0];
-		var y = this.cowMaze.startingLocation[1];
-		this.playerSprite = this.createTile(targetLayer, res.player_png, 25, ((this.cowMaze.dataArray.length*25)-(25*y)));
+		this.playerSprite = this.createTile(targetLayer, res.player_png, 0, 0);
+		this.sendPlayerBackToStart(this.cowMaze)
+	}
+
+	sendPlayerBackToStart(cowMaze) {
+		var y = cowMaze.startingLocation[1];
+		this.playerSprite.setPosition(25, (cowMaze.dataArray.length*25)-(25*y));
 	}
 }
 
@@ -164,6 +168,10 @@ function animateSolution(cowMaze, cowGameplayField) {
 			default: break;
 		}
 		setTimeout(move, speed*1000*i, xDelta, yDelta);
+		// Animation looping
+		if (i == cowMaze.shortestPath.length-1) {
+			setTimeout(restartAnimation, speed*1000*(i+2));
+		}
 	}
 
 	function move(xDelta, yDelta) {
@@ -174,5 +182,10 @@ function animateSolution(cowMaze, cowGameplayField) {
 		// Smoothly animated movement
 		var q = cc.MoveTo.create(speed, cc.p(x+xDelta, y+yDelta));
    		cowGameplayField.playerSprite.runAction(q);
+	}
+
+	function restartAnimation() {
+		cowGameplayField.sendPlayerBackToStart(cowMaze);
+		animateSolution(cowMaze, cowGameplayField);
 	}
 }
