@@ -51,27 +51,22 @@ var testMazeLayer = cc.Layer.extend({
 			cc.loader.loadTxt(myFile, function(err, data) {
 				if(err) return console.log("txt load failed");
 				// success
-				mazeObject.rawMazeData = data;
-				initializeGame(targetLayer, mazeObject);
-				var cowMaze = new Maze(data)
+				initializeGame(targetLayer, data)
 			});
 		}
 
-		// Functions are located in src/myCode.js
-		function initializeGame(targetLayer, mazeObject) {
-			mazeObject = prepareTxtFile(mazeObject);						// Prepare txt file
-			mazeObject = parseMazeTxtFile(mazeObject);						// Parse txt file into a nested array
-			drawMazeGrid(targetLayer, mazeObject);							// Draw the maze
-			createPlayer(targetLayer, mazeObject);							// Draw player sprite
-			mazeObject.shortestPath = dijkstrasAlgorithm(mazeObject);		// Run the pathfinding algorithm
-			mainGameLoop(targetLayer, mazeObject)
+		function initializeGame(targetLayer, data) {
+			var cowMaze = new Maze(data)
+			drawMazeGrid(targetLayer, cowMaze);
+			createPlayer(targetLayer, cowMaze);
+			mainGameLoop(targetLayer, cowMaze)
 		}
 
 		// Normally we would include recursion here, but since this game
 		// is a non-playable non-repeating demonstration there's no need to
-		function mainGameLoop(targetLayer, mazeObject) {
-			animateSolution(targetLayer, mazeObject);						// Animate the maze solution
-			console.log(mazeObject);
+		function mainGameLoop(targetLayer, cowMaze) {
+			animateSolution(targetLayer, cowMaze);
+			console.log(cowMaze);
 		}
 
 		return true;

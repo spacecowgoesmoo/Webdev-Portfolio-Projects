@@ -4,7 +4,6 @@ class Maze {
 		this.dataArray = []
 		this.height = 1
 		this.width = 1
-		this.playerSprite = ''
 		this.rawMazeData = ''
 		this.startingLocation = ''
 		this.shortestPath = []
@@ -17,15 +16,7 @@ class Maze {
 		this.reformatTxtFile()
 		this.parseMazeTxtFile()
 		this.shortestPath = dijkstrasAlgorithm(this)
-		console.log(this)
 	}
-
-
-
-
-
-
-
 
 	stripEmptyLines() {
 		this.rawMazeData = this.rawMazeData.replace(/\r\r\n/g, "\n");
@@ -124,69 +115,6 @@ class Maze {
 
 
 
-function prepareTxtFile(mazeObject) {
-	// Converting it to a string is automatically performed by adding it to mazeObject
-	// Strip empty lines
-	mazeObject.rawMazeData = mazeObject.rawMazeData.replace(/\r\r\n/g, "\n");
-	// Get number of rows and columns
-	mazeObject.height = (mazeObject.rawMazeData.match(/\n/g) || []).length + 1;
-	mazeObject.width = ((mazeObject.rawMazeData.indexOf("\n")-1)/1.5)+1;
-	// Add extra spaces to the last square in each row for easier parsing later
-	mazeObject.rawMazeData = mazeObject.rawMazeData.replace(/ \n/g, "   \n");
-	mazeObject.rawMazeData = mazeObject.rawMazeData.replace(/\+\n/g, "+  \n");
-	mazeObject.rawMazeData = mazeObject.rawMazeData.replace(/\|\n/g, "|  \n");
-	// Add extra spaces to the very last square
-	mazeObject.rawMazeData += '  ';
-	// Finally, strip all the newlines
-	mazeObject.rawMazeData = mazeObject.rawMazeData.replace(/\n/g, "");
-	return mazeObject;
-}
-
-
-
-
-
-
-
-
-function parseMazeTxtFile(mazeObject) {
-	var row = [];
-	var q = mazeObject.width;
-
-	for (var i=0; i<mazeObject.rawMazeData.length; i+=3) {
-		switch (mazeObject.rawMazeData.slice(i, i+3)) {
-			case '+--': row.push('Wall'); row.push('Wall'); break;
-			case '   ': row.push('Empty'); row.push('Empty'); break;
-			case '|  ': row.push('Wall'); row.push('Empty'); break;
-			case '+  ': row.push('Wall'); row.push('Empty'); break;
-			default: break;
-		}
-		// Detect start and goal squares
-		if (row.length == 2 && row[0] =='Empty') { 
-			row[0] = 'Start'; 
-			mazeObject.startingLocation = [0, mazeObject.dataArray.length];
-		}
-		if (row.length == q+1 && row[q-1] =='Empty') { row[q-1] = 'Goal' }
-		// Operations to setup the next row
-		if (row.length >= q+1) {
-			// Remove the last square because we created some junk data to simplify importing
-			row.pop();
-			// Add the rows
-			mazeObject.dataArray.push(row); 
-			// Clear the array for the next row
-			row = []; 
-		}
-	}
-	return mazeObject;
-}
-
-
-
-
-
-
-
-
 function createTile(targetLayer, filepath, xPosition, yPosition) {
 	var sprite = new cc.Sprite(filepath);
 	sprite.attr({
@@ -210,6 +138,7 @@ function drawMazeGrid(targetLayer, mazeObject) {
 			var tileType;
 			switch (mazeObject.dataArray[i][j]) {
 				case 'Empty': tileType = res.path_png; break;
+				case 'Visited': tileType = res.path_png; break;
 				case 'Wall': tileType = res.wall_png; break;
 				case 'Goal': tileType = res.path_png; break;
 				case 'Start': tileType = res.path_png; break;
