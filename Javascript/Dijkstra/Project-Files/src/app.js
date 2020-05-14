@@ -33,21 +33,12 @@ var testMazeLayer = cc.Layer.extend({
 		this._super();
 
 		// Non-boilerplate code starts here
-		var mazeObject = {
-			dataArray: [],
-			height: 1,
-			width: 1,
-			playerSprite: '',
-			rawMazeData: '',
-			startingLocation: '',
-			shortestPath: []
-		}
 
 		// Note: Create new mazes with the right text editor or the format will be messed up
 		// OSX TextEdit worked for me
-		importTxtFile(this, mazeObject, 'res/mazes/maze1.txt');				// Import txt file
+		importTxtFileAndRunGame(this, 'res/mazes/maze1.txt');
 
-		function importTxtFile(targetLayer, mazeObject, myFile) {
+		function importTxtFileAndRunGame(targetLayer, myFile) {
 			cc.loader.loadTxt(myFile, function(err, data) {
 				if(err) return console.log("txt load failed");
 				// success
@@ -57,16 +48,16 @@ var testMazeLayer = cc.Layer.extend({
 
 		function initializeGame(targetLayer, data) {
 			var cowMaze = new Maze(data)
-			drawMazeGrid(targetLayer, cowMaze);
-			createPlayer(targetLayer, cowMaze);
-			mainGameLoop(targetLayer, cowMaze)
+			var cowGameplayField = new GameplayField(targetLayer, cowMaze)
+			mainGameLoop(cowMaze, cowGameplayField);
 		}
 
 		// Normally we would include recursion here, but since this game
 		// is a non-playable non-repeating demonstration there's no need to
-		function mainGameLoop(targetLayer, cowMaze) {
-			animateSolution(targetLayer, cowMaze);
+		function mainGameLoop(cowMaze, cowGameplayField) {
+			animateSolution(cowMaze, cowGameplayField);
 			console.log(cowMaze);
+			console.log(cowGameplayField);
 		}
 
 		return true;

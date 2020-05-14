@@ -14,7 +14,7 @@ class Maze {
 		this.getMazeHeight()
 		this.getMazeWidth()
 		this.reformatTxtFile()
-		this.parseMazeTxtFile()
+		this.parseTxtFile()
 		this.shortestPath = dijkstrasAlgorithm(this)
 	}
 
@@ -41,7 +41,7 @@ class Maze {
 		this.rawMazeData = this.rawMazeData.replace(/\n/g, "");
 	}
 
-	parseMazeTxtFile() {
+	parseTxtFile() {
 		var row = [];
 		var q = this.width;
 
@@ -87,65 +87,50 @@ class Maze {
 
 
 
+class GameplayField {
+	constructor(targetLayer, cowMaze) {
+		// Initializing these early just for reference
+		this.gameTiles = {};
+		this.playerSprite;
 
+		// Data processing begins here
+		this.cowMaze = cowMaze;			// Temporarily store maze data
+		this.drawMazeGrid(targetLayer);
+		this.createPlayer(targetLayer);
+		this.cowMaze = null;			// Clear the temp maze data
+	}
 
+	createTile(targetLayer, filepath, xPosition, yPosition) {
+		var sprite = new cc.Sprite(filepath);
+		sprite.attr({
+			x: xPosition,
+			y: yPosition,
+		});
+		targetLayer.addChild(sprite, 0);
+		return sprite;
+	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function createTile(targetLayer, filepath, xPosition, yPosition) {
-	var sprite = new cc.Sprite(filepath);
-	sprite.attr({
-		x: xPosition,
-		y: yPosition,
-	});
-	targetLayer.addChild(sprite, 0);
-	return sprite;
-}
-
-
-
-
-
-
-
-
-function drawMazeGrid(targetLayer, mazeObject) {
-	for (var i=0; i<mazeObject.dataArray.length; i++) {
-		for (var j=0; j<mazeObject.dataArray[i].length; j++) {
-			var tileType;
-			switch (mazeObject.dataArray[i][j]) {
-				case 'Empty': tileType = res.path_png; break;
-				case 'Visited': tileType = res.path_png; break;
-				case 'Wall': tileType = res.wall_png; break;
-				case 'Goal': tileType = res.path_png; break;
-				case 'Start': tileType = res.path_png; break;
+	drawMazeGrid(targetLayer) {
+		for (var i=0; i<this.cowMaze.dataArray.length; i++) {
+			for (var j=0; j<this.cowMaze.dataArray[i].length; j++) {
+				var tileType;
+				switch (this.cowMaze.dataArray[i][j]) {
+					case 'Empty': tileType = res.path_png; break;
+					case 'Visited': tileType = res.path_png; break;
+					case 'Wall': tileType = res.wall_png; break;
+					case 'Goal': tileType = res.path_png; break;
+					case 'Start': tileType = res.path_png; break;
+				}
+				// Y axis draws backwards because cocos' origin is in the lower left
+				this.gameTiles += this.createTile(targetLayer, tileType, (25*j)+25, ((this.cowMaze.dataArray.length*25)-(25*i)));
 			}
-			// Y axis draws backwards because cocos' origin is in the lower left
-			createTile(targetLayer, tileType, (25*j)+25, ((mazeObject.dataArray.length*25)-(25*i)));
 		}
+	}
+
+	createPlayer(targetLayer) {
+		var x = this.cowMaze.startingLocation[0];
+		var y = this.cowMaze.startingLocation[1];
+		this.playerSprite = this.createTile(targetLayer, res.player_png, 25, ((this.cowMaze.dataArray.length*25)-(25*y)));
 	}
 }
 
@@ -156,11 +141,6 @@ function drawMazeGrid(targetLayer, mazeObject) {
 
 
 
-function createPlayer(targetLayer, mazeObject) {
-	var x = mazeObject.startingLocation[0];
-	var y = mazeObject.startingLocation[1];
-	mazeObject.playerSprite = createTile(targetLayer, res.player_png, 25, ((mazeObject.dataArray.length*25)-(25*y)));
-}
 
 
 
@@ -169,14 +149,14 @@ function createPlayer(targetLayer, mazeObject) {
 
 
 
-function animateSolution(targetLayer, mazeObject) {
+function animateSolution(cowMaze, cowGameplayField) {
 	var pixels = 25;	// pixels per movement step
 	var speed = 0.35; 	// seconds per movement step
 
-	for (var i=0; i<mazeObject.shortestPath.length; i++) {
+	for (var i=0; i<cowMaze.shortestPath.length; i++) {
 		var xDelta = 0;
 		var yDelta = 0;
-		switch (mazeObject.shortestPath[i]) {
+		switch (cowMaze.shortestPath[i]) {
 			case "North": yDelta = pixels; break;
 			case "South": yDelta = -pixels; break;
 			case "East": xDelta = pixels; break;
@@ -187,12 +167,12 @@ function animateSolution(targetLayer, mazeObject) {
 	}
 
 	function move(xDelta, yDelta) {
-		var x = mazeObject.playerSprite.getPositionX();
-		var y = mazeObject.playerSprite.getPositionY();
+		var x = cowGameplayField.playerSprite.getPositionX();
+		var y = cowGameplayField.playerSprite.getPositionY();
 		// Square-by-square teleporting
-		// mazeObject.playerSprite.setPosition(x+xDelta, y+yDelta);
+		// cowGameplayField.playerSprite.setPosition(x+xDelta, y+yDelta);
 		// Smoothly animated movement
 		var q = cc.MoveTo.create(speed, cc.p(x+xDelta, y+yDelta));
-   		mazeObject.playerSprite.runAction(q);
+   		cowGameplayField.playerSprite.runAction(q);
 	}
 }
