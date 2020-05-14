@@ -52,21 +52,27 @@ var testMazeLayer = cc.Layer.extend({
 				if(err) return console.log("txt load failed");
 				// success
 				mazeObject.rawMazeData = data;
-				doEverything(targetLayer, mazeObject);
+				initializeGame(targetLayer, mazeObject);
 			});
 		}
 
 		// Functions are located in src/myCode.js
-		function doEverything(targetLayer, mazeObject) {
+		function initializeGame(targetLayer, mazeObject) {
 			mazeObject = prepareTxtFile(mazeObject);						// Prepare txt file
 			mazeObject = parseMazeTxtFile(mazeObject);						// Parse txt file into a nested array
 			drawMazeGrid(targetLayer, mazeObject);							// Draw the maze
 			createPlayer(targetLayer, mazeObject);							// Draw player sprite
 			mazeObject.shortestPath = generateMazeSolution(mazeObject);		// Run the pathfinding algorithm
+			mainGameLoop(targetLayer, mazeObject)
+		}
+
+		// Normally we would include recursion here, but since this game
+		// is a non-playable demonstration there's no need to
+		function mainGameLoop(targetLayer, mazeObject) {
 			animateSolution(targetLayer, mazeObject);						// Animate the maze solution
-	
 			console.log(mazeObject);
 		}
+
 		return true;
     }
 });
