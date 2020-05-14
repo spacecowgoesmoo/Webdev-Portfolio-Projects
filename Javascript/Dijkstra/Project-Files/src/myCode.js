@@ -1,38 +1,124 @@
 class Maze {
 	constructor(txtFileInput) {
+		// Initializing these early just for reference
+		this.dataArray = []
+		this.height = 1
+		this.width = 1
+		this.playerSprite = ''
+		this.rawMazeData = ''
+		this.startingLocation = ''
+		this.shortestPath = []
+
+		// Data processing begins here
 		this.rawMazeData = txtFileInput
-		this.rawMazeData = this.stripEmptyLines()
-		this.height = this.getMazeHeight()
-		this.width = this.getMazeWidth()
-		this.rawMazeData = this.reformatTxtFile()
+		this.stripEmptyLines()
+		this.getMazeHeight()
+		this.getMazeWidth()
+		this.reformatTxtFile()
+		this.parseMazeTxtFile()
 		console.log(this)
 	}
 
+
+
+
+
+
+
+
 	stripEmptyLines() {
-		return this.rawMazeData.replace(/\r\r\n/g, "\n");
+		this.rawMazeData = this.rawMazeData.replace(/\r\r\n/g, "\n");
 	}
 
 	getMazeHeight() {
-		return (this.rawMazeData.match(/\n/g) || []).length + 1;
+		this.height = (this.rawMazeData.match(/\n/g) || []).length + 1;
 	}
 
 	getMazeWidth() {
-		return ((this.rawMazeData.indexOf("\n")-1)/1.5)+1;
+		this.width = ((this.rawMazeData.indexOf("\n")-1)/1.5)+1;
 	}
 
 	reformatTxtFile() {
-		var q = this.rawMazeData
 		// Add extra spaces to the last square in each row for easier parsing later
-		q = q.replace(/ \n/g, "   \n");
-		q = q.replace(/\+\n/g, "+  \n");
-		q = q.replace(/\|\n/g, "|  \n");
+		this.rawMazeData = this.rawMazeData.replace(/ \n/g, "   \n");
+		this.rawMazeData = this.rawMazeData.replace(/\+\n/g, "+  \n");
+		this.rawMazeData = this.rawMazeData.replace(/\|\n/g, "|  \n");
 		// Add extra spaces to the very last square
-		q += '  ';
+		this.rawMazeData += '  ';
 		// Finally, strip all the newlines
-		q = q.replace(/\n/g, "");
-		return q
+		this.rawMazeData = this.rawMazeData.replace(/\n/g, "");
+	}
+
+	parseMazeTxtFile() {
+		var row = [];
+		var q = this.width;
+
+		for (var i=0; i<this.rawMazeData.length; i+=3) {
+			switch (this.rawMazeData.slice(i, i+3)) {
+				case '+--': row.push('Wall'); row.push('Wall'); break;
+				case '   ': row.push('Empty'); row.push('Empty'); break;
+				case '|  ': row.push('Wall'); row.push('Empty'); break;
+				case '+  ': row.push('Wall'); row.push('Empty'); break;
+				default: break;
+			}
+			// Detect start and goal squares
+			if (row.length == 2 && row[0] =='Empty') { 
+				row[0] = 'Start'; 
+				this.startingLocation = [0, this.dataArray.length];
+			}
+			if (row.length == q+1 && row[q-1] =='Empty') { row[q-1] = 'Goal' }
+			// Operations to setup the next row
+			if (row.length >= q+1) {
+				// Remove the last square because we created some junk data to simplify importing
+				row.pop();
+				// Add the rows
+				this.dataArray.push(row); 
+				// Clear the array for the next row
+				row = []; 
+			}
+		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
