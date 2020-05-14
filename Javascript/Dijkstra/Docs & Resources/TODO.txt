@@ -1,11 +1,3 @@
-Maybe
-	Modernize the architecture, MAYBE email ruslan for feedback
-		Game loops
-		Classes
-
-
-
-
 GOOD IDEAS BUT NOT WORTH THE TIME INVESTMENT
 	Redo movement to automatically merge multiple steps in one direction
 	Add buttons for muliple mazes, or automatically cycle through them

@@ -42,18 +42,16 @@ var testMazeLayer = cc.Layer.extend({
 			cc.loader.loadTxt(myFile, function(err, data) {
 				if(err) return console.log("txt load failed");
 				// success
-				initializeGame(targetLayer, data)
+				initializeGame(targetLayer, data);
 			});
 		}
 
 		function initializeGame(targetLayer, data) {
-			var cowMaze = new Maze(data)
-			var cowGameplayField = new GameplayField(targetLayer, cowMaze)
+			var cowMaze = new Maze(data);
+			var cowGameplayField = new GameplayField(targetLayer, cowMaze);
 			mainGameLoop(cowMaze, cowGameplayField);
 		}
 
-		// Normally we would include recursion here, but since this game
-		// is a non-playable non-repeating demonstration there's no need to
 		function mainGameLoop(cowMaze, cowGameplayField) {
 			animateSolution(cowMaze, cowGameplayField);
 			console.log(cowMaze);
