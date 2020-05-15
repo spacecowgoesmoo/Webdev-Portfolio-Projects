@@ -33,40 +33,31 @@ var testMazeLayer = cc.Layer.extend({
 		this._super();
 
 		// Non-boilerplate code starts here
-		var mazeObject = {
-			dataArray: [],
-			height: 1,
-			width: 1,
-			playerSprite: '',
-			rawMazeData: '',
-			startingLocation: '',
-			shortestPath: []
-		}
 
 		// Note: Create new mazes with the right text editor or the format will be messed up
 		// OSX TextEdit worked for me
-		importTxtFile(this, mazeObject, 'res/mazes/maze1.txt');				// Import txt file
+		importTxtFileAndRunGame(this, 'res/mazes/maze1.txt');
 
-		function importTxtFile(targetLayer, mazeObject, myFile) {
+		function importTxtFileAndRunGame(targetLayer, myFile) {
 			cc.loader.loadTxt(myFile, function(err, data) {
 				if(err) return console.log("txt load failed");
 				// success
-				mazeObject.rawMazeData = data;
-				doEverything(targetLayer, mazeObject);
+				initializeGame(targetLayer, data);
 			});
 		}
 
-		// Functions are located in src/myCode.js
-		function doEverything(targetLayer, mazeObject) {
-			mazeObject = prepareTxtFile(mazeObject);						// Prepare txt file
-			mazeObject = parseMazeTxtFile(mazeObject);						// Parse txt file into a nested array
-			drawMazeGrid(targetLayer, mazeObject);							// Draw the maze
-			createPlayer(targetLayer, mazeObject);							// Draw player sprite
-			mazeObject.shortestPath = generateMazeSolution(mazeObject);		// Run the pathfinding algorithm
-			animateSolution(targetLayer, mazeObject);						// Animate the maze solution
-	
-			console.log(mazeObject);
+		function initializeGame(targetLayer, data) {
+			var cowMaze = new cc.Maze(data);
+			var cowGameplayField = new cc.GameplayField(targetLayer, cowMaze);
+			mainGameLoop(cowMaze, cowGameplayField);
 		}
+
+		function mainGameLoop(cowMaze, cowGameplayField) {
+			animateSolution(cowMaze, cowGameplayField);
+			console.log(cowMaze);
+			console.log(cowGameplayField);
+		}
+
 		return true;
     }
 });

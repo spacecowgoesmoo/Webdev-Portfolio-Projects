@@ -5,7 +5,7 @@
 
 
 
-function generateMazeSolution(mazeObject) {
+function dijkstrasAlgorithm(mazeInput) {
 	var findShortestPath = function(startCoordinates, grid) {
 	var distanceFromTop = startCoordinates[0];
 	var distanceFromLeft = startCoordinates[1];
@@ -76,10 +76,10 @@ function generateMazeSolution(mazeObject) {
 	
 	 	if (location.distanceFromLeft < 0 ||
 			//location.distanceFromLeft >= gridSize ||
-			location.distanceFromLeft >= mazeObject.width ||
+			location.distanceFromLeft >= mazeInput.width ||
 			location.distanceFromTop < 0 ||
 			//location.distanceFromTop >= gridSize) {
-			location.distanceFromTop >= mazeObject.height) {
+			location.distanceFromTop >= mazeInput.height) {
 	
 			// location is not on the grid--return false
 			return 'Invalid';
@@ -129,8 +129,8 @@ function generateMazeSolution(mazeObject) {
 	// Start location will be in the following format:
 	// [distanceFromTop, distanceFromLeft]
 	// So we have to reverse the data point just for this part
-	var x = mazeObject.startingLocation[0];
-	var y = mazeObject.startingLocation[1];
+	var x = mazeInput.startingLocation[0];
+	var y = mazeInput.startingLocation[1];
 	var startingLocation = [y,x];
-	return findShortestPath(startingLocation, mazeObject.dataArray);
+	return findShortestPath(startingLocation, mazeInput.dataArray);
 }
