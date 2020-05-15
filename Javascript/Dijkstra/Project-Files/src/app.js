@@ -47,8 +47,8 @@ var testMazeLayer = cc.Layer.extend({
 		}
 
 		function initializeGame(targetLayer, data) {
-			var cowMaze = new Maze(data);
-			var cowGameplayField = new GameplayField(targetLayer, cowMaze);
+			var cowMaze = new cc.Maze(data);
+			var cowGameplayField = new cc.GameplayField(targetLayer, cowMaze);
 			mainGameLoop(cowMaze, cowGameplayField);
 		}
 
