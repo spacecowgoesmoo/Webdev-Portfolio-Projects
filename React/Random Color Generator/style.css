@@ -1,0 +1,102 @@
+:root {
+    font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+
+	--blackish: #202020;
+	--whiteish: #fafafa;
+	
+	background: var(--blackish);
+	color: var(--whiteish);
+}
+
+body {
+	margin: 0 0 100px 0;
+	text-align: center;
+	cursor: default;
+	
+	/* Prevents text highlighting */
+	cursor: default;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+a, a:hover, a:visited {
+	color: var(--whiteish);
+}
+
+
+
+
+
+
+#mainContent {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	/* Centering */
+	margin: 15px auto;
+	width: 90%;
+}
+
+
+
+
+
+
+
+
+/* TextSquare */
+.TextSquare {
+	height: 100px;
+	line-height: 100px;
+	width: 18.6%;
+	background: var(--blackish);
+	color: var(--whiteish);
+}
+
+.TextSquare:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/* ColorSquare */
+.ColorSquare {
+	height: 30px;
+	padding-top:70px;
+	width: 9%;
+	cursor: pointer;
+	transition: transform 0.2s ease-in-out;
+}
+
+.ColorSquare:hover {
+	transform: scale(1.35);
+}
+
+.ColorSquare:active {
+	transition: transform 0.05s ease-in-out;
+	transform: scale(1.15);
+}
+
+/* Layout */
+.TextSquare, .ColorSquare {
+	text-align: center;
+	border-radius: 10px;
+	margin: 0.3%;
+}
+
+
+
+
+
+
+
+
+/* Responsive Design */
+@media screen and (max-width: 850px) {
+	.TextSquare { width: 174px; }
+	.ColorSquare { width: 85px; }
+	.ColorSquare:active, .ColorSquare:hover { transform: none; }
+	.TextSquare, .ColorSquare { margin: 2px; }
+}

@@ -1,0 +1,404 @@
+/***************************************
+			GLOBAL SETTINGS
+***************************************/
+
+:root {
+    font-family: 'Montserrat', sans-serif;
+	font-size: 18px;
+	font-weight: 500;
+	letter-spacing: 0.5px;
+
+	--fullWhite: #FFFFFF;
+    --backgroundColor: #F9F9F9;	
+	--paragraphTextColor: #989898;
+	
+/*	--ujoPrimaryGradient1Light: #c60153;
+	--ujoPrimaryGradient1Dark: #4d1f53;*/
+
+	--ujoPrimaryGradient2Light: #dd4884;
+	--ujoPrimaryGradient2Dark: #903094;
+	
+/*	--ujoSecondaryBlue: #478de3;
+	--ujoSecondaryGreen: #45c3b1;*/
+}
+
+body {
+	margin: 0;
+	background: var(--backgroundColor);
+	color: var(--fullWhite);
+	
+	/* Prevents ugly super-bold font in OSX Firefox and Chrome */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	
+	/* Prevents text highlighting */
+	cursor: default;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Background image */
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+	background-image: url(Images/ujoCirclesCompressed.png); 
+    opacity: 0.25;
+	background-position: top -505px center;
+	background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***************************************
+			PAGE LAYOUT
+***************************************/
+
+#reactRootDiv {
+	max-width: 700px;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***************************************
+			BOOMBOX CONTAINER
+***************************************/
+
+.boomboxContainer {
+	/* Visual design */
+	height: 100px;
+	width: 300px;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 23px 0px;
+	/* 17 degrees is upperleft to lower right corner. 45 degrees is a clean diagonal line through the center. */
+	background: linear-gradient( var(--ujoPrimaryGradient2Dark), var(--ujoPrimaryGradient2Light) );
+	border-radius: 20px;
+
+	/* Positioning */
+	display: inline-block;
+	text-align: left;
+	position: relative;
+	margin: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***************************************
+			TEXT FIELDS
+***************************************/
+
+.textFields {
+	padding: 10px 15px;
+	line-height: 20px;
+}
+
+.songTitle {
+	display: inline-block;
+	width: 79%;
+}
+
+.playtime {
+	display: inline-block;
+	text-align: right;
+	width: 18%;
+}
+
+.bandAlbumTitle { color: var(--ujoPrimaryGradient2Light); }
+.bandAlbumTitle, .playtime { font-size: 0.8rem; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***************************************
+			SONG PROGRESS BAR
+***************************************/
+
+progress {
+	width: 100%;
+	height: 2px;
+	border: 0;
+}
+
+/* Color for Firefox */
+progress { background: var(--ujoPrimaryGradient2Dark); }
+progress::-moz-progress-bar { background: var(--fullWhite); }
+/* Color for Chrome & Safari */
+progress::-webkit-progress-bar { background: var(--ujoPrimaryGradient2Dark); }
+progress::-webkit-progress-value { background: var(--fullWhite); }
+/* Color for IE & Edge */
+progress { background-color: var(--ujoPrimaryGradient2Dark); }
+progress { color: var(--fullWhite); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***************************************
+			VOLUME SLIDER
+***************************************/
+
+.volumeSlider {
+	position: absolute;
+	left: 15px;
+	height: 36px;	/* This is for vertical alignment, it's more browser compatible */
+	width: 72px;
+	padding: 0;
+	margin: 0;
+}
+
+.volumeSlider:hover { cursor: pointer; }
+
+/* Volume bar styling. Really complicated and non-standardized :( */
+/* Clearing browser CSS */
+input[type=range] {
+	-webkit-appearance: none; 	/* Hides the slider in Webkit so that the custom styles can be viewed */
+	background: transparent; 	/* This is 100% white in Chrome, probably because of the previous line */
+}
+input[type=range]:focus {
+	outline: none; 				/* Removes focus highlight in Chrome */
+}
+input[type=range]::-moz-focus-outer {
+    border: 0;					/* Removes focus highlight in Firefox */
+}
+input[type=range]::-ms-track {
+  color: transparent;			/* Hides some border junk in IE */
+  border: none;
+}
+
+
+/* Track background color */
+input[type=range]::-moz-range-track {
+	background: var(--ujoPrimaryGradient2Dark);
+	height: 2px;
+}
+input[type=range]::-webkit-slider-runnable-track {
+	background: var(--ujoPrimaryGradient2Dark);
+	height: 2px;
+}
+input[type=range]::-ms-track {
+	background: var(--ujoPrimaryGradient2Dark);
+	height: 2px;
+}
+input[type=range]::-ms-fill-upper {
+	background: var(--ujoPrimaryGradient2Dark);
+	background: #903094;		/* Variables don't work here in MS EDGE for some reason */
+}
+
+
+/* Progress color */
+/* Unsupported in Webkit. There's a bunch of code in script.js ( function sliders() ) that's implementing this manually */
+input[type="range"]::-moz-range-progress {
+    background: var(--fullWhite);
+    height: 2px;
+}
+input[type=range]::-ms-fill-lower {
+	background: var(--fullWhite);
+	background: #FFFFFF;		/* Variables don't work here in MS EDGE for some reason */
+	height: 2px;
+}
+
+
+/* Slider design */
+input[type=range]::-moz-range-thumb {
+	border: 0px;
+	background: var(--fullWhite);
+	border-radius: 0px;
+	width: 5px;
+}
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	border: 0;
+	height: 10px;
+	width: 5px;
+	background: var(--fullWhite);
+	margin-top: -4px;
+}
+input[type=range]::-ms-thumb {
+	border: 0px;
+	background: #FFFFFF;		/* Variables don't work here in MS EDGE for some reason */
+	border-radius: 0px;
+	width: 5px;
+	margin-top: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***************************************
+			CONTROL BUTTONS
+***************************************/
+
+.controlButtons { text-align: center; }
+.controlButtons svg:hover { cursor: pointer; }
+.controlButtons svg:active { opacity: 0.5; }
+
+.controlButtons svg {
+	height: 20px;
+	width: 20px;
+	padding: 8px;
+	display: inline;
+	transition: fill 0.1s ease-in-out;
+}
+
+.playPauseButtonDiv { display: inline-block; }
+.playPauseButtonDiv:hover { cursor: pointer; }
+
+/* Hover colors */
+.playPauseButtonDiv:hover svg,
+.controlButtons svg:hover {
+	fill: var(--ujoPrimaryGradient2Dark);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***************************************
+			IE11 PATCHES
+***************************************/
+@media screen and (-ms-high-contrast:active), (-ms-high-contrast: none) {
+	/* IE/EDGE drop click and hover events when hovering over an SVG. This hides most of the effects. */
+	.controlButtons svg:hover { cursor: default; }
+	.svgUse1:active, .svgUse2:active, .svgUse3:active, .svgUse4:active { opacity: 0.5; }
+}
+
+/***************************************
+			EDGE PATCHES
+***************************************/
+@supports (-ms-ime-align:auto) {
+	/* Removes some extra black pixels */
+	progress::-ms-fill { border-color: currentColor; }
+	/* Covers up a rendering glitch below the progress bar */
+	.controlButtons { margin-top: -1px; }
+	/* IE/EDGE drop click and hover events when hovering over an SVG. This hides most of the effects. */
+	.controlButtons svg:hover { cursor: default; }
+	.svgUse1:active, .svgUse2:active, .svgUse3:active, .svgUse4:active { opacity: 0.5; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***************************************
+			RESPONSIVE SETTINGS
+***************************************/
+@media (-moz-touch-enabled: 1), (pointer:coarse) {			/* Detects touch screens */
+	/* Larger touch target for the volume slider */
+	input[type=range]::-webkit-slider-thumb {
+		height: 15px;
+		width: 10px;
+		margin-top: -6px;
+	}
+	input[type=range]::-moz-range-thumb {
+		height: 15px;
+		width: 10px;
+	}
+
+	/* Removes hover states from the control button SVGs */	
+	.playPauseButtonDiv:hover svg,
+	.controlButtons svg:hover {
+		fill: var(--fullWhite);
+	}
+	.controlButtons svg:active { opacity: 1; }
+}

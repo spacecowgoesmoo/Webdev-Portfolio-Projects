@@ -1,0 +1,24 @@
+html { 
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	background: #F9F9F9;
+	color: #202020;
+	max-width: 1000px;
+	margin: 0 auto;
+	font-size: 18px;
+	padding: 0 20px 100px 20px;
+}
+
+body { margin: 0; }
+
+/* Article formatting */
+h2 { color: #44587D; }
+img { width: 100%; }
+p {
+	margin: 40px 0;
+	line-height: 1.7rem;
+}
+
+/* Mobile first! */
+@media screen and (min-width: 750px) {
+	html { padding: 0 100px 100px 100px; }
+}

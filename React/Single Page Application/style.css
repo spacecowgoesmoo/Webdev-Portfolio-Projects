@@ -1,0 +1,164 @@
+:root {
+    font-family: 'Helvetica', sans-serif;
+	font-size: 15px;
+
+	--colorDark: #4b367c;
+	--colorLight: #b19dd8;
+	--colorLighter: #cecae8;
+	--white: #fafafa;
+	--gray: #dad8de;
+	
+	background: var(--white);
+	color: var(--colorDark);
+}
+
+body {
+	margin: 0;
+}
+
+
+
+
+
+
+
+
+/* Header Bar */
+.headerBar {
+	top: 0px;
+	height: 50px;
+	width: 100%;
+	background: var(--colorDark);
+	color: var(--white);
+}
+
+.headerBar span {
+	margin: 0 10px;
+	line-height: 50px;
+}
+
+a { color: var(--white); }
+a:visited { color: var(--white); }
+
+
+
+
+
+
+
+
+/* Main content container */
+.mainContent {
+	margin: 0 auto;
+	text-align: center;
+	max-width: 600px;
+	background: var(--white);
+	padding: 25px;
+}
+
+
+
+
+
+
+
+
+/* Shared CSS */
+.wideCard, .squareIcon {
+	text-align: left;
+	transition: background 0.1s ease-in-out;
+	background: var(--gray);
+}
+
+.wideCard:hover, .squareIcon:hover {
+	background: var(--colorLighter);
+	cursor: default;
+}
+
+.text1 {
+	font-size: 1.5rem;
+}
+
+
+
+
+
+
+
+
+/* Component 1 - FullWidthCard */
+.wideCard {
+	padding: 20px;
+	display: block;
+	border-bottom: 1px solid var(--colorLight);
+	padding-left: 50px;
+}
+
+.wideCard .text1 {
+	display: block;
+	margin-bottom: 10px;
+}
+
+textarea {
+	border: 1px solid var(--colorLight);
+	border-radius: 8px;
+	height: 70px;
+	transition: height 0.2s ease-in-out;
+	color: var(--colorDark);
+	width: 95%;
+	margin-bottom: 25px;
+	padding: 10px;
+	font-family: 'Helvetica', sans-serif;
+	font-size: 15px;
+}
+
+textarea:focus {
+	border: 2px solid var(--colorLight);
+	height: 100px;
+}
+
+textarea::placeholder { color: #b19dd8; }	/* Variables don't work */
+textarea:focus { outline: none; }
+
+
+
+
+
+
+
+/* Component 2 - Square Icons */
+.squareIcon {
+	width: 60px;
+	height: 60px;
+	padding: 10px;
+	border-radius: 3px;
+	display: inline-block;
+	text-align: center;
+	line-height: 60px;
+	margin: 5px;
+}
+
+
+
+
+
+
+
+
+/* Component 3 - Text Page */
+.basicTextPage {
+	text-align: left;
+}
+
+
+
+
+
+
+
+
+/* Responsive Design */
+@media screen and (max-width: 507px) {
+	.headerBar { text-align: center; }
+	.wideCard { padding-left: 10px; }
+}

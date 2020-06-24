@@ -1,0 +1,165 @@
+:root {
+    font-family: 'Helvetica', sans-serif;
+	font-size: 21px;
+
+	--colorDark: #d90007;
+	--colorLight: #e77a7d;
+	--colorLighter: #ffdcdc;
+	
+	--grayDark: #dcdcdc;
+	--grayLight: #f5f5f5;
+	
+	--white: #fff;
+	--black: #222;
+	
+	background: var(--white);
+	color: var(--colorDark);
+}
+
+body {
+	margin: 0;
+	padding-bottom: 50px;
+}
+
+
+
+
+
+
+
+
+/* Header Bar */
+.headerBar {
+	top: 0px;
+	height: 50px;
+	width: 100%;
+	background: var(--black);
+	color: var(--white);
+	font-size: 0.75rem;
+}
+
+.headerBar span {
+	margin: 0 10px;
+	line-height: 50px;
+}
+
+.headerBar a { color: var(--white); }
+.headerBar a:visited { color: var(--white); }
+
+
+
+
+
+
+
+
+/* Main content container */
+.mainContent {
+	margin: 0 auto;
+	text-align: center;
+	max-width: 1000px;
+	padding: 25px;
+}
+
+
+
+
+
+
+
+
+/* Shared design code */
+.MovieCard, .movieDetailsPage {
+	background: var(--grayLight);
+	padding: 20px;
+	border-bottom: 1px solid var(--colorLight);
+	color: var(--colorDark);	/* Overwrites default <a> color */
+}
+
+
+
+
+
+
+
+
+/* Homepage */
+.MovieCard {
+	margin: 10px;
+	display: inline-block;
+	transition: background 0.1s ease-in-out;
+	vertical-align: top;
+	width: 250px;
+	height: 210px;
+}
+
+.MovieCard:hover {
+	background: var(--colorLighter);
+	cursor: pointer;
+}
+
+.MovieCard .movieTitle {
+	display: block;
+	margin-top: 10px;
+}
+
+.MovieCard img {
+	height: 150px;
+	width: 100px;
+}
+
+.pageNumberContainer {
+	display: block;
+}
+
+.pageNumberContainer span {
+	margin: 0 7px;
+	cursor: pointer;
+}
+
+.currentPageNumber {
+	opacity: 0.25;
+	cursor: default !important;
+}
+
+/* Firefox hack to fix the extra clickable area of the <a> tags */
+_::-moz-progress-bar, body:last-child .mainContent a {
+	display: contents;
+}
+
+
+
+
+
+
+/* Movie details */
+.movieDetailsPage {
+	padding-bottom: 40px;
+}
+
+.movieDetailsPage div {
+	margin: 10px;
+	text-align: left;
+}
+
+.movieDetailsPage img {
+	margin-bottom: 20px;
+	width: 300px;
+	height: 450px;
+}
+
+
+
+
+
+
+
+
+/* Responsive Design */
+@media screen and (max-width: 507px) {
+	.headerBar { text-align: center; }
+	.mainContent { padding: 20px 0 0 0; }
+	
+	.movieDetailsPage { width: 90%; padding: 15px 0 40px 0; margin: 0 auto; }
+	.movieDetailsPage img { width: 90%; height: auto; }
+}

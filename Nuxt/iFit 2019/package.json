@@ -1,0 +1,12 @@
+{
+	"name": "ifit2019",
+	"scripts": {
+		"dev": "nuxt",
+		"build": "nuxt build",
+		"start": "nuxt start",
+		"generate": "nuxt generate -c nuxt.generate.config.js"
+	},
+	"dependencies": {
+		"nuxt": "^2.8.1"
+	}
+}
