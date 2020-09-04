@@ -1,0 +1,71 @@
+Distribute the cards
+	Have an array of all cards. 2C, 3C, JC, etc
+	Somehow randomize the array, and give the first half to player 1
+
+
+
+
+Gameplay
+	Player clicks on their deck
+	No game loop, it's just one button and resultant actions
+		Deck fades out a bit until the turn completes
+		Top card of each player appears on the deck and floats to center
+			If it's a player's last card, fadeout their deck
+		Cards clash, then both float into the deck of the winner
+			If the deck was at zero, spawn it back in
+			Player's deck goes back to full opacity, making it clickable again
+		After each play, check if either player has zero cards left
+			Update deck size
+			Display win/loss message if game is over
+			Click here to play again (refresh page)
+
+
+
+
+Advanced
+	If the cards are the same, they float into a side pile
+		2 more are played until the tie is broken
+		Winner takes the pool
+	Decks should be a vague image, multiple stages of size
+	Animation: Initial shuffle?
+		Might be able to reuse the War cardpool for this
+
+
+
+
+PopinApp
+	Card (class)
+		currentAnchor (str)
+		fadeIn (func)
+		fadeOut (func)
+		isOnscreen (bool)
+		moveToAnchorPoint (func)
+		returnToDeck (func, from anywhere onscreen ideally)
+		value (int) (AJQK can be 1 11 12 13 in the code)
+		x (int)
+		y (int)
+	GameLogic (obj)
+		drawNextCardAndBattle (func)
+	Deck (class)
+		addCard (func)
+		deckOfCards (array)
+		removeCard (func)
+		roughDeckSize (int, maybe)
+	Table (class)
+		distributeCards (func)
+		shuffleCards (func)
+		winnerTakeAllPool (array)
+	dataStore (obj)
+		AIPlayer (obj)
+		humanPlayer (obj)
+
+
+
+
+Architecture
+	Straight HTML for everything except cards
+	It's just a nonmoving grid of content anyways
+	There will be anchor points at places where the cards need to go
+		They can spawn there and float around using position:relative
+		Anchor points will be DOM elements moved by CSS
+		Using DOM as a source of data is slow, but this game isn't measured in FPS

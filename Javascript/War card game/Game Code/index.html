@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Pop.in Test Project - War</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="Description" content="Pop.in Test Project - War">
+	<meta charset="utf-8"/>
+	<!-- External Files -->
+	<link rel="stylesheet" href="style.css">
+	<script src='script.js'></script>
+</head>
+
+
+
+
+<body onload='popinApp.initialize()'>
+
+	<div class='floatingTopBar'></div>
+
+	<div id='playingField'>
+
+		<div class='topRow'>
+			<img class='deckImage' id='AIDeckImage' src='Images/deck.png' onclick='popinApp.combatRound()'>
+			<img class='faceImage' src='Images/face1.jpg'>
+		</div>
+
+		<div class='battlefieldRow'>
+			<img id='battlefieldLeft' src='Images/blankPixel.png'>
+			<img id='battlefieldRight' src='Images/blankPixel.png'>
+		</div>
+
+		<div class='bottomRow'>
+			<img class='faceImage' src='Images/face2.jpg'>
+			<img class='deckImage' id='playerDeckImage' src='Images/deck.png' onclick='popinApp.combatRound()'>
+		</div>
+
+	</div>
+
+	<div class='floatingBottomBar'></div>
+</body>

@@ -1,0 +1,28 @@
+Live site
+https://www.taylorcalderone.com/popinTest
+
+
+
+
+TODO
+Rebuild the face/video element to support a lower third gradient overlay
+Separate the gameplay so that both players have to draw their own cards
+Make the deck images change to larger/smaller decks after each turn to show progress
+Add some kind of visual highlight to the player's deck before their first click
+
+
+
+
+MAYBE
+Rotate cards a bit more when they get scattered
+Add a toggle for left-handed mode, which would mirror the existing layour
+Un-hardcode the animation speeds
+Play a sound effect whenever a card moves
+Make the opponent's cards display upside down
+Try to remove some Javascript DOM references for (micro) optimization
+
+
+
+
+DESKTOP BROWSER BUGS (Lower priority since this would be deployed via app, not web browser)
+Add IE11 support
