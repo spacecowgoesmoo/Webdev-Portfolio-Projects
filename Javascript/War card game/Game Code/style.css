@@ -15,28 +15,6 @@ body {
 
 
 
-.floatingTopBar, .floatingBottomBar {
-	width: 100%; 
-	background: #000;
-}
-
-.floatingTopBar {
-	height: 20px;
-	position: fixed;
-}
-
-.floatingBottomBar {
-	height: 40px; 
-	margin-top: -40px;
-}
-
-
-
-
-
-
-
-
 #playingField { 
 	background-image: url('Images/map.jpg');
 	background-position: center;
@@ -50,9 +28,6 @@ body {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-}
-.topRow {
-	margin-top: -20px;			/* Small hack to compensate for the unequal black bars */
 }
 .faceImage, .deckImage { 
 	width: 100px;
