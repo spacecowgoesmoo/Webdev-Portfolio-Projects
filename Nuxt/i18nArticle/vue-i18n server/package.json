@@ -7,7 +7,7 @@
 		"generate": "nuxt generate -c nuxt.generate.config.js"
 	},
 	"dependencies": {
-		"nuxt": "^2.6.3",
+		"nuxt": "^2.15.8",
 		"vue-i18n": "^8.11.2"
 	}
 }
