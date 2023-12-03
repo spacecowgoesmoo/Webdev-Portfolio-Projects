@@ -1,0 +1,107 @@
+:root { 
+	font-family: 'Montserrat', sans-serif;
+	font-size: 17px;
+	letter-spacing: 1px;
+
+	--white: #FFFFFF;
+    --black: #2E3134;	
+
+    --color1: #0069D2;	/* Blue */
+    --color2: #28E1A5;	/* Green */
+
+    --color1Dark: #004993;
+
+    --gray1: #F4F5F7;	/* Lightest */
+    --gray2: #D5D6D6;	
+    --gray3: #AAAAAA;
+    --gray4: #585A5D;	/* Darkest */
+
+    --borderRadius: 4px;
+}
+body {
+	background: var(--white);
+	color: var(--black);
+	margin: 0px;
+
+	-webkit-font-smoothing: antialiased;	/* prevents awful super-bold font in OSX Firefox and Chrome */
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.clickable:hover { cursor: pointer; }		/* Click simulation! */
+.clickable:active { opacity: 0.8; }
+
+@media screen and (max-width: 650px) {		/* Deactivate for mobile */
+	.clickable:active { opacity: 1; }
+}
+
+
+
+
+
+
+
+
+/* Fonts */
+.italic { font-weight: 400; }				/* Availiable weights: 300, 400, 400i, 600 */
+.smallBold {
+	font-size: 0.75rem;
+	font-weight: 600;
+}
+.giantHeaderText {
+	font-size: 3em;
+	line-height: 1em;
+	font-weight: 300;
+}
+
+a { transition: color 0.2s ease-in-out; }
+a:hover { color: var(--gray3); }
+
+@media screen and (max-width: 650px) {
+	.giantHeaderText { font-size: 2em; }
+}
+
+
+
+
+
+
+
+
+/* Layout */
+.fullWidthContainer {
+	max-width: 1250px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+.bigButton { 
+	height: 52px;
+	width: 392px;
+	color: var(--white);
+	background: var(--color1);
+	font-size: 0.8rem;
+	font-weight: 500;
+	text-align: center;
+	border: 0;
+	text-transform: uppercase;
+	border-radius: var(--borderRadius);
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+}
+
+.bigButton:hover {
+	box-shadow: 0 4px 7px 0 rgba(46, 49, 52, .35);
+	transform: translateY(-2px);
+	background: var(--color1Dark);
+}
+
+@media screen and (max-width: 650px) {
+	.bigButton { width: 280px; }
+
+	/* Deactivate hover state */
+	.bigButton:hover { 
+		box-shadow: none;
+		transform: none;
+		background: var(--color1);
+	}
+}
