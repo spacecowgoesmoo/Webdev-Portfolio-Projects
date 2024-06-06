@@ -6,13 +6,11 @@
     --offBlack: #202020;
 }
 
-html { padding-bottom: 100px; }
-
 body {
 	margin: 0;
 	background: var(--offBlack);
 	color: var(--offWhite);
-	
+
 	/* Prevents ugly super-bold font in OSX Firefox and Chrome */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -39,7 +37,7 @@ body {
 ***************************************/
 .spotifyButtonSolid {
 	border: 0;
-	padding: 0 35px;
+	padding: 0 30px;
 	border-radius: 25px;
 	letter-spacing: 2px;
 	text-align: center;
@@ -51,7 +49,7 @@ body {
 	transition: background 0.2s ease-in-out;
 }
 
-.spotifyButtonSolid:hover { 
+.spotifyButtonSolid:hover {
 	background: rgba(255, 255, 255, 0.12);
 	cursor: pointer;
 }
@@ -64,7 +62,7 @@ body {
 ***************************************/
 body {
 	width: 90%;
-	max-width: 400px;
+	max-width: 500px;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -75,7 +73,7 @@ body {
 	border: none;
 	border-radius: 5px;
 	opacity: 0.4;
-	height: 200px;
+	height: 500px;
 	padding: 5px;
 }
 
