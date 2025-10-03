@@ -33,7 +33,11 @@ var cow = {
 	cursorX: 0,
 	cursorY: 0,
 	// Prevents the mouseout/mousedown fallback from creating duplicate candles
-	allowMouseoutRedraw: false
+	allowMouseoutRedraw: false,
+	// SMA Colors
+	smaColor1: '#b3a57f',
+	smaColor2: '#485eab',
+	smaColor3: '#6d4ab5'
 };
 
 
@@ -607,9 +611,9 @@ function loadPriceDataAndRedraw(timescale, currency) {
    				calculateCandleVariables();  							// Precalculate a bunch of data
 
    				deleteAllOfClass('smaPolyline');						// Draw the SMAs from the previously calculated data
-   				drawSMA(50, '#00FFFF');
-   				drawSMA(100, '#00BBFF');
-   				drawSMA(200, '#0077FF');
+   				drawSMA(50, cow.smaColor1);
+   				drawSMA(100, cow.smaColor2);
+   				drawSMA(200, cow.smaColor3);
 
    				deleteAllOfClass('svgTimeText');						// Draw the X axis timescale
    				drawTimeMarkers(timescale);
@@ -838,9 +842,9 @@ function deleteAndRedrawScrolledCandles() {
 	calculateCandleVariables();  							// Precalculate a bunch of data
 
 	deleteAllOfClass('smaPolyline');
-	drawSMA(50, '#00FFFF');
-	drawSMA(100, '#00BBFF');
-	drawSMA(200, '#0077FF');
+	drawSMA(50, cow.smaColor1);
+	drawSMA(100, cow.smaColor2);
+	drawSMA(200, cow.smaColor3);
 
 	deleteAllOfClass('svgCandle');
 	drawCandles();
