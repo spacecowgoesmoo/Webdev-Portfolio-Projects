@@ -575,10 +575,10 @@ function loadPriceDataAndRedraw(timescale, currency) {
 	start1end2 = start1end2.toISOString()
 	start2 = start2.toISOString()
 
-	// Load price data from Coinbase Pro
-	const url1 = 'https://api.pro.coinbase.com/products/' + c + '-USD/candles?start=' + start1end2 + '&end=' + end1 + '&granularity=' + t;
- 	const url2 = 'https://api.pro.coinbase.com/products/' + c + '-USD/candles?start=' + start2 + '&end=' + start1end2 + '&granularity=' + t;
-	const urlCurrent = 'https://api.pro.coinbase.com/products/' + c + '-USD/ticker';
+	// Load price data from Coinbase
+	const url1 = 'https://api.exchange.coinbase.com/products/' + c + '-USD/candles?start=' + start1end2 + '&end=' + end1 + '&granularity=' + t;
+ 	const url2 = 'https://api.exchange.coinbase.com/products/' + c + '-USD/candles?start=' + start2 + '&end=' + start1end2 + '&granularity=' + t;
+	const urlCurrent = 'https://api.exchange.coinbase.com/products/' + c + '-USD/ticker';
 
 	// GET the two datasets in order, then calculate the current price, then perform the rest of the code:
 	// GETs are nested to make them load in the intended order
@@ -586,7 +586,7 @@ function loadPriceDataAndRedraw(timescale, currency) {
 		cow.coinbaseData = data1;
 
 		$.get(url2, function(data2) {
-   			cow.coinbaseData = cow.coinbaseData.concat(data2);			
+   			cow.coinbaseData = cow.coinbaseData.concat(data2);
 
 			$.get(urlCurrent, function(data3) {
 				const q = Number(data3.price);											// Get up-to-the-second price
@@ -594,32 +594,32 @@ function loadPriceDataAndRedraw(timescale, currency) {
 				cow.coinbaseData.unshift(currentPrice);									// Add it to cow.coinbaseData
 				// NOTE ON ABOVE CODE: I'm not sure why low/high seem to produce accurate results with q just plugged into both of them
 				// I did that because having them at 0 was wrecking the chart scaling
-				
+
 				cow.smaPoints50 = [];									// MASTER FUNCTION LIST
 				cow.smaPoints100 = [];
 				cow.smaPoints200 = [];
-            	
+
 				calculateSMA(50);										// Precalculate the SMA arrays
    				calculateSMA(100);
    				calculateSMA(200);
 				getOnscreenSMA();
-            	
+
    				calculateCandleVariables();  							// Precalculate a bunch of data
-            	
+
    				deleteAllOfClass('smaPolyline');						// Draw the SMAs from the previously calculated data
    				drawSMA(50, '#00FFFF');
    				drawSMA(100, '#00BBFF');
    				drawSMA(200, '#0077FF');
-            	
+
    				deleteAllOfClass('svgTimeText');						// Draw the X axis timescale
    				drawTimeMarkers(timescale);
-            	
+
    				deleteAllOfClass('svgCandle');							// Draw the candles
    				drawCandles(true);
-            	
+
    				deleteAllOfClass('svgPriceText');						// Draw the Y axis price markers
    				drawPriceMarkers();
-            	
+
    				hideLoadingText();										// Final checks
    				initializeCursorLines();
 				console.log(cow);
@@ -655,9 +655,9 @@ function getOnscreenSMA() {
 	const arrayStartingPosition = (2552 - cow.xPosition) / 9;
 	const ASP = arrayStartingPosition.toFixed(0) * 1;					// Accuracy drifts by one candle towards the very end of the chart, but that's fine
 																		// This breaks without the *= 1 for some reason
-	
+
 	const onscreenCandles = cow.iframeWidth / 9;
-	
+
 	cow.smaYpointsOnscreen = [];										// Clear the global variable
 
 	for (let q=cow.numberOfCandles; q>0; q--) {							// For each candle..
@@ -841,10 +841,10 @@ function deleteAndRedrawScrolledCandles() {
 	drawSMA(50, '#00FFFF');
 	drawSMA(100, '#00BBFF');
 	drawSMA(200, '#0077FF');
-	
+
 	deleteAllOfClass('svgCandle');
 	drawCandles();
-	
+
 	deleteAllOfClass('svgPriceText');
 	drawPriceMarkers();
 }
@@ -864,7 +864,7 @@ function deleteAndRedrawScrolledCandles() {
 
 
 // API DOCUMENTATION
-// https://api.pro.coinbase.com//products/BTC-USD/candles?granularity=86400
+// https://api.exchange.coinbase.com/products/BTC-USD/candles?granularity=86400
 // Time granularity is in seconds
 // [
 //     [ time, low, high, open, close, volume ],
